@@ -1,4 +1,12 @@
 package dsw.GeRuMap.app.core;
 
-public class ApplicationFramework {
+public abstract class ApplicationFramework {
+
+    protected Gui gui;
+
+    public  abstract void run();
+
+    public void initialise(Gui gui){
+        this.gui = gui;
+    }
 }

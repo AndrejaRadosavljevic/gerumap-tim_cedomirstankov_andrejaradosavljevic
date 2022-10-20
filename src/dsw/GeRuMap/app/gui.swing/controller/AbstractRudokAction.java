@@ -15,7 +15,7 @@ public class AbstractRudokAction extends AbstractAction {
         else {
             System.err.println("Resource not found: " + fileName);
         }
-        return  icon;
+        return icon;
     }
 
     @Override

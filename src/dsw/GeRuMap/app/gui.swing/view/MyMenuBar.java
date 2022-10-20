@@ -1,4 +1,6 @@
 package dsw.GeRuMap.app.gui.swing.view;
 
-public class MyMenuBar {
+import javax.swing.*;
+
+public class MyMenuBar{
 }

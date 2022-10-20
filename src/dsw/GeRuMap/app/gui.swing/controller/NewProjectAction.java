@@ -1,4 +1,26 @@
 package dsw.GeRuMap.app.gui.swing.controller;
 
-public class NewProjectAction {
+import
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.util.Random;
+import ...
+
+public class NewProjectAction extends AbstractRudokAction{
+
+    public NewProjectAction(){
+        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
+                KeyEvent.VK_N, ActionEvent.CTRL_MASK));
+        putValue(SMALL_ICON, LoadIcon("images/plus.png"));
+        putValue(NAME, "New Project");
+        putValue(SHORT_DESCRIPTION, "New Project");
+
+    }
+
+    public void actionPerformed(ActionEvent arg0){
+        int label = new Random().nextInt(100);
+    }
+
 }

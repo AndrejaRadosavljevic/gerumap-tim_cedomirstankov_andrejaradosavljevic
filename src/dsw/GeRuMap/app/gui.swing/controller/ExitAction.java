@@ -15,6 +15,7 @@ public class ExitAction extends  AbstractRudokAction{
 
     @Override
     public void actionPerformed(ActionEvent argO) {
-        super.actionPerformed(argO);
+        System.exit(0);
     }
 }
+`

@@ -18,4 +18,3 @@ public class ExitAction extends  AbstractRudokAction{
         System.exit(0);
     }
 }
-`

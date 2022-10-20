@@ -1,12 +1,9 @@
 package dsw.GeRuMap.app.gui.swing.controller;
 
-import
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.util.Random;
-import ...
 
 public class NewProjectAction extends AbstractRudokAction{
 

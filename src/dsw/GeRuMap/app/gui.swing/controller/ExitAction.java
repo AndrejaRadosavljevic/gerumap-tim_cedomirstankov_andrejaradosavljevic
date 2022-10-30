@@ -8,7 +8,7 @@ public class ExitAction extends  AbstractRudokAction{
 
     public  ExitAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.ALT_MASK));
-        putValue(SMALL_ICON, LoadIcon("images/log-out.png"));
+        putValue(SMALL_ICON, LoadIcon("/images/log-out.png"));
         putValue(NAME,"Exit");
         putValue(SHORT_DESCRIPTION, "Exit");
     }

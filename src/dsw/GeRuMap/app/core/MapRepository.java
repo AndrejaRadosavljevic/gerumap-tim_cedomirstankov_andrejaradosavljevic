@@ -1,6 +1,6 @@
 package dsw.GeRuMap.app.core;
 
-import dsw.GeRuMap.app.main.MindMap;
+import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 
 import java.awt.*;
 import java.awt.image.ColorModel;

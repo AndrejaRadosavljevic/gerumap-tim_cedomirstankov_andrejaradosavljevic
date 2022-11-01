@@ -2,7 +2,7 @@ package dsw.GeRuMap.app;
 
 import dsw.GeRuMap.app.core.ApplicationFramework;
 import dsw.GeRuMap.app.core.Gui;
-import dsw.GeRuMap.app.gui.swing.SwingGui;
+import dsw.GeRuMap.app.gui.SwingGui;
 
 public class AppCore extends ApplicationFramework{
 

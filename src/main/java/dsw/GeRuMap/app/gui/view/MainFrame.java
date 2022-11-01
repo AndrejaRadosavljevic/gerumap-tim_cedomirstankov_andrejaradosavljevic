@@ -1,6 +1,6 @@
-package dsw.GeRuMap.app.gui.swing.view;
+package dsw.GeRuMap.app.gui.view;
 
-import dsw.GeRuMap.app.gui.swing.controller.ActionManager;
+import dsw.GeRuMap.app.gui.controller.ActionManager;
 
 import javax.swing.*;
 import java.awt.*;

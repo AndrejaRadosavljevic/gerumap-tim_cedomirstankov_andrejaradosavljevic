@@ -1,4 +1,4 @@
-package dsw.GeRuMap.app.gui.swing.view;
+package dsw.GeRuMap.app.gui.view;
 
 import javax.swing.*;
 

@@ -1,4 +1,4 @@
-package dsw.GeRuMap.app.gui.swing.controller;
+package dsw.GeRuMap.app.gui.controller;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,11 @@
 package dsw.GeRuMap.app.gui.tree.controller;
 
-public class MapTreeSelectionListener {
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+
+public class MapTreeSelectionListener implements TreeSelectionListener {
+    @Override
+    public void valueChanged(TreeSelectionEvent e) {
+
+    }
 }

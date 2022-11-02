@@ -17,10 +17,10 @@ public class MapTreeCellRenderer extends DefaultTreeCellRenderer {
         super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
         URL imageURL = null;
 
-        if((MapTreeItem)value).getMapNode() instanceof ProjectExplorer){
+        if(((MapTreeItem)value).getMapNode() instanceof ProjectExplorer){
             imageURL = getClass().getResource("/images/tdiagram.gif");
         }
-        else if((MapTreeItem)value).getMapNode() instanceof Project){
+        else if(((MapTreeItem)value).getMapNode() instanceof Project){
                imageURL= getClass().getResource("/images/tproject.gif");
         }
 

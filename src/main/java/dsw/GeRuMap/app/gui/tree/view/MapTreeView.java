@@ -11,7 +11,7 @@ public class MapTreeView extends JTree {
         setModel(defaultTreeModel);
         MapTreeCellRenderer ruTreeCellRenderer = new MapTreeCellRenderer();
         addTreeSelectionListener(new MapTreeSelectionListener());
-        setCellEditor(new MapTreeCellEditor(this,ruTreeCellRenderer));
+        setCellEditor(new MapTreeCellEditor(this, ruTreeCellRenderer));
         setCellRenderer(ruTreeCellRenderer);
         setEditable(true);
     }

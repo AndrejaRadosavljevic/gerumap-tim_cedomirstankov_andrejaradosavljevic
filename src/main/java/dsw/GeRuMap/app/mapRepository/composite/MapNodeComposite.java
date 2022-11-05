@@ -13,8 +13,8 @@ public class MapNodeComposite extends MapNode {
         this.children=new ArrayList<>();
     }
 
-    public void addChiled(MapNode chiled) {
+    public void addChild(MapNode child) {
         if(!(children instanceof List<MapNode>))children = new ArrayList<>();
-        children.add(chiled);
+        children.add(child);
     }
 }

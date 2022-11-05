@@ -29,7 +29,7 @@ public class MapTreeImplementation implements MapTree{
 
         MapNode chiled = creteChiled(parent.getMapNode());
         parent.add(new MapTreeItem(chiled));
-        ((MapNodeComposite)parent.getMapNode()).addChiled(chiled);
+        ((MapNodeComposite)parent.getMapNode()).addChild(chiled);
         SwingUtilities.updateComponentTreeUI(treeView);
     }
 

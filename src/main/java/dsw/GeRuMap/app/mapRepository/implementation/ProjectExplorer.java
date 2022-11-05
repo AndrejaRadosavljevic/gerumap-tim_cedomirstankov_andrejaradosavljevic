@@ -13,4 +13,6 @@ public class ProjectExplorer extends MapNodeComposite {
     public ProjectExplorer(String name) {
         super(name,null);
     }
+
+
 }

@@ -1,19 +1,19 @@
 package dsw.GeRuMap.app.gui.view;
 
+import dsw.GeRuMap.app.core.ApplicationFramework;
 import dsw.GeRuMap.app.gui.controller.ActionManager;
+import dsw.GeRuMap.app.gui.tree.MapTree;
+import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-
     private static MainFrame instance;
-
     private ActionManager actionManager;
-
     private JMenuBar menu;
-
     private JToolBar toolBar;
+    private MapTree mapTree;
 
 
     private MainFrame(){
@@ -22,6 +22,7 @@ public class MainFrame extends JFrame {
 
     private void initialise(){
         actionManager = new ActionManager();
+        mapTree = new MapTreeImplementation();
         initialiseGUI();
     }
 
@@ -41,6 +42,8 @@ public class MainFrame extends JFrame {
         toolBar = new Toolbar();
         add(toolBar, BorderLayout.NORTH);
 
+
+        JTree projecrtExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
         JPanel desktop = new JPanel();
 
         JScrollPane scroll = new JScrollPane();

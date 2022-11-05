@@ -1,12 +1,30 @@
 package dsw.GeRuMap.app.core;
 
-public abstract class ApplicationFramework {
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@Setter
+public class ApplicationFramework {
+    private static ApplicationFramework instance;
     protected Gui gui;
+    protected MapRepository mapRepository;
 
-    public  abstract void run();
+    public void run(){
+        this.gui.start();
+    };
 
-    public void initialise(Gui gui){
+    public void initialise(Gui gui, MapRepository mapRepository){
         this.gui = gui;
+        this.mapRepository = mapRepository;
+    }
+    //Singleton
+    public static ApplicationFramework getInstance(){
+        if(instance == null){
+            instance = new ApplicationFramework();
+        }
+        return instance;
     }
 }

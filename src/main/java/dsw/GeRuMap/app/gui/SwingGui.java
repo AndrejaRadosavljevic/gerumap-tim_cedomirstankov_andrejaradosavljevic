@@ -4,13 +4,15 @@ import dsw.GeRuMap.app.core.Gui;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 
 public class SwingGui implements Gui {
+    private MainFrame instance;
     public SwingGui(){
 
     }
 
     @Override
     public void start(){
-        MainFrame.getInstance().setVisible(true);
+        instance = MainFrame.getInstance();
+        instance.setVisible(true);
     }
 
 

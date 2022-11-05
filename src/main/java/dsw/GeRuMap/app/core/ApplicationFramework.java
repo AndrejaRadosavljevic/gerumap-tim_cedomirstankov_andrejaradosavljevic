@@ -1,6 +1,7 @@
 package dsw.GeRuMap.app.core;
 
 
+import dsw.GeRuMap.app.mapRepository.MapRepositoryImpl;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,10 @@ public class ApplicationFramework {
             instance = new ApplicationFramework();
         }
         return instance;
+    }
+
+    public MapRepository getMapRepository(){
+        if(mapRepository == null)mapRepository = new MapRepositoryImpl();
+        return mapRepository;
     }
 }

@@ -10,6 +10,7 @@ public class MapNodeComposite extends MapNode {
 
     public MapNodeComposite(String name, MapNode parent) {
         super(name, parent);
+        this.children=new ArrayList<>();
     }
 
     public void addChiled(MapNode chiled) {

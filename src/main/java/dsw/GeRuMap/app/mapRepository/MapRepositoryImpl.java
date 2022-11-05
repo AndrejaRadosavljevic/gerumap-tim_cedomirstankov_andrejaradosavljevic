@@ -7,14 +7,19 @@ import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
 
 public class MapRepositoryImpl implements MapRepository {
 
+    private ProjectExplorer projectExplorer;
 
-    @Override
-    public ProjectExplorer getProjectExplorer() {
-        return null;
+    public MapRepositoryImpl(){
+        projectExplorer=new ProjectExplorer("My Project Explorer");
     }
 
     @Override
-    public void addChild(MapNodeComposite parent, MapNode chiled) {
+    public ProjectExplorer getProjectExplorer() {
+        return projectExplorer;
+    }
+
+    @Override
+    public void addChild(MapNodeComposite parent, MapNode child) {
 
     }
 }

@@ -17,6 +17,8 @@ public class MapNode {
         this.parent = parent;
     }
 
+
+
     @Override
     public boolean equals(Object obj) {
         if(obj != null && obj instanceof MapNode){

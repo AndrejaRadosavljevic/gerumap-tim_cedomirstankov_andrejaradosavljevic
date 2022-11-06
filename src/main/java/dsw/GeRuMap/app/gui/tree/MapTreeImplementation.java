@@ -25,6 +25,7 @@ public class MapTreeImplementation implements MapTree{
 
     @Override
     public void addChild(MapTreeItem parent) {
+        if(parent == null) return;
         if(!(parent.getMapNode() instanceof MapNodeComposite))return;
 
         MapNode chiled = createChild(parent.getMapNode());

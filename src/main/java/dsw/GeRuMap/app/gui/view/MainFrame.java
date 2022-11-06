@@ -51,7 +51,7 @@ public class MainFrame extends JFrame {
         JTree projecrtExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
         JPanel desktop = new JPanel();
 
-        JScrollPane scroll = new JScrollPane();
+        JScrollPane scroll = new JScrollPane(projecrtExplorer);
         scroll.setMinimumSize(new Dimension(200,150));
         JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,scroll,desktop);
         getContentPane().add(split,BorderLayout.CENTER);

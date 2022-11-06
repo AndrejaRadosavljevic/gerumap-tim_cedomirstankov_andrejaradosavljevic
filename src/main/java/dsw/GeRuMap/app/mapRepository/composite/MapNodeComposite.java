@@ -1,5 +1,6 @@
 package dsw.GeRuMap.app.mapRepository.composite;
 
+import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,4 +33,7 @@ public abstract class MapNodeComposite extends MapNode {
     }
 
 
+    public void removeChild(MapNode child) {
+        children.remove(child);
+    }
 }

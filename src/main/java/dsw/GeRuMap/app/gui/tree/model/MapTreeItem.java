@@ -22,10 +22,6 @@ public class MapTreeItem extends DefaultMutableTreeNode {
         return mapNode.getName();
     }
 
-    public MapNode getMapNode() {
-        return mapNode;
-    }
-
     public void setName(String name){
         this.mapNode.setName(name);
     }

@@ -20,7 +20,7 @@ public class NewProjectAction extends AbstractRudokAction{
     }
 
     public void actionPerformed(ActionEvent arg0){
-        MapTreeItem selected = (MapTreeItem) MainFrame.getInstance().getMapTree().getSelectedNode();
+        MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
         MainFrame.getInstance().getMapTree().addChild(selected);
     }
 

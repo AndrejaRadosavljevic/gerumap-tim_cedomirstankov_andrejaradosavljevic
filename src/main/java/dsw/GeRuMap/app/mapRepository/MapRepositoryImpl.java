@@ -20,6 +20,8 @@ public class MapRepositoryImpl implements MapRepository {
 
     @Override
     public void addChild(MapNodeComposite parent, MapNode child) {
-
+        child.setParent(parent);
+        if(parent == projectExplorer)projectExplorer.addChild(child);
+        else ((MapNodeComposite)projectExplorer.getChildByName(parent.name)).addChild(child);
     }
 }

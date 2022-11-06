@@ -68,6 +68,7 @@ public class MainFrame extends JFrame {
     }
 
     public MapTree getMapTree() {
+        if(mapTree ==null)mapTree = new MapTreeImplementation();
         return  mapTree;
     }
 }

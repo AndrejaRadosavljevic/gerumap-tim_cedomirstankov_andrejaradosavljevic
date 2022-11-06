@@ -28,9 +28,10 @@ public class MapTreeImplementation implements MapTree{
         if(parent == null) return;
         if(!(parent.getMapNode() instanceof MapNodeComposite))return;
 
-        MapNode chiled = createChild(parent.getMapNode());
-        parent.add(new MapTreeItem(chiled));
-        ((MapNodeComposite)parent.getMapNode()).addChild(chiled);
+        MapNode child = createChild(parent.getMapNode());
+        parent.add(new MapTreeItem(child));
+        ((MapNodeComposite)parent.getMapNode()).addChild(child);
+        treeView.expandPath(treeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(treeView);
     }
 

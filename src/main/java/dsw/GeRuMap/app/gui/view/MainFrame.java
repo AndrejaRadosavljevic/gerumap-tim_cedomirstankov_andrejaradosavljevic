@@ -66,4 +66,8 @@ public class MainFrame extends JFrame {
     public ActionManager getActionManager() {
         return actionManager;
     }
+
+    public MapTree getMapTree() {
+        return  mapTree;
+    }
 }

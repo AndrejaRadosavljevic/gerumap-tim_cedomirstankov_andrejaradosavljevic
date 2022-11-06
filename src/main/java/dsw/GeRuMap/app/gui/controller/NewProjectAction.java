@@ -1,5 +1,8 @@
 package dsw.GeRuMap.app.gui.controller;
 
+import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
+import dsw.GeRuMap.app.gui.view.MainFrame;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -17,7 +20,8 @@ public class NewProjectAction extends AbstractRudokAction{
     }
 
     public void actionPerformed(ActionEvent arg0){
-        int label = new Random().nextInt(100);
+        MapTreeItem selected = (MapTreeItem) MainFrame.getInstance().getMapTree().getSelectedNode();
+        MainFrame.getInstance().getMapTree().addChild(selected);
     }
 
 }

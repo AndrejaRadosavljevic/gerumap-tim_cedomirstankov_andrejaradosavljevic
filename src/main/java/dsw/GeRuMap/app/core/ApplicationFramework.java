@@ -29,8 +29,8 @@ public class ApplicationFramework {
         return instance;
     }
 
-    /*public MapRepository getMapRepository(){
+    public MapRepository getMapRepository(){
         if(mapRepository == null)mapRepository = new MapRepositoryImpl();
         return mapRepository;
-    }*/
+    }
 }

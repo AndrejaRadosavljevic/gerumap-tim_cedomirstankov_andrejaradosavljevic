@@ -16,10 +16,12 @@ public abstract class MapNodeComposite extends MapNode {
         this.children=new ArrayList<>();
     }
 
-    public void addChild(MapNode child) {
-        if(!(children instanceof List<MapNode>))children = new ArrayList<>();
-        children.add(child);
+    public MapNodeComposite(String name, MapNode parent, List<MapNode> children){
+        super(name, parent);
+        this.children = children;
     }
+
+    public abstract void addChild(MapNode child);
     public MapNode getChildByName(String name) {
         for (MapNode child: this.getChildren()) {
             if (name.equals(child.getName())) {

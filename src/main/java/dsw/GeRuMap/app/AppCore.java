@@ -26,8 +26,8 @@ public class AppCore extends ApplicationFramework{
     }
 
     public static void main(String[] args) {
-        Gui gui = new SwingGui();
         ApplicationFramework appCore= AppCore.getInstance();
+        Gui gui = new SwingGui();
         MapRepository mapRepository = new MapRepositoryImpl();
         appCore.initialise(gui, mapRepository);
         appCore.run();

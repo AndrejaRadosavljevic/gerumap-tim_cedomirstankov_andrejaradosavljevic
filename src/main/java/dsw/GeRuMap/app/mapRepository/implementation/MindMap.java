@@ -9,4 +9,9 @@ public class MindMap extends MapNodeComposite {
     public MindMap(String name, MapNode parent) {
         super(name, parent);
     }
+
+    @Override
+    public void addChild(MapNode child) {
+
+    }
 }

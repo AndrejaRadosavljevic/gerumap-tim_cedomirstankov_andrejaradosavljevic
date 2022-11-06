@@ -4,9 +4,14 @@ import dsw.GeRuMap.app.core.ApplicationFramework;
 import dsw.GeRuMap.app.gui.controller.ActionManager;
 import dsw.GeRuMap.app.gui.tree.MapTree;
 import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
+
+@Getter
+@Setter
 
 public class MainFrame extends JFrame {
     private static MainFrame instance;
@@ -63,12 +68,4 @@ public class MainFrame extends JFrame {
         return instance;
     }
 
-    public ActionManager getActionManager() {
-        return actionManager;
-    }
-
-    public MapTree getMapTree() {
-        if(mapTree ==null)mapTree = new MapTreeImplementation();
-        return  mapTree;
-    }
 }

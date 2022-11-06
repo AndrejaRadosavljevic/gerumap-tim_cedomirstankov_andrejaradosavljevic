@@ -2,14 +2,16 @@ package dsw.GeRuMap.app.mapRepository.composite;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
 @Getter
 @Setter
 
-public class MapNode {
+public abstract class MapNode {
     public String name;
+    @ToString.Exclude
     private MapNode parent;
 
     public MapNode(String name, MapNode parent) {

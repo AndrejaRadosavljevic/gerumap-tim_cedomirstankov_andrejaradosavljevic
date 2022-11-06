@@ -27,13 +27,13 @@ public class MapTreeImplementation implements MapTree{
     public void addChild(MapTreeItem parent) {
         if(!(parent.getMapNode() instanceof MapNodeComposite))return;
 
-        MapNode chiled = creteChiled(parent.getMapNode());
+        MapNode chiled = createChild(parent.getMapNode());
         parent.add(new MapTreeItem(chiled));
         ((MapNodeComposite)parent.getMapNode()).addChild(chiled);
         SwingUtilities.updateComponentTreeUI(treeView);
     }
 
-    private MapNode creteChiled(MapNode mapNode) {
+    private MapNode createChild(MapNode mapNode) {
         if(mapNode instanceof ProjectExplorer)return new Project("Project" + new Random().nextInt(100), mapNode);
         return null;
     }

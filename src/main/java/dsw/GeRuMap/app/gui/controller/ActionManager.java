@@ -7,6 +7,8 @@ public class ActionManager {
     private  DeleteProjectAction deleteProjectAction;
     private InfoAction infoAction;
 
+    private ChangeNameAction changeNameAction;
+
     public ActionManager(){
         initialiseActions();
     }
@@ -16,6 +18,7 @@ public class ActionManager {
         newProjectAction = new NewProjectAction();
         deleteProjectAction = new DeleteProjectAction();
         infoAction = new InfoAction();
+        changeNameAction=new ChangeNameAction();
     }
 
     public ExitAction getExitAction() {
@@ -33,4 +36,6 @@ public class ActionManager {
     public InfoAction getInfoAction(){
         return infoAction;
     }
+
+    public ChangeNameAction getChangeNameAction(){ return changeNameAction;}
 }

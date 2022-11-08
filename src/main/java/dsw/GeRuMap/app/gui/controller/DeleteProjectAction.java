@@ -19,6 +19,7 @@ public class DeleteProjectAction extends AbstractRudokAction{
 
     public void actionPerformed(ActionEvent arg0){
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
+       // MainFrame.getInstance().getMapTree().
         MainFrame.getInstance().getMapTree().deleteChild(selected);
     }
 

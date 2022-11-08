@@ -57,9 +57,11 @@ public class MapTreeImplementation implements MapTree{
         if(child == null) return;
         if(!(child.getMapNode() instanceof MapNodeComposite))return;
         if(child.getMapNode() instanceof  ProjectExplorer)return;
+        if(child.getParent() == null) return;
 
         //((MapNodeComposite)((MapTreeItem)(child.getParent())).getMapNode()).removeChild(child.getMapNode());
-        //((MapTreeItem)(child.getParent())).remove(child);
+        ((MapTreeItem)(child.getParent())).remove(child);
+
         child.removeFromParent();
 
 

@@ -26,8 +26,9 @@ public class InfoFrame extends JFrame {
     }
 
     private void initialiseGUI(){
-        JButton button = new JButton();
-
+        JTextField textField = new JTextField("GeRuMap su osmislili i napravili :");
+        JTextField cedaSlika = new JTextField();
+        //cedaSlika.add
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = screenSize.height;

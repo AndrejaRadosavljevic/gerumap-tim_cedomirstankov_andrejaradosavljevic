@@ -11,6 +11,7 @@ import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 import java.util.Random;
 
 public class MapTreeImplementation implements MapTree{
@@ -46,7 +47,9 @@ public class MapTreeImplementation implements MapTree{
 
     @Override
     public MapTreeItem getSelectedNode() {
-        return (MapTreeItem) treeView.getLastSelectedPathComponent();
+        MapTreeItem tree = (MapTreeItem) treeView.getLastSelectedPathComponent();
+        //treeView.;
+        return tree;
     }
 
     @Override
@@ -55,9 +58,13 @@ public class MapTreeImplementation implements MapTree{
         if(!(child.getMapNode() instanceof MapNodeComposite))return;
         if(child.getMapNode() instanceof  ProjectExplorer)return;
 
-        ((MapNodeComposite)((MapTreeItem)(child.getParent())).getMapNode()).removeChild(child.getMapNode());
-        ((MapTreeItem)(child.getParent())).remove(child);
+        //((MapNodeComposite)((MapTreeItem)(child.getParent())).getMapNode()).removeChild(child.getMapNode());
+        //((MapTreeItem)(child.getParent())).remove(child);
+        child.removeFromParent();
+
+
         treeView.expandPath(treeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(treeView);
+        
     }
 }

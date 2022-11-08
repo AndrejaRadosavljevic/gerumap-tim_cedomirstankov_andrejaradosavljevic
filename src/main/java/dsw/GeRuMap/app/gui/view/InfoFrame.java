@@ -3,8 +3,12 @@ package dsw.GeRuMap.app.gui.view;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class InfoFrame extends JFrame {
 
@@ -22,13 +26,38 @@ public class InfoFrame extends JFrame {
     }
 
     private void initialise() {
-        initialiseGUI();
+            initialiseGUI();
+
     }
 
     private void initialiseGUI(){
-        JTextField textField = new JTextField("GeRuMap su osmislili i napravili :");
-        JTextField cedaSlika = new JTextField();
-        //cedaSlika.add
+
+        JPanel panel = new JPanel(new GridLayout(3,1,5,5));
+
+        JLabel label1 = new JLabel("GeRuMap su osmislili i napravili:");
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.add(label1, 0);
+
+
+        JLabel cedaLabel = new JLabel(new ImageIcon(getClass().getResource("/images/andra.png")));
+        JLabel andraLabel = new JLabel(new ImageIcon(getClass().getResource("/images/andra.png")));
+
+        JLabel cedaTF = new JLabel("Cedomir Stankov");
+        JLabel andraTF = new JLabel("Andreja Radosavljevic");
+
+        JPanel cedaPanel = new JPanel();
+        cedaPanel.add(cedaTF);
+        cedaPanel.add(cedaLabel);
+
+        JPanel andraPanel = new JPanel();
+        andraPanel.add(andraTF);
+        andraPanel.add(andraLabel);
+
+        panel.add(cedaPanel,SwingConstants.CENTER, 1);
+        panel.add(andraPanel,SwingConstants.CENTER, 2);
+
+        add(panel);
+
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = screenSize.height;

@@ -1,13 +1,13 @@
-package dsw.GeRuMap.app.gui.view.info;
+package dsw.GeRuMap.app.gui.controller;
 
-import dsw.GeRuMap.app.gui.controller.AbstractRudokAction;
+import dsw.GeRuMap.app.gui.view.InfoFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class InfoExitAction extends AbstractRudokAction {
-    public  InfoExitAction(){
+public class InfoButtonAction extends AbstractRudokAction {
+    public InfoButtonAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.ALT_MASK));
         putValue(SMALL_ICON, LoadIcon("/images/log-out.png"));
         putValue(NAME,"Exit");
@@ -15,7 +15,8 @@ public class InfoExitAction extends AbstractRudokAction {
     }
 
     public void actionPerformed(ActionEvent argO) {
-        System.exit(0);
+
+        InfoFrame.getInstance().setVisible(false);
         //?videcemo da li ovo radi
     }
 }

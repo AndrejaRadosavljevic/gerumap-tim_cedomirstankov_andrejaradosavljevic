@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gerumap-tim_cedomirstankov_andrejaradosavljevic" target="19" />
+      <module name="gerumap-tim_cedomirstankov_andrejaradosavljevic" target="18" />
     </bytecodeTargetLevel>
   </component>
 </project>

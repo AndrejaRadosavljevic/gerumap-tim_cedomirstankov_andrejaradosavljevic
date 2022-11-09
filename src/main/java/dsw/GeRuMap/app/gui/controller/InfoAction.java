@@ -1,12 +1,12 @@
 package dsw.GeRuMap.app.gui.controller;
 
-import javax.swing.*;
+import dsw.GeRuMap.app.gui.view.InfoFrame;
+
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 
 public class InfoAction extends AbstractRudokAction{
 
-    private InfoAction infoAction;
+    private InfoFrame infoFrame;
 
     public  InfoAction(){
         ///putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.ALT_MASK));
@@ -17,10 +17,14 @@ public class InfoAction extends AbstractRudokAction{
 
 
     public void actionPerformed(ActionEvent arg0){
-        infoAction = new InfoAction();
+
+        infoFrame = InfoFrame.getInstance();
+        infoFrame.setVisible(true);
+
 
     }
 
     public void initialise() {
     }
 }
+;

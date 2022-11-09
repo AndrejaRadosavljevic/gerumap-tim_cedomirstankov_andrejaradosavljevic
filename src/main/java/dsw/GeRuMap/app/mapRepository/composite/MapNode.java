@@ -14,6 +14,8 @@ public abstract class MapNode {
     @ToString.Exclude
     private MapNode parent;
 
+    private String author;
+
     public MapNode(String name, MapNode parent) {
         this.name = name;
         this.parent = parent;

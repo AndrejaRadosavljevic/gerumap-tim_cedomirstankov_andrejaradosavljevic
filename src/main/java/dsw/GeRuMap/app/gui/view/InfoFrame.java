@@ -39,7 +39,7 @@ public class InfoFrame extends JFrame {
         panel.add(label1, 0);
 
 
-        JLabel cedaLabel = new JLabel(new ImageIcon(getClass().getResource("/images/andra.png")));
+        JLabel cedaLabel = new JLabel(new ImageIcon(getClass().getResource("/images/ceda.png")));
         JLabel andraLabel = new JLabel(new ImageIcon(getClass().getResource("/images/andra.png")));
 
         JLabel cedaTF = new JLabel("Cedomir Stankov");

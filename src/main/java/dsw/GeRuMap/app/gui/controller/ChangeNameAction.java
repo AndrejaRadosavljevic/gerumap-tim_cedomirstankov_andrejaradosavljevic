@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 
 public class ChangeNameAction extends AbstractRudokAction{
     public ChangeNameAction(){
-       // putValue(SMALL_ICON, LoadIcon("/images/minus.png"));
+        putValue(SMALL_ICON, LoadIcon("/images/changename.png"));
         putValue(NAME, "Change Name");
         putValue(SHORT_DESCRIPTION, "Change name");
     }
@@ -23,6 +23,13 @@ public class ChangeNameAction extends AbstractRudokAction{
         if(selected.getMapNode() instanceof Project){
             ChangeNameFrame.getInstance().setVisible(true);
         }
+
+        String autor = ((Project)MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode()).getAutor();
+        String ime = MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode().getName();
+
+        ChangeNameFrame.getInstance().getTextField1().setText(autor);
+        ChangeNameFrame.getInstance().getTextField2().setText(ime);
+
         // MainFrame.getInstance().getMapTree().
         //selected.setName();
     }

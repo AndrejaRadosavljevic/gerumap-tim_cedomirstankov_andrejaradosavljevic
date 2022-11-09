@@ -8,6 +8,7 @@ import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
+import lombok.Getter;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
@@ -68,5 +69,9 @@ public class MapTreeImplementation implements MapTree{
         treeView.expandPath(treeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(treeView);
         
+    }
+
+    public void refreshTree(){
+        SwingUtilities.updateComponentTreeUI(treeView);
     }
 }

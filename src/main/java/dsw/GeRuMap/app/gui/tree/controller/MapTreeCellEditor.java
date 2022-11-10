@@ -44,7 +44,13 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
                 return true;
         }
         return false;
+
+
     }
+
+
+
+
 
     public void actionPerformed(ActionEvent e){
         if(!(clickedOn instanceof MapTreeItem))

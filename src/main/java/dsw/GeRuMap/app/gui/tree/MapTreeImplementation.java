@@ -56,7 +56,7 @@ public class MapTreeImplementation implements MapTree{
     @Override
     public void deleteChild(MapTreeItem child) {
         if(child == null) return;
-        if(!(child.getMapNode() instanceof MapNodeComposite))return;
+        //if(!(child.getMapNode() instanceof MapNodeComposite))return;
         if(child.getMapNode() instanceof  ProjectExplorer)return;
         if(child.getParent() == null) return;
 

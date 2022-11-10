@@ -22,7 +22,8 @@ public class ChangeNameAction extends AbstractRudokAction{
             return;
         if(selected.getMapNode() instanceof Project){
             ChangeNameFrame.getInstance().setVisible(true);
-        }
+        }else if(!(selected.getMapNode() instanceof Project))
+            return;
 
         String autor = ((Project)MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode()).getAutor();
         String ime = MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode().getName();

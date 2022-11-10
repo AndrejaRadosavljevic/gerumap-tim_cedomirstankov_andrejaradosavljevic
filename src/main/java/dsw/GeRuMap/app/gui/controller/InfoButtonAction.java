@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class InfoButtonAction extends AbstractRudokAction {
+public class InfoButtonAction extends AbstractGeRuMapAction {
     public InfoButtonAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.ALT_MASK));
         putValue(SMALL_ICON, LoadIcon("/images/log-out.png"));

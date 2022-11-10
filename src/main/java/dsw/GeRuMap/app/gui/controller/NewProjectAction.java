@@ -1,18 +1,13 @@
 package dsw.GeRuMap.app.gui.controller;
 
-import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.gui.view.MainFrame;
-import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
-import dsw.GeRuMap.app.mapRepository.implementation.Project;
-import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.util.Random;
 
-public class NewProjectAction extends AbstractRudokAction{
+public class NewProjectAction extends AbstractGeRuMapAction {
 
     public NewProjectAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(

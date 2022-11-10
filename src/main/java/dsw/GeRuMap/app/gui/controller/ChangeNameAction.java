@@ -5,11 +5,9 @@ import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.changename.ChangeNameFrame;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 
-public class ChangeNameAction extends AbstractRudokAction{
+public class ChangeNameAction extends AbstractGeRuMapAction {
     public ChangeNameAction(){
         putValue(SMALL_ICON, LoadIcon("/images/changename.png"));
         putValue(NAME, "Change Name");

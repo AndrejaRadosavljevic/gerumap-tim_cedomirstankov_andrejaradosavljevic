@@ -5,7 +5,6 @@ import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 
 public class MindMap extends MapNodeComposite {
     private boolean isTemplate;
-
     public MindMap(String name, MapNode parent) {
         super(name, parent);
     }

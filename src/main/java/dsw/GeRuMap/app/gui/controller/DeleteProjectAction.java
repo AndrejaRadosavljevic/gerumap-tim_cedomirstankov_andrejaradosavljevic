@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class DeleteProjectAction extends AbstractRudokAction{
+public class DeleteProjectAction extends AbstractGeRuMapAction {
     public DeleteProjectAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
                 KeyEvent.VK_DELETE, ActionEvent.CTRL_MASK));

@@ -4,7 +4,7 @@ import dsw.GeRuMap.app.gui.view.InfoFrame;
 
 import java.awt.event.ActionEvent;
 
-public class InfoAction extends AbstractRudokAction{
+public class InfoAction extends AbstractGeRuMapAction {
 
     private InfoFrame infoFrame;
 

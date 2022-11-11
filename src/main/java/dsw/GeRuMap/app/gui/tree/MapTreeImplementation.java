@@ -60,6 +60,11 @@ public class MapTreeImplementation implements MapTree{
     }
 
     @Override
+    public void deselect() {
+        treeView.clearSelection();
+    }
+
+    @Override
     public void deleteChild(MapTreeItem child) {
         if(child == null) return;
         //if(!(child.getMapNode() instanceof MapNodeComposite))return;

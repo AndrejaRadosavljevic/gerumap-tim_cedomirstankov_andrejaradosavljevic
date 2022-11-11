@@ -9,5 +9,9 @@ public interface MapTree {
     void addChild(MapTreeItem parent);
     MapTreeItem getSelectedNode();
 
+    void deselect();
+
     void deleteChild(MapTreeItem selected);
+
+
 }

@@ -21,6 +21,8 @@ public class DeleteProjectAction extends AbstractGeRuMapAction {
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
        // MainFrame.getInstance().getMapTree().
         MainFrame.getInstance().getMapTree().deleteChild(selected);
+        MainFrame.getInstance().getMapTree().deselect();
+
     }
 
 }

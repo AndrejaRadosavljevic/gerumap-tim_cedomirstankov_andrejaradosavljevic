@@ -10,4 +10,5 @@ public interface MapTree {
     MapTreeItem getSelectedNode();
 
     void deleteChild(MapTreeItem selected);
+
 }

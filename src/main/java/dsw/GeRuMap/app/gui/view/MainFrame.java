@@ -20,6 +20,9 @@ public class MainFrame extends JFrame {
     private JToolBar toolBar;
     private MapTree mapTree;
 
+    private MapTabPanel tabPanel;
+
+
 
     private MainFrame(){
 
@@ -49,11 +52,15 @@ public class MainFrame extends JFrame {
 
 
         JTree projecrtExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
-        JPanel desktop = new JPanel();
+        //ovde se nesto zezamo
+        //JPanel desktop = new JPanel(new BorderLayout());
+        tabPanel = new MapTabPanel();
+
+
 
         JScrollPane scroll = new JScrollPane(projecrtExplorer);
         scroll.setMinimumSize(new Dimension(200,150));
-        JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,scroll,desktop);
+        JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,scroll,tabPanel);
         getContentPane().add(split,BorderLayout.CENTER);
         split.setDividerLocation(250);
         split.setOneTouchExpandable(true);

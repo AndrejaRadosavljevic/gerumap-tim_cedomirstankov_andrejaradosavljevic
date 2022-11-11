@@ -1,5 +1,6 @@
 package dsw.GeRuMap.app.gui.tree.controller;
 
+import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.gui.tree.view.MapTreeCellRenderer;
 import dsw.GeRuMap.app.gui.tree.view.MapTreeView;
@@ -10,7 +11,6 @@ import javax.swing.*;
 import javax.swing.event.CellEditorListener;
 import javax.swing.tree.DefaultTreeCellEditor;
 import javax.swing.tree.DefaultTreeCellRenderer;
-import javax.swing.tree.TreeCellEditor;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,11 +37,16 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
         return edit;
     }
 
+
     @Override
     public boolean isCellEditable(EventObject arg0) {
         if(arg0 instanceof MouseEvent)
             if(((MouseEvent)arg0).getClickCount()==3){
                 return true;
+        }
+        if(((MouseEvent)arg0).getClickCount()==2){
+            MapTreeImplementation.getInstance().notifySubscriber(null);
+            return false;
         }
         return false;
 

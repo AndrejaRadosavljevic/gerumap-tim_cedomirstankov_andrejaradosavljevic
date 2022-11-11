@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class DeleteProjectAction extends AbstractRudokAction{
+public class DeleteProjectAction extends AbstractGeRuMapAction {
     public DeleteProjectAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
                 KeyEvent.VK_DELETE, ActionEvent.CTRL_MASK));
@@ -21,6 +21,8 @@ public class DeleteProjectAction extends AbstractRudokAction{
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
        // MainFrame.getInstance().getMapTree().
         MainFrame.getInstance().getMapTree().deleteChild(selected);
+        MainFrame.getInstance().getMapTree().deselect();
+
     }
 
 }

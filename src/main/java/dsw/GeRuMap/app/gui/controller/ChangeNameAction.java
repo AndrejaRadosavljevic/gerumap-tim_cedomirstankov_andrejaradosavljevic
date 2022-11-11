@@ -5,11 +5,9 @@ import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.changename.ChangeNameFrame;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 
-public class ChangeNameAction extends AbstractRudokAction{
+public class ChangeNameAction extends AbstractGeRuMapAction {
     public ChangeNameAction(){
         putValue(SMALL_ICON, LoadIcon("/images/changename.png"));
         putValue(NAME, "Change Name");
@@ -25,11 +23,12 @@ public class ChangeNameAction extends AbstractRudokAction{
         }else if(!(selected.getMapNode() instanceof Project))
             return;
 
-        String autor = ((Project)MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode()).getAutor();
-        String ime = MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode().getName();
+            String autor = ((Project)MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode()).getAutor();
+            String ime = MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode().getName();
 
-        ChangeNameFrame.getInstance().getTextField1().setText(autor);
-        ChangeNameFrame.getInstance().getTextField2().setText(ime);
+            ChangeNameFrame.getInstance().getTextField1().setText(autor);
+            ChangeNameFrame.getInstance().getTextField2().setText(ime);
+
 
         // MainFrame.getInstance().getMapTree().
         //selected.setName();

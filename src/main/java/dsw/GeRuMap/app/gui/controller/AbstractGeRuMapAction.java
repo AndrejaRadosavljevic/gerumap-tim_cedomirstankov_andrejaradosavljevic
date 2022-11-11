@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 
-public class AbstractRudokAction extends AbstractAction {
+public class AbstractGeRuMapAction extends AbstractAction {
     public Icon LoadIcon(String fileName){
         URL imageURL = getClass().getResource(fileName);
         Icon icon = null;

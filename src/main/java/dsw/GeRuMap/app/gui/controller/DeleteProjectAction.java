@@ -1,6 +1,5 @@
 package dsw.GeRuMap.app.gui.controller;
 
-import dsw.GeRuMap.app.gui.messagegenerator.MessageGenerator;
 import dsw.GeRuMap.app.gui.messagegenerator.MessageGeneratorImplementation;
 import dsw.GeRuMap.app.gui.messagegenerator.Type;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;

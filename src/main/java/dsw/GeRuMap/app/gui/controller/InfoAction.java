@@ -9,7 +9,6 @@ public class InfoAction extends AbstractGeRuMapAction {
     private InfoFrame infoFrame;
 
     public  InfoAction(){
-        ///putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.ALT_MASK));
         putValue(SMALL_ICON, LoadIcon("/images/info.png"));
         putValue(NAME,"Info");
         putValue(SHORT_DESCRIPTION, "Info");

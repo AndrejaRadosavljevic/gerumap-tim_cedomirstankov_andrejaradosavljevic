@@ -42,7 +42,9 @@ public class MainFrame extends JFrame {
         setSize(screenWidth/2,screenHeight/2);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("RuDok app");
+        setTitle("GeRuMap app");
+
+        //setIconImage("/");
 
         menu = new MyMenuBar();
         setJMenuBar(menu);

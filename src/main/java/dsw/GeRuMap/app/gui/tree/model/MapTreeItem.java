@@ -8,13 +8,6 @@ import lombok.Setter;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
-
 @Getter
 @Setter
 public class MapTreeItem extends DefaultMutableTreeNode {

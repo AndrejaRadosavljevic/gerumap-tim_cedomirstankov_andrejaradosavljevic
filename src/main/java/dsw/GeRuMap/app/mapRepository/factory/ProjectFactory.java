@@ -1,7 +1,6 @@
 package dsw.GeRuMap.app.mapRepository.factory;
 
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
-import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 
 public class ProjectFactory extends NodeFactory{

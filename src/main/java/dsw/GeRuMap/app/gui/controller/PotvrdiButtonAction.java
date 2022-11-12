@@ -12,7 +12,6 @@ public class PotvrdiButtonAction extends AbstractGeRuMapAction {
 
     public void actionPerformed(ActionEvent arg0){
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
-        // MainFrame.getInstance().getMapTree().
 
         String ime=ChangeNameFrame.getInstance().getTextField1().getText();
         String autor=ChangeNameFrame.getInstance().getTextField2().getText();

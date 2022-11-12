@@ -1,7 +1,5 @@
 package dsw.GeRuMap.app.mapRepository.composite;
 
-import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
-import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import lombok.Getter;
 import lombok.Setter;
 

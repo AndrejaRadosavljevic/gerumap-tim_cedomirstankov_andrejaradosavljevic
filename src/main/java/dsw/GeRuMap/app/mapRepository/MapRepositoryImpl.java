@@ -11,7 +11,6 @@ public class MapRepositoryImpl implements MapRepository {
     private ProjectExplorer projectExplorer;
 
     public MapRepositoryImpl(){
-        //projectExplorer=new ProjectExplorer("My Project Explorer");
         projectExplorer= (ProjectExplorer) new ProjectExplorerFactory().createNode("My Project Explorer",null);
     }
 
@@ -20,7 +19,6 @@ public class MapRepositoryImpl implements MapRepository {
         return projectExplorer;
     }
 
-    //?????????????????
     @Override
     public void addChild(MapNodeComposite parent, MapNode child) {
         child.setParent(parent);

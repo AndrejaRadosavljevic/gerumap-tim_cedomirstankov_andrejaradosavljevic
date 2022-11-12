@@ -1,13 +1,10 @@
 package dsw.GeRuMap.app.core;
 
-
-import dsw.GeRuMap.app.gui.errorlogger.ConsoleLogger;
 import dsw.GeRuMap.app.gui.errorlogger.ErrorLogger;
 import dsw.GeRuMap.app.gui.messagegenerator.MessageGeneratorImplementation;
 import dsw.GeRuMap.app.mapRepository.MapRepositoryImpl;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.NoArgsConstructor;
 
 @Getter
 @Setter

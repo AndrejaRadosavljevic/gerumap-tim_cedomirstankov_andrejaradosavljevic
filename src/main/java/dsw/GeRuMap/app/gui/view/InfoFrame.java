@@ -1,14 +1,8 @@
 package dsw.GeRuMap.app.gui.view;
 
-import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
-import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class InfoFrame extends JFrame {
 

@@ -1,18 +1,13 @@
 package dsw.GeRuMap.app.gui.tree.controller;
 
-import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
-import dsw.GeRuMap.app.gui.tree.view.MapTreeCellRenderer;
-import dsw.GeRuMap.app.gui.tree.view.MapTreeView;
 import dsw.GeRuMap.app.gui.view.MainFrame;
-import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.swing.*;
-import javax.swing.event.CellEditorListener;
 import javax.swing.tree.DefaultTreeCellEditor;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import java.awt.*;
@@ -46,12 +41,13 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
     public boolean isCellEditable(EventObject arg0) {
         if(arg0 instanceof MouseEvent){
             if(((MouseEvent)arg0).getClickCount()==3){
-                return true;
+                if(MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode() instanceof ProjectExplorer)return false;
+                    return true;
             }
+
             if(((MouseEvent)arg0).getClickCount()==2){
                 MapTreeItem m = MainFrame.getInstance().getMapTree().getSelectedNode();
-                if(!(m.getMapNode() instanceof ProjectExplorer))((Project)m.getMapNode()).notifySubscriber(m);
-                System.out.println("tooooooooooooooooooooooooooooooooooo");
+                if(m.getMapNode() instanceof Project)((Project)m.getMapNode()).notifySubscriber(m);
                 return false;
             }
         }

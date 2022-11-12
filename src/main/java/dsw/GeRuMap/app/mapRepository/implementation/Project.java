@@ -25,10 +25,9 @@ public class Project extends MapNodeComposite implements IPublisher {
 
     @Override
     public void addChild(MapNode child) {
-        if (child != null &&  child instanceof Project){
-            MindMap mindMap = (MindMap) child;
-            if (!this.getChildren().contains(mindMap)){
-                this.getChildren().add(mindMap);
+        if (child != null &&  child instanceof MindMap){
+            if (!this.getChildren().contains(child)){
+                this.getChildren().add(child);
             }
         }
     }

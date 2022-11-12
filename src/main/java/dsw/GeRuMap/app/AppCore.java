@@ -7,10 +7,6 @@ import dsw.GeRuMap.app.gui.SwingGui;
 import dsw.GeRuMap.app.gui.errorlogger.ConsoleLogger;
 import dsw.GeRuMap.app.gui.errorlogger.ErrorLogger;
 import dsw.GeRuMap.app.mapRepository.MapRepositoryImpl;
-import dsw.GeRuMap.app.mapRepository.composite.MapNode;
-import dsw.GeRuMap.app.mapRepository.factory.ElementFactory;
-import dsw.GeRuMap.app.mapRepository.factory.MindMapFactory;
-import dsw.GeRuMap.app.mapRepository.factory.NodeFactory;
 
 public class AppCore extends ApplicationFramework{
 

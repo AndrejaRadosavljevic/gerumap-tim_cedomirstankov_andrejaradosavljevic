@@ -11,10 +11,9 @@ public class MindMap extends MapNodeComposite {
 
     @Override
     public void addChild(MapNode child) {
-        if (child != null &&  child instanceof Project){
-            Element element = (Element) child;
-            if (!this.getChildren().contains(element)){
-                this.getChildren().add(element);
+        if (child != null &&  child instanceof Element){
+            if (!this.getChildren().contains(child)){
+                this.getChildren().add(child);
             }
         }
     }

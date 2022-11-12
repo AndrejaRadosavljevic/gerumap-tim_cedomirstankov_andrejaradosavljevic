@@ -1,12 +1,10 @@
 package dsw.GeRuMap.app.gui.view;
 
-import dsw.GeRuMap.app.gui.controller.ActionManager;
 import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
-import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
+import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
-import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,15 +34,9 @@ public class MapTabPanel extends JPanel implements ISubscriber {
     }
 
 
-    /*
-        private void initialise(){
-            //addAncestorListener();
-            initialiseGUI();
-        }
-    */
     private void initialiseGUI() {
 
-        projectLabel = new JLabel("Autor, Projekat:");
+        projectLabel = new JLabel("Autor:, Projekat:");
 
         tabbedPane = new JTabbedPane();
         tabbedPane.add(new JLabel("Selektujte projekat"));
@@ -59,44 +51,18 @@ public class MapTabPanel extends JPanel implements ISubscriber {
 
     @Override
     public void update(Object notification) {
-
-        //MapTreeItem s = MainFrame.getInstance().getMapTree().getSelectedNode();
         MapTreeItem s = (MapTreeItem) notification;
 
-        if(s == null){
-
-            tabbedPane.removeAll();
-            projectLabel.setText("Autor: , Project:");
-            selected = s;
-            updateUI();
-            tabbedPane.updateUI();
-            return;
-        }
-
-        if(!(s.getMapNode() instanceof Project))return;
-
-        System.out.println(s.getMapNode().getName());
-        selected = s;
-        projectLabel.setText("Autor: "+((Project)selected.getMapNode()).getAutor()+", Project: "+selected.getMapNode().getName());
+        projectLabel.setText("Autor: "+((Project)s.getMapNode()).getAutor()+", Projekat: "+s.getMapNode().getName());
 
         tabbedPane.removeAll();
-        for(MapNode chiled: ((Project)selected.getMapNode()).getChildren()){
-            JPanel panel = new JPanel();
-            panel.setName(chiled.getName());
-            tabbedPane.add(panel);
+        for(MapNode m:((MapNodeComposite) s.getMapNode()).getChildren()){
+            System.out.println(m.getName());
+            JPanel p = new JPanel();
+            p.setName(m.getName());
+            tabbedPane.add(p);
         }
         tabbedPane.updateUI();
         updateUI();
-
     }
-
-/*
-    public static MapTabPanel getInstance() {
-        if(instance == null){
-            instance = new MapTabPanel();
-            instance.initialise();
-        }
-        return instance;
-    }
-     */
 }

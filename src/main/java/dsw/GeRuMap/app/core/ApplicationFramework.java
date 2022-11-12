@@ -1,6 +1,9 @@
 package dsw.GeRuMap.app.core;
 
 
+import dsw.GeRuMap.app.gui.errorlogger.ConsoleLogger;
+import dsw.GeRuMap.app.gui.errorlogger.ErrorLogger;
+import dsw.GeRuMap.app.gui.messagegenerator.MessageGeneratorImplementation;
 import dsw.GeRuMap.app.mapRepository.MapRepositoryImpl;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,14 +15,17 @@ public class ApplicationFramework {
     private static ApplicationFramework instance;
     protected Gui gui;
     protected MapRepository mapRepository;
+    protected ErrorLogger errorLogger;
 
     public void run(){
         this.gui.start();
     };
 
-    public void initialise(Gui gui, MapRepository mapRepository){
+    public void initialise(Gui gui, MapRepository mapRepository,ErrorLogger errorLogger){
         this.gui = gui;
         this.mapRepository = mapRepository;
+        this.errorLogger=errorLogger;
+        MessageGeneratorImplementation.getInstance().addSubscriber(this.errorLogger);
     }
     //Singleton
     public static ApplicationFramework getInstance(){

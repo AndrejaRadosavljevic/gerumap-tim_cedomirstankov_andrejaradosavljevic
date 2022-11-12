@@ -4,6 +4,8 @@ import dsw.GeRuMap.app.core.ApplicationFramework;
 import dsw.GeRuMap.app.core.Gui;
 import dsw.GeRuMap.app.core.MapRepository;
 import dsw.GeRuMap.app.gui.SwingGui;
+import dsw.GeRuMap.app.gui.errorlogger.ConsoleLogger;
+import dsw.GeRuMap.app.gui.errorlogger.ErrorLogger;
 import dsw.GeRuMap.app.mapRepository.MapRepositoryImpl;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.factory.ElementFactory;
@@ -33,7 +35,8 @@ public class AppCore extends ApplicationFramework{
         ApplicationFramework appCore= AppCore.getInstance();
         Gui gui = new SwingGui();
         MapRepository mapRepository = new MapRepositoryImpl();
-        appCore.initialise(gui, mapRepository);
+        ErrorLogger errorLogger = new ConsoleLogger();
+        appCore.initialise(gui, mapRepository,errorLogger);
         appCore.run();
     }
 }

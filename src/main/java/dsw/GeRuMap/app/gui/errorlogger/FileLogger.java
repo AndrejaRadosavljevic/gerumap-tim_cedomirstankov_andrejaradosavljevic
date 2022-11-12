@@ -10,4 +10,9 @@ public class FileLogger implements ErrorLogger{
     public void log() {
 
     }
+
+    @Override
+    public void update(Object notification) {
+
+    }
 }

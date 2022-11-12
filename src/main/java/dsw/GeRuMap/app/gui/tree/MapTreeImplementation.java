@@ -48,13 +48,11 @@ public class MapTreeImplementation implements MapTree, IPublisher {
 
         notifySubscriber(1);
 
-
         MapNode child = createChild(parent.getMapNode());
         parent.add(new MapTreeItem(child));
         ((MapNodeComposite)parent.getMapNode()).addChild(child);
         treeView.expandPath(treeView.getSelectionPath());
         refreshTree();
-
 
     }
 

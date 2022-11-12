@@ -4,6 +4,10 @@ import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.gui.tree.view.MapTreeCellRenderer;
 import dsw.GeRuMap.app.gui.tree.view.MapTreeView;
+import dsw.GeRuMap.app.gui.view.MainFrame;
+import dsw.GeRuMap.app.mapRepository.composite.MapNode;
+import dsw.GeRuMap.app.mapRepository.implementation.Project;
+import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,14 +44,19 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
 
     @Override
     public boolean isCellEditable(EventObject arg0) {
-        if(arg0 instanceof MouseEvent)
+        if(arg0 instanceof MouseEvent){
             if(((MouseEvent)arg0).getClickCount()==3){
                 return true;
+            }
+            if(((MouseEvent)arg0).getClickCount()==2){
+                MapTreeItem m = MainFrame.getInstance().getMapTree().getSelectedNode();
+                if(!(m.getMapNode() instanceof ProjectExplorer))((Project)m.getMapNode()).notifySubscriber(m);
+                System.out.println("tooooooooooooooooooooooooooooooooooo");
+                return false;
+            }
         }
-        if(((MouseEvent)arg0).getClickCount()==2){
-            MapTreeImplementation.getInstance().notifySubscriber(null);
-            return false;
-        }
+
+
         return false;
 
 

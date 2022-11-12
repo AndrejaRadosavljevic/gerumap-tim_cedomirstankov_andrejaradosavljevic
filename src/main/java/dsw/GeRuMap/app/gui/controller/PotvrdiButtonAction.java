@@ -3,7 +3,7 @@ package dsw.GeRuMap.app.gui.controller;
 import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.gui.view.MainFrame;
-import dsw.GeRuMap.app.gui.view.changename.ChangeNameFrame;
+import dsw.GeRuMap.app.gui.view.ChangeNameFrame;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 
 import java.awt.event.ActionEvent;

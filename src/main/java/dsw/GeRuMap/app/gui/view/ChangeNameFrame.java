@@ -1,13 +1,6 @@
-package dsw.GeRuMap.app.gui.view.changename;
+package dsw.GeRuMap.app.gui.view;
 
-import dsw.GeRuMap.app.core.ApplicationFramework;
-import dsw.GeRuMap.app.gui.controller.ActionManager;
 import dsw.GeRuMap.app.gui.controller.PotvrdiButtonAction;
-import dsw.GeRuMap.app.gui.tree.MapTree;
-import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
-import dsw.GeRuMap.app.gui.view.MainFrame;
-import dsw.GeRuMap.app.gui.view.MyMenuBar;
-import dsw.GeRuMap.app.gui.view.Toolbar;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import lombok.Getter;
 import lombok.Setter;

@@ -18,15 +18,21 @@ import java.awt.*;
 
 public class MapTabPanel extends JPanel implements ISubscriber {
 
+    private static MapTabPanel instance;
 
   //  private static MapTabPanel instance;
     private JTabbedPane tabbedPane;
     private JLabel projectLabel;
 
     private MapTreeItem selected;
-    public MapTabPanel() {
+    private MapTabPanel() {
         selected = null;
         initialiseGUI();
+    }
+
+    public static MapTabPanel getInstance() {
+        if(instance == null) instance  = new MapTabPanel();
+        return instance;
     }
 
 
@@ -54,9 +60,8 @@ public class MapTabPanel extends JPanel implements ISubscriber {
     @Override
     public void update(Object notification) {
 
-        MapTreeItem s = MainFrame.getInstance().getMapTree().getSelectedNode();
-
-
+        //MapTreeItem s = MainFrame.getInstance().getMapTree().getSelectedNode();
+        MapTreeItem s = (MapTreeItem) notification;
 
         if(s == null){
 

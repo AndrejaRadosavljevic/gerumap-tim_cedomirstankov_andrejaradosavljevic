@@ -2,6 +2,8 @@ package dsw.GeRuMap.app.gui.tree.controller;
 
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.gui.view.MainFrame;
+import dsw.GeRuMap.app.mapRepository.composite.MapNode;
+import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
 import lombok.Getter;

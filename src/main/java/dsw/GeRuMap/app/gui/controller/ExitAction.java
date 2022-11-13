@@ -1,5 +1,7 @@
 package dsw.GeRuMap.app.gui.controller;
 
+import dsw.GeRuMap.app.gui.errorlogger.FileLogger;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -15,6 +17,7 @@ public class ExitAction extends AbstractGeRuMapAction {
 
     @Override
     public void actionPerformed(ActionEvent argO) {
+
         System.exit(0);
     }
 }

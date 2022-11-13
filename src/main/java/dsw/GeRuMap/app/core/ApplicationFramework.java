@@ -13,16 +13,19 @@ public class ApplicationFramework {
     protected Gui gui;
     protected MapRepository mapRepository;
     protected ErrorLogger errorLogger;
+    protected ErrorLogger fileLogger;
 
     public void run(){
         this.gui.start();
     };
 
-    public void initialise(Gui gui, MapRepository mapRepository,ErrorLogger errorLogger){
+    public void initialise(Gui gui, MapRepository mapRepository,ErrorLogger errorLogger, ErrorLogger fileLogger){
         this.gui = gui;
         this.mapRepository = mapRepository;
         this.errorLogger=errorLogger;
+        this.fileLogger=fileLogger;
         MessageGeneratorImplementation.getInstance().addSubscriber(this.errorLogger);
+        MessageGeneratorImplementation.getInstance().addSubscriber(this.fileLogger);
     }
     //Singleton
     public static ApplicationFramework getInstance(){

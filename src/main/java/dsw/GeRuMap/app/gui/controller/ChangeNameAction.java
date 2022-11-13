@@ -29,8 +29,5 @@ public class ChangeNameAction extends AbstractGeRuMapAction {
             ChangeNameFrame.getInstance().getTextField2().setText(ime);
             ChangeNameFrame.getInstance().getTextField1().setText(autor);
 
-
-        // MainFrame.getInstance().getMapTree().
-        //selected.setName();
     }
 }

@@ -21,5 +21,8 @@ public class PotvrdiButtonAction extends AbstractGeRuMapAction {
 
         ((MapTreeImplementation)MainFrame.getInstance().getMapTree()).refreshTree();
         ChangeNameFrame.getInstance().setVisible(false);
+
+
+        if(selected.getMapNode() instanceof Project)((Project) selected.getMapNode()).notifySubscriber(1);
     }
 }

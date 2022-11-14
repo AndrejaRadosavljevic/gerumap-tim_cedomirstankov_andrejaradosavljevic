@@ -2,7 +2,9 @@ package dsw.GeRuMap.app.gui.messagegenerator;
 
 import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MessageGeneratorImplementation implements MessageGenerator{
@@ -13,12 +15,14 @@ public class MessageGeneratorImplementation implements MessageGenerator{
 
     @Override
     public void generate(Type type) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
         if(type == Type.BRISANJE_PROJECT_EXPLORERA_ERROR)
-            notifySubscriber(new Message("Ne mozete da obrisete project explorer",Type.BRISANJE_PROJECT_EXPLORERA_ERROR));
+            notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da obrisete project explorer",Type.BRISANJE_PROJECT_EXPLORERA_ERROR));
         if(type == Type.DODAVANJE_DETETA_ELEMENTU_ERROR)
-            notifySubscriber(new Message("Ne mozete da dodate dete elementu",Type.DODAVANJE_DETETA_ELEMENTU_ERROR));
+            notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da dodate dete elementu",Type.DODAVANJE_DETETA_ELEMENTU_ERROR));
         if(type == Type.PRAZNO_IME_PROJEKTA_ERROR)
-            notifySubscriber(new Message("Ne mozete da ostavite prazno ime projekta",Type.PRAZNO_IME_PROJEKTA_ERROR));
+            notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da ostavite prazno ime projekta",Type.PRAZNO_IME_PROJEKTA_ERROR));
     }
 
     @Override

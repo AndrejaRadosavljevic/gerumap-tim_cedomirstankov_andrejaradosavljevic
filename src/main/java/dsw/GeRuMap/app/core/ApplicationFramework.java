@@ -28,6 +28,7 @@ public class ApplicationFramework {
         this.errorLogger=errorLogger;
         MessageGeneratorImplementation.getInstance().addSubscriber(this.errorLogger);
         MessageGeneratorImplementation.getInstance().addSubscriber(FileLogger.getInstance());
+        MessageGeneratorImplementation.getInstance().addSubscriber(this.gui);
     }
     //Singleton
     public static ApplicationFramework getInstance(){

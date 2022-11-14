@@ -1,6 +1,8 @@
 package dsw.GeRuMap.app.core;
 
-public interface Gui {
+import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
+
+public interface Gui extends ISubscriber {
 
     public void start();
 

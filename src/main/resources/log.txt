@@ -1,2 +1,0 @@
-[ERROR][15/11/2022 15:17:22] Ne mozete da obrisete project explorer
-[ERROR][15/11/2022 15:17:51] Ne mozete da dodate dete elementu

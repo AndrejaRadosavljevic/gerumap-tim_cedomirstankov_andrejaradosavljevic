@@ -20,17 +20,17 @@ public class PotvrdiButtonAction extends AbstractGeRuMapAction {
 
 
         if(ime.equals("") && autor.equals("")){
-            MessageGeneratorImplementation.getInstance().generate(Type.PRAZNO_IME_PROJEKTA_I_AUTORA);
+            MainFrame.getInstance().getMessageGenerator().generate(Type.PRAZNO_IME_PROJEKTA_I_AUTORA);
             return;
         }
 
         if(ime.equals("")){
-            MessageGeneratorImplementation.getInstance().generate(Type.PRAZNO_IME_PROJEKTA_ERROR);
+            MainFrame.getInstance().getMessageGenerator().generate(Type.PRAZNO_IME_PROJEKTA_ERROR);
             return;
         }
 
         if(autor.equals("")){
-            MessageGeneratorImplementation.getInstance().generate((Type.PRAZNO_IME_AUTORA_ERROR));
+            MainFrame.getInstance().getMessageGenerator().generate((Type.PRAZNO_IME_AUTORA_ERROR));
             return;
         }
 

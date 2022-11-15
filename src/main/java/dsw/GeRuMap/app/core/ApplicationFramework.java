@@ -1,14 +1,10 @@
 package dsw.GeRuMap.app.core;
 
 import dsw.GeRuMap.app.gui.errorlogger.ErrorLogger;
-import dsw.GeRuMap.app.gui.errorlogger.FileLogger;
-import dsw.GeRuMap.app.gui.messagegenerator.MessageGeneratorImplementation;
+import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.mapRepository.MapRepositoryImpl;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.File;
-import java.io.FileWriter;
 
 @Getter
 @Setter
@@ -16,19 +12,22 @@ public class ApplicationFramework {
     private static ApplicationFramework instance;
     protected Gui gui;
     protected MapRepository mapRepository;
-    protected ErrorLogger errorLogger;
+    protected ErrorLogger consoleLogger;
+    protected  ErrorLogger fileLogger;
 
     public void run(){
         this.gui.start();
     };
 
-    public void initialise(Gui gui, MapRepository mapRepository,ErrorLogger errorLogger){
+    public void initialise(Gui gui, MapRepository mapRepository, ErrorLogger consoleLogger, ErrorLogger fileLogger){
         this.gui = gui;
         this.mapRepository = mapRepository;
-        this.errorLogger=errorLogger;
-        MessageGeneratorImplementation.getInstance().addSubscriber(this.errorLogger);
-        MessageGeneratorImplementation.getInstance().addSubscriber(FileLogger.getInstance());
-        MessageGeneratorImplementation.getInstance().addSubscriber(this.gui);
+        this.consoleLogger = consoleLogger;
+        this.fileLogger = fileLogger;
+
+        MainFrame.getInstance().getMessageGenerator().addSubscriber(this.consoleLogger);
+        MainFrame.getInstance().getMessageGenerator().addSubscriber(this.fileLogger);
+        MainFrame.getInstance().getMessageGenerator().addSubscriber(this.gui);
     }
     //Singleton
     public static ApplicationFramework getInstance(){

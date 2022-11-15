@@ -26,7 +26,7 @@ public class DeleteProjectAction extends AbstractGeRuMapAction {
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
         if(selected==null) return;
         if(selected.getMapNode() instanceof ProjectExplorer){
-            MessageGeneratorImplementation.getInstance().generate(Type.BRISANJE_PROJECT_EXPLORERA_ERROR);
+            MainFrame.getInstance().getMessageGenerator().generate(Type.BRISANJE_PROJECT_EXPLORERA_ERROR);
         }
 
         MainFrame.getInstance().getMapTree().deleteChild(selected);

@@ -2,6 +2,8 @@ package dsw.GeRuMap.app.gui.view;
 
 import dsw.GeRuMap.app.core.ApplicationFramework;
 import dsw.GeRuMap.app.gui.controller.ActionManager;
+import dsw.GeRuMap.app.gui.messagegenerator.MessageGenerator;
+import dsw.GeRuMap.app.gui.messagegenerator.MessageGeneratorImplementation;
 import dsw.GeRuMap.app.gui.tree.MapTree;
 import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
 import lombok.Getter;
@@ -22,6 +24,7 @@ public class MainFrame extends JFrame {
 
     private MapTabPanel tabPanel;
 
+    private MessageGenerator messageGenerator;
 
 
     private MainFrame(){
@@ -31,6 +34,7 @@ public class MainFrame extends JFrame {
     private void initialise(){
         actionManager = new ActionManager();
         mapTree = new MapTreeImplementation();
+        messageGenerator = new MessageGeneratorImplementation();
         initialiseGUI();
     }
 

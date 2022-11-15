@@ -1,2 +1,0 @@
-[ERROR][15/11/2022 11:49:36] Ne mozete da ostavite prazno ime projekta
-[ERROR][15/11/2022 11:49:41] Ne mozete da ostavite prazno ime projekta

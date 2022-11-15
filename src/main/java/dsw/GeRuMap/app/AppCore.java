@@ -32,9 +32,10 @@ public class AppCore extends ApplicationFramework{
         ApplicationFramework appCore= AppCore.getInstance();
         Gui gui = new SwingGui();
         MapRepository mapRepository = new MapRepositoryImpl();
-        ErrorLogger errorLogger = new ConsoleLogger();
-        appCore.initialise(gui, mapRepository,errorLogger);
-        FileLogger.getInstance().obrisi();
+        ErrorLogger consoleLogger = new ConsoleLogger();
+        ErrorLogger fileLogger = new FileLogger();
+        appCore.initialise(gui, mapRepository,consoleLogger,fileLogger);
+        ((FileLogger) fileLogger).obrisi();
         appCore.run();
     }
 }

@@ -11,7 +11,7 @@ public class MessageGeneratorImplementation implements MessageGenerator{
 
     private List<ISubscriber> subscribers;
 
-    private static MessageGeneratorImplementation instance;
+    //private static MessageGeneratorImplementation instance;
 
     @Override
     public void generate(Type type) {
@@ -48,9 +48,9 @@ public class MessageGeneratorImplementation implements MessageGenerator{
             sub.update(notification);
         }
     }
-
+/*
     public static MessageGeneratorImplementation getInstance() {
         if(instance == null)instance = new MessageGeneratorImplementation();
         return instance;
-    }
+    }*/
 }

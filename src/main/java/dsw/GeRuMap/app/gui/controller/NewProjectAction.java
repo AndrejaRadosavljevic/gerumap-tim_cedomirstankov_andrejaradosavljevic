@@ -32,7 +32,7 @@ public class NewProjectAction extends AbstractGeRuMapAction {
         if(selected.getMapNode() instanceof Project) ((Project) selected.getMapNode()).notifySubscriber(selected.getMapNode().getName());
 
         if(selected.getMapNode() instanceof Element){
-            MessageGeneratorImplementation.getInstance().generate(Type.DODAVANJE_DETETA_ELEMENTU_ERROR);
+            MainFrame.getInstance().getMessageGenerator().generate(Type.DODAVANJE_DETETA_ELEMENTU_ERROR);
         }
 
         if(selected.getMapNode() instanceof MindMap) ((Project) selected.getMapNode().getParent()).notifySubscriber(1);

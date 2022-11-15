@@ -11,7 +11,7 @@ public class MessageGeneratorImplementation implements MessageGenerator{
 
     private List<ISubscriber> subscribers;
 
-    private static MessageGeneratorImplementation instance;
+    //private static MessageGeneratorImplementation instance;
 
     @Override
     public void generate(Type type) {
@@ -23,6 +23,10 @@ public class MessageGeneratorImplementation implements MessageGenerator{
             notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da dodate dete elementu",Type.DODAVANJE_DETETA_ELEMENTU_ERROR));
         if(type == Type.PRAZNO_IME_PROJEKTA_ERROR)
             notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da ostavite prazno ime projekta",Type.PRAZNO_IME_PROJEKTA_ERROR));
+        if(type == Type.PRAZNO_IME_AUTORA_ERROR)
+            notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da ostavite prazno ime autora",Type.PRAZNO_IME_AUTORA_ERROR));
+        if(type == Type.PRAZNO_IME_PROJEKTA_I_AUTORA)
+            notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da ostavite prazno ime autora i projekta",Type.PRAZNO_IME_PROJEKTA_I_AUTORA));
     }
 
     @Override
@@ -44,9 +48,9 @@ public class MessageGeneratorImplementation implements MessageGenerator{
             sub.update(notification);
         }
     }
-
+/*
     public static MessageGeneratorImplementation getInstance() {
         if(instance == null)instance = new MessageGeneratorImplementation();
         return instance;
-    }
+    }*/
 }

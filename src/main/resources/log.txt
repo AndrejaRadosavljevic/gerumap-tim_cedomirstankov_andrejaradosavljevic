@@ -1,1 +1,3 @@
-[ERROR][14/11/2022 12:37:25] Ne mozete da obrisete project explorer
+[ERROR][15/11/2022 11:51:12] Ne mozete da ostavite prazno ime projekta
+[ERROR][15/11/2022 11:51:29] Ne mozete da ostavite prazno ime projekta
+[ERROR][15/11/2022 11:51:38] Ne mozete da ostavite prazno ime projekta

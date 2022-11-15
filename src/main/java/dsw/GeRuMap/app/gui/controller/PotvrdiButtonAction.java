@@ -19,10 +19,21 @@ public class PotvrdiButtonAction extends AbstractGeRuMapAction {
         String ime=ChangeNameFrame.getInstance().getTextField2().getText();
 
 
+        if(ime.equals("") && autor.equals("")){
+            MessageGeneratorImplementation.getInstance().generate(Type.PRAZNO_IME_PROJEKTA_I_AUTORA);
+            return;
+        }
+
         if(ime.equals("")){
             MessageGeneratorImplementation.getInstance().generate(Type.PRAZNO_IME_PROJEKTA_ERROR);
             return;
         }
+
+        if(autor.equals("")){
+            MessageGeneratorImplementation.getInstance().generate((Type.PRAZNO_IME_AUTORA_ERROR));
+            return;
+        }
+
         MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode().setName(ime);
         ((Project)MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode()).setAutor(autor);
 

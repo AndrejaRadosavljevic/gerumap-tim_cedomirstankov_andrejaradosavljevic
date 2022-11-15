@@ -1,3 +1,2 @@
-[ERROR][15/11/2022 11:51:12] Ne mozete da ostavite prazno ime projekta
-[ERROR][15/11/2022 11:51:29] Ne mozete da ostavite prazno ime projekta
-[ERROR][15/11/2022 11:51:38] Ne mozete da ostavite prazno ime projekta
+[ERROR][15/11/2022 15:17:22] Ne mozete da obrisete project explorer
+[ERROR][15/11/2022 15:17:51] Ne mozete da dodate dete elementu

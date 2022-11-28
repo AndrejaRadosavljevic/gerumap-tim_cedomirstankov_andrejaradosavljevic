@@ -66,6 +66,7 @@ public class MapTabPanel extends JPanel implements ISubscriber {
             updateUI();
         }
         if(notification instanceof Project){
+            if(selected == null) return;
             if(notification == selected.getMapNode()){
                 selected= null;
                 tabbedPane.removeAll();

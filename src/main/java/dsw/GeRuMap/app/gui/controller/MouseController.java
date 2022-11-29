@@ -1,6 +1,8 @@
 package dsw.GeRuMap.app.gui.controller;
 
-public class MouseControler {
+import dsw.GeRuMap.app.gui.controller.editorActions.*;
+
+public class MouseController {
 
     private NewPojamAction pojamAction;
     private NewVezaAction vezaAction;
@@ -8,7 +10,7 @@ public class MouseControler {
     private BrisiElementAction brisiElementAction;
     private PodesavanjaAction podesavanjaAction;
 
-    public MouseControler(){
+    public MouseController(){
         initialiseActions();
     }
 

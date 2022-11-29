@@ -6,7 +6,6 @@ public class ActionManager {
     private NewProjectAction newProjectAction;
     private  DeleteProjectAction deleteProjectAction;
     private InfoAction infoAction;
-
     private ChangeNameAction changeNameAction;
 
     public ActionManager(){

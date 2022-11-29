@@ -1,5 +1,11 @@
 package dsw.GeRuMap.app.gui.controller;
 
+import dsw.GeRuMap.app.gui.controller.editorActions.*;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ActionManager {
 
     private ExitAction exitAction;
@@ -8,6 +14,11 @@ public class ActionManager {
     private InfoAction infoAction;
     private ChangeNameAction changeNameAction;
 
+    private NewPojamAction pojamAction;
+    private NewVezaAction vezaAction;
+    private SelectAction selectAction;
+    private BrisiElementAction brisiElementAction;
+    private PodesavanjaAction podesavanjaAction;
     public ActionManager(){
         initialiseActions();
     }
@@ -18,6 +29,11 @@ public class ActionManager {
         deleteProjectAction = new DeleteProjectAction();
         infoAction = new InfoAction();
         changeNameAction=new ChangeNameAction();
+        pojamAction = new NewPojamAction();
+        vezaAction = new NewVezaAction();
+        selectAction = new SelectAction();
+        brisiElementAction = new BrisiElementAction();
+        podesavanjaAction = new PodesavanjaAction();
     }
 
     public ExitAction getExitAction() {

@@ -6,6 +6,7 @@ import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
+import dsw.GeRuMap.app.state.StateManager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,8 +24,11 @@ public class MapTabPanel extends JPanel implements ISubscriber {
     private JLabel projectLabel;
 
     private MapTreeItem selected;
+
+    private StateManager stateManager;
     private MapTabPanel() {
         selected = null;
+        stateManager = new StateManager();
         initialiseGUI();
     }
 
@@ -98,5 +102,21 @@ public class MapTabPanel extends JPanel implements ISubscriber {
 
         tabbedPane.updateUI();
         updateUI();
+    }
+
+    public void startBrisiElement() {
+        stateManager.setBrisiElementState();
+    }
+
+    public void startNewPojam() {
+        stateManager.setNewPojamState();
+    }
+
+    public void startNewVeza() {
+        stateManager.setNewVezaState();
+    }
+
+    public void startSelect() {
+        stateManager.setSelectState();
     }
 }

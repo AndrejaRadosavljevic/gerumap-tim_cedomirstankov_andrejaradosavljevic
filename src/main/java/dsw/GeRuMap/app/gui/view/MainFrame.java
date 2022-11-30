@@ -6,6 +6,7 @@ import dsw.GeRuMap.app.gui.messagegenerator.MessageGenerator;
 import dsw.GeRuMap.app.gui.messagegenerator.MessageGeneratorImplementation;
 import dsw.GeRuMap.app.gui.tree.MapTree;
 import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
+import dsw.GeRuMap.app.state.StateManager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +28,7 @@ public class MainFrame extends JFrame {
     private JToolBar editorBar;
 
     private MessageGenerator messageGenerator;
+
 
 
     private MainFrame(){

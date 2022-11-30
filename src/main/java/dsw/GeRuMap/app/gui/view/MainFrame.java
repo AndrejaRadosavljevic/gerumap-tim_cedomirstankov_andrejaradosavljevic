@@ -29,7 +29,6 @@ public class MainFrame extends JFrame {
 
     private MessageGenerator messageGenerator;
 
-    private StateManager stateManager;
 
 
     private MainFrame(){
@@ -40,7 +39,6 @@ public class MainFrame extends JFrame {
         actionManager = new ActionManager();
         mapTree = new MapTreeImplementation();
         messageGenerator = new MessageGeneratorImplementation();
-        stateManager = new StateManager();
         initialiseGUI();
     }
 

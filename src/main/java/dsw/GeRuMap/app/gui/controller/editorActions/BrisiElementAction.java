@@ -12,6 +12,6 @@ public class BrisiElementAction extends AbstractGeRuMapAction {
         putValue(SHORT_DESCRIPTION, "Brisi element");
     }
     public void actionPerformed(ActionEvent arg0){
-        MainFrame.getInstance().getStateManager().setBrisiElementState();
+        MainFrame.getInstance().getTabPanel().startBrisiElement();
     }
 }

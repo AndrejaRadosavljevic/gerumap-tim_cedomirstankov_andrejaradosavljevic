@@ -12,6 +12,6 @@ public class NewPojamAction extends AbstractGeRuMapAction {
         putValue(SHORT_DESCRIPTION, "Novi pojam");
     }
     public void actionPerformed(ActionEvent arg0){
-        MainFrame.getInstance().getStateManager().setNewPojamState();
+        MainFrame.getInstance().getTabPanel().startNewPojam();
     }
 }

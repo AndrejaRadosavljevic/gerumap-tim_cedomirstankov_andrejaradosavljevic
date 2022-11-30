@@ -12,6 +12,6 @@ public class NewVezaAction extends AbstractGeRuMapAction {
         putValue(SHORT_DESCRIPTION, "Nova veza");
     }
     public void actionPerformed(ActionEvent arg0){
-        MainFrame.getInstance().getStateManager().setNewVezaState();
+        MainFrame.getInstance().getTabPanel().startNewVeza();
     }
 }

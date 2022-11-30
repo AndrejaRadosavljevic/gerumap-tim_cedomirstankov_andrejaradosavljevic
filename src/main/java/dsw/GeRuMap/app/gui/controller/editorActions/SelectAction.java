@@ -12,6 +12,6 @@ public class SelectAction extends AbstractGeRuMapAction {
         putValue(SHORT_DESCRIPTION, "Select");
     }
     public void actionPerformed(ActionEvent arg0){
-        MainFrame.getInstance().getStateManager().setSelectState();
+        MainFrame.getInstance().getTabPanel().startSelect();
     }
 }

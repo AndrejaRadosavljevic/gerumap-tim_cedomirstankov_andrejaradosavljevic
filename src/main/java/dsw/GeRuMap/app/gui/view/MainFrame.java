@@ -24,6 +24,8 @@ public class MainFrame extends JFrame {
 
     private MapTabPanel tabPanel;
 
+    private JToolBar editorBar;
+
     private MessageGenerator messageGenerator;
 
 
@@ -63,12 +65,14 @@ public class MainFrame extends JFrame {
         //JPanel desktop = new JPanel(new BorderLayout());
         tabPanel = MapTabPanel.getInstance();
 
+        editorBar = new EditorBar();
 
 
         JScrollPane scroll = new JScrollPane(projecrtExplorer);
         scroll.setMinimumSize(new Dimension(200,150));
         JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,scroll,tabPanel);
         getContentPane().add(split,BorderLayout.CENTER);
+        getContentPane().add(editorBar,BorderLayout.EAST);
         split.setDividerLocation(250);
         split.setOneTouchExpandable(true);
 

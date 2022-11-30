@@ -95,6 +95,7 @@ public class MapTabPanel extends JPanel implements ISubscriber {
             p.setName(m.getName());
             tabbedPane.add(p);
         }
+
         tabbedPane.updateUI();
         updateUI();
     }

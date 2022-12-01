@@ -19,6 +19,7 @@ public class ActionManager {
     private SelectAction selectAction;
     private BrisiElementAction brisiElementAction;
     private PodesavanjaAction podesavanjaAction;
+
     public ActionManager(){
         initialiseActions();
     }
@@ -52,5 +53,7 @@ public class ActionManager {
         return infoAction;
     }
 
-    public ChangeNameAction getChangeNameAction(){ return changeNameAction;}
+    public ChangeNameAction getChangeNameAction(){
+        return changeNameAction;
+    }
 }

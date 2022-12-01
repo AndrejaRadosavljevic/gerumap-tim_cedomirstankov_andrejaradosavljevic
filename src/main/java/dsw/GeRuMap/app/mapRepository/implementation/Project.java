@@ -16,6 +16,7 @@ import java.util.List;
 public class Project extends MapNodeComposite implements IPublisher {
 
     private String autor;
+    private int iterator = 1;
 
     public Project(String name, MapNode parent) {
         super(name, parent);
@@ -28,6 +29,7 @@ public class Project extends MapNodeComposite implements IPublisher {
         if (child != null &&  child instanceof MindMap){
             if (!this.getChildren().contains(child)){
                 this.getChildren().add(child);
+                iterator++;
             }
         }
     }

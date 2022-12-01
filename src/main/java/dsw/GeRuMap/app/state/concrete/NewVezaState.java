@@ -4,10 +4,17 @@ import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 import dsw.GeRuMap.app.state.State;
 
+import java.awt.*;
+
 public class NewVezaState implements State {
 
     void dodajVezu(PojamElement pe1, PojamElement pe2){
         //VezaElement = new VezaElement();
     }
 
+    @Override
+    public void doState(Point x) {
+
+        System.out.println("Veza");
+    }
 }

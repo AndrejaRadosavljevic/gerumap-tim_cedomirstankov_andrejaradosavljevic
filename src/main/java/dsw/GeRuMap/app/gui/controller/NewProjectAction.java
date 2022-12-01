@@ -24,10 +24,15 @@ public class NewProjectAction extends AbstractGeRuMapAction {
     }
 
     public void actionPerformed(ActionEvent arg0){
+
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
-        MainFrame.getInstance().getMapTree().addChild(selected);
 
         if(selected==null)return;
+        if(selected.getMapNode() instanceof MindMap) {
+            return;
+        }
+        MainFrame.getInstance().getMapTree().addChild(selected);
+
 
         if(selected.getMapNode() instanceof Project) ((Project) selected.getMapNode()).notifySubscriber(selected.getMapNode().getName());
 
@@ -35,7 +40,7 @@ public class NewProjectAction extends AbstractGeRuMapAction {
             MainFrame.getInstance().getMessageGenerator().generate(Type.DODAVANJE_DETETA_ELEMENTU_ERROR);
         }
 
-        if(selected.getMapNode() instanceof MindMap) ((Project) selected.getMapNode().getParent()).notifySubscriber(1);
+        //if(selected.getMapNode() instanceof MindMap) return;((Project) selected.getMapNode().getParent()).notifySubscriber(1);
     }
 
 }

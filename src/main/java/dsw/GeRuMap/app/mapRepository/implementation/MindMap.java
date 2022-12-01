@@ -2,6 +2,9 @@ package dsw.GeRuMap.app.mapRepository.implementation;
 
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
+import dsw.GeRuMap.app.mapRepository.implementation.elements.DiagramDevice;
+
+import java.awt.*;
 
 public class MindMap extends MapNodeComposite {
     private boolean isTemplate;
@@ -16,5 +19,15 @@ public class MindMap extends MapNodeComposite {
                 this.getChildren().add(child);
             }
         }
+    }
+    public Element getChildOnLocation(Point x){
+        for(MapNode e : getChildren()){
+            if(((DiagramDevice)e).hasPoint(x)){
+                System.out.println(e.getName());
+                return (Element) e;
+            }
+        }
+        System.out.println("nista");
+        return null;
     }
 }

@@ -32,4 +32,6 @@ public class Element extends MapNode {
     public ElementPainter getPainter() {
         return elementPainter;
     }
+
+
 }

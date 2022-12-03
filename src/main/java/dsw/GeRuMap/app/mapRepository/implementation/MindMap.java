@@ -2,7 +2,7 @@ package dsw.GeRuMap.app.mapRepository.implementation;
 
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.DiagramDevice;
+import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 
 import java.awt.*;
 
@@ -23,7 +23,7 @@ public class MindMap extends MapNodeComposite {
     }
     public Element getChildOnLocation(Point x){
         for(MapNode e : getChildren()){
-            if(((DiagramDevice)e).hasPoint(x)){
+            if(((PojamElement)e).hasPoint(x)){
                 System.out.println(e.getName());
                 return (Element) e;
             }

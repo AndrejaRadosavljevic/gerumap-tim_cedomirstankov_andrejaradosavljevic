@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 @Getter
 @Setter
@@ -33,11 +34,19 @@ public class MapTab extends JPanel implements UpdateListener {
     }
 
     protected void paintComponent(Graphics g){
-        g.setColor(new Color(255,255,255));
-            super.paintComponent(g);
-            Graphics2D g2 = (Graphics2D) g;
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OUT,0.8f));
-            g2.drawLine(0,0,200,200);
+//        g.setColor(new Color(255,255,255));
+//            super.paintComponent(g);
+//            Graphics2D g2 = (Graphics2D) g;
+//            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OUT,0.8f));
+//            g2.drawLine(0,0,200,200);
+
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        BasicStroke stroke=new BasicStroke(5F);
+        g2.setStroke(stroke);
+        Ellipse2D.Float ln=new
+                Ellipse2D.Float(0F,0F,250F,230F);
+        g2.draw(ln);
             /*
             for(MapNode e:selected.getChildren()){
                 //Ovde se iscrtavaju elementi uz pomoc g2 grafike

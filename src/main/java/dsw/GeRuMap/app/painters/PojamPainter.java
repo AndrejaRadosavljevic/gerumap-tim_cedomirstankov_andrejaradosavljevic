@@ -36,15 +36,6 @@ public class PojamPainter extends ElementPainter{
                     (int)device.getPosition().getY()+10);
         }
 
-//        super.paintComponent(g);
-//        Graphics2D g2 = (Graphics2D) g;
-//        BasicStroke stroke=new BasicStroke(5F);
-//        g2.setStroke(stroke);
-//        Ellipse2D.Float ln=new
-//                Ellipse2D.Float(0F,0F,250F,230F);
-//        g2.draw(ln);
-
-
     }
 
     @Override

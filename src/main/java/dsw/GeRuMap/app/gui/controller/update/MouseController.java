@@ -13,6 +13,7 @@ import java.awt.event.MouseListener;
 import java.awt.geom.GeneralPath;
 
 public class MouseController extends MouseAdapter {
+    private Point a=null,b;
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -21,15 +22,31 @@ public class MouseController extends MouseAdapter {
             Point position = e.getPoint();
             GeneralPath gp=new GeneralPath();
 
+            a = e.getPoint();
 
-            //Odradjivanje selektovane operacije. Neophodno da se definisu doState() metode
-            //MindMap mt = (MindMap) MainFrame.getInstance().getTabPanel().getSelected().getMapNode();
             MainFrame.getInstance().getTabPanel().getStateManager().getCurrent().doState(position);
-            //Paint fill = new GradientPaint(position.x, position.y, Color.RED,
-            //	position.x+100, position.y+50, Color.BLUE);
-            Paint fill = new Color(255,255,255);
 
 
+
+        }
+    }
+/////???????????????????? ne razumem posllednu stavku u nedelji 8 pod *
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        super.mouseReleased(e);
+        if (e.getButton()==MouseEvent.BUTTON1){
+            b = e.getPoint();
+            MainFrame.getInstance().getTabPanel().getStateManager().getCurrent().doState(a, b);
+            a = null;
+        }
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        super.mouseDragged(e);
+        if (e.getButton()==MouseEvent.BUTTON1) {
+            b = e.getPoint();
+            //Graphics g = new
         }
     }
 }

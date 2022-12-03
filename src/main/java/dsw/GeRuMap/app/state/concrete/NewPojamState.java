@@ -1,5 +1,6 @@
 package dsw.GeRuMap.app.state.concrete;
 
+import dsw.GeRuMap.app.gui.view.NewPojamFrame;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.state.State;
 
@@ -13,7 +14,13 @@ public class NewPojamState implements State {
 
     @Override
     public void doState(Point x) {
-
+        NewPojamFrame.getInstance().setVisible(true);
+        NewPojamFrame.getInstance().setPoint(x);
         System.out.println("Pojam");
+    }
+
+    @Override
+    public void doState(Point x, Point y) {
+
     }
 }

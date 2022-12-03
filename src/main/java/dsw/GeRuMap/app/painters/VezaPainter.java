@@ -1,26 +1,80 @@
 package dsw.GeRuMap.app.painters;
 
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
+import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
 
+@Getter
+@Setter
 public class VezaPainter extends ElementPainter{
+    private Shape shape;
 
     private VezaElement element;
 
     public VezaPainter(Element element) {
         super(element);
+        changeShape(element);
     }
 
 
     @Override
     public void paint(Graphics2D g, Element element) {
+        g.setPaint(Color.BLACK);
 
+        g.setStroke(element.getStroke());
+        g.draw(getShape());
+        g.setPaint(element.getPaint());
+
+        g.fill(getShape());
+
+    }
+
+    public void changeShape(Element element) {
+        float x1=(float) ((VezaElement) element).getPE1().getPosition().getX();
+        float x2=(float) ((VezaElement) element).getPE2().getPosition().getX();
+        float y1=(float) ((VezaElement) element).getPE1().getPosition().getY();
+        float y2=(float) ((VezaElement) element).getPE2().getPosition().getY();
+        //shape = new Line2D.Float(, (float) ((VezaElement) element).getPE1().getPosition().getY(), (float) ((VezaElement) element).getPE2().getPosition().getX(), (float) ((VezaElement) element).getPE2().getPosition().getY());
+
+        if(x1>x2){
+            y1= (float) (y1+((VezaElement) element).getPE1().getSize().getHeight()/2);
+            x2= (float) (x2+((VezaElement) element).getPE2().getSize().getWidth());
+            y2= (float) (y2+((VezaElement) element).getPE2().getSize().getHeight()/2);
+            shape=new Line2D.Float(x1,y1,x2,y2);
+        }
+        if(x1<x2){
+            y2= (float) (y2+((VezaElement) element).getPE2().getSize().getHeight()/2);
+            x1= (float) (x1+((VezaElement) element).getPE1().getSize().getWidth());
+            y1= (float) (y1+((VezaElement) element).getPE1().getSize().getHeight()/2);
+            shape=new Line2D.Float(x1,y1,x2,y2);
+        }
+        if(x1==x2 && y1<y2){
+            x1= (float) (x1+((VezaElement) element).getPE1().getSize().getWidth()/2);
+            y1= (float) (y1+((VezaElement) element).getPE1().getSize().getHeight());
+            x2= (float) (x2+((VezaElement) element).getPE2().getSize().getWidth()/2);
+            shape=new Line2D.Float(x1,y1,x2,y2);
+        }
+
+        if(x1==x2 && y1>y2){
+            x1= (float) (x1+((VezaElement) element).getPE1().getSize().getWidth()/2);
+            y2= (float) (y2+((VezaElement) element).getPE2().getSize().getHeight());
+            x2= (float) (x2+((VezaElement) element).getPE2().getSize().getWidth()/2);
+            shape=new Line2D.Float(x1,y1,x2,y2);
+        }
     }
 
     @Override
     public boolean elementAt(Element element, Point pos) {
-        return false;
+        return getShape().contains(pos);
+    }
+
+    public void setElement(Element element){
+        this.element= (VezaElement) element;
+        changeShape(element);
     }
 }

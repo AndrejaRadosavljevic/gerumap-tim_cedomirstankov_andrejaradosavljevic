@@ -54,7 +54,14 @@ public class MapTreeImplementation implements MapTree{
     private MapNode createChild(MapNode mapNode) {
         if(mapNode instanceof ProjectExplorer)return new ProjectFactory().createNode("Project" + new Random().nextInt(100), mapNode);
         //if(mapNode instanceof ProjectExplorer)return new Project("Project" + new Random().nextInt(100), mapNode);
-        else if(mapNode instanceof Project)return new MindMapFactory().createNode("Map"+new Random().nextInt(100), mapNode);
+        else if(mapNode instanceof Project){
+            int i = ((Project)mapNode).getIterator();
+            int j=1;
+            while(((Project)mapNode).getChildByName("Map"+j)!=null)j++;
+
+
+            return new MindMapFactory().createNode("Map"+j, mapNode);
+        }
         //else if(mapNode instanceof Project)return new MindMap("Map"+new Random().nextInt(100), mapNode);
             else if(mapNode instanceof MindMap)return new ElementFactory().createNode("E"+new Random().nextInt(100), mapNode);
             //else if(mapNode instanceof MindMap)return new Element("E"+new Random().nextInt(100), mapNode);

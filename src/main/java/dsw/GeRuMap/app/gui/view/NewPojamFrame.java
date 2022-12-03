@@ -19,6 +19,8 @@ public class NewPojamFrame extends JFrame {
     private JButton button1;
     private Color color;
 
+    private  Point point;
+
     public NewPojamFrame(){
         initialise();
     }

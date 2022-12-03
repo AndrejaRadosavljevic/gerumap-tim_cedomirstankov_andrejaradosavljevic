@@ -20,6 +20,7 @@ public class MindMap extends MapNodeComposite {
                 this.getChildren().add(child);
             }
         }
+        System.out.println(child.getName());
     }
     public Element getChildOnLocation(Point x){
         for(MapNode e : getChildren()){

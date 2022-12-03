@@ -15,6 +15,7 @@ public class NewPojamState implements State {
     @Override
     public void doState(Point x) {
         NewPojamFrame.getInstance().setVisible(true);
+        NewPojamFrame.getInstance().setPoint(x);
         System.out.println("Pojam");
     }
 }

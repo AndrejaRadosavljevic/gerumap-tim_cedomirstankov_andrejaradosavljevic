@@ -11,8 +11,8 @@ import java.awt.*;
 @Setter
 public class Element extends MapNode {
 
-    private Stroke stroke;
-    private Paint paint;
+    protected Stroke stroke;
+    protected Paint paint;
 
     //private String name;
     //private String description;

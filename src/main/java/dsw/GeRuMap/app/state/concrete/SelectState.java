@@ -18,4 +18,9 @@ public class SelectState implements State {
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).setSelected(x);
         System.out.println("Select");
     }
+
+    @Override
+    public void doState(Point x, Point y) {
+
+    }
 }

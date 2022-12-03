@@ -26,7 +26,6 @@ public class MouseController extends MouseAdapter {
 
             MainFrame.getInstance().getTabPanel().getStateManager().getCurrent().doState(position);
 
-            Paint fill = new Color(255,255,255);
 
 
         }
@@ -35,12 +34,19 @@ public class MouseController extends MouseAdapter {
     @Override
     public void mouseReleased(MouseEvent e) {
         super.mouseReleased(e);
+        if (e.getButton()==MouseEvent.BUTTON1){
+            b = e.getPoint();
+            MainFrame.getInstance().getTabPanel().getStateManager().getCurrent().doState(a, b);
+            a = null;
+        }
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
         super.mouseDragged(e);
-        b=e.getPoint();
-
+        if (e.getButton()==MouseEvent.BUTTON1) {
+            b = e.getPoint();
+            //Graphics g = new
+        }
     }
 }

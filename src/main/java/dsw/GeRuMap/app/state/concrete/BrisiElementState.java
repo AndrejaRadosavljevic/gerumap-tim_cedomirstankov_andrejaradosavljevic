@@ -17,4 +17,9 @@ public class BrisiElementState implements State {
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().removeChild(x);
         System.out.println("Brisi");
     }
+
+    @Override
+    public void doState(Point x, Point y) {
+
+    }
 }

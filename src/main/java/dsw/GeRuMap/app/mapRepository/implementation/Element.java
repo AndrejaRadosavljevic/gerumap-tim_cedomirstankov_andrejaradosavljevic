@@ -17,7 +17,6 @@ public class Element extends MapNode {
     //private String name;
     //private String description;
 
-    private ElementPainter elementPainter;
 
     public Element(String name, MapNode parent,Stroke stroke, Paint paint){
         super(name,parent);
@@ -27,10 +26,6 @@ public class Element extends MapNode {
 
     public Element(String name, MapNode parent) {
         super(name, parent);
-    }
-
-    public ElementPainter getPainter() {
-        return elementPainter;
     }
 
 

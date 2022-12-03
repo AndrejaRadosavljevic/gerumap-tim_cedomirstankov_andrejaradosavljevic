@@ -40,7 +40,8 @@ public abstract class DiagramDevice extends Element {
 
 
     public boolean hasPoint(Point x) {
-        if(x.x >= position.x && x.x <= position.x+size.width &&x.y >= position.y && x.y <= position.y+size.height)return true;
+        if(x.x >= position.x && x.x <= position.x+size.width &&x.y >= position.y && x.y <= position.y+size.height)
+            return true;
         return false;
     }
 }

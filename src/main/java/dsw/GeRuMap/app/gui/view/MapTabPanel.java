@@ -95,7 +95,7 @@ public class MapTabPanel extends JPanel implements ISubscriber {
         tabbedPane.removeAll();
         for(MapNode m:((MapNodeComposite) selected.getMapNode()).getChildren()){
             System.out.println(m.getName());
-            JPanel p = new JPanel();
+            JPanel p = new MapTab((MindMap) m);
             p.setName(m.getName());
             tabbedPane.add(p);
         }

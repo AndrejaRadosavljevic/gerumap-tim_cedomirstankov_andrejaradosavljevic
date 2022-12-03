@@ -28,4 +28,8 @@ public class Element extends MapNode {
     public Element(String name, MapNode parent) {
         super(name, parent);
     }
+
+    public ElementPainter getPainter() {
+        return elementPainter;
+    }
 }

@@ -32,4 +32,14 @@ public class MouseController extends MouseAdapter {
 
         }
     }
+/////???????????????????? ne razumem posllednu stavku u nedelji 8 pod *
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        super.mouseReleased(e);
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        super.mouseDragged(e);
+    }
 }

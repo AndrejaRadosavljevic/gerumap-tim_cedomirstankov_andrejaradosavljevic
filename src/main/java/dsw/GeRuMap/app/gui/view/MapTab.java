@@ -5,10 +5,14 @@ import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
 
+@Getter
+@Setter
 public class MapTab extends JPanel implements UpdateListener {
 
         private MindMap mindMap;
@@ -37,8 +41,8 @@ public class MapTab extends JPanel implements UpdateListener {
             /*
             for(MapNode e:selected.getChildren()){
                 //Ovde se iscrtavaju elementi uz pomoc g2 grafike
-                ElementPainter ep = ((Element)e).getPainter();
-                ep.paint(g2,(Element) e);
+                ElementPainter ep = new ElementPaiter();
+                ep.paint(g2,(Element) e);     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 System.out.println(e.getName());
             }
 

@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class BrisiElementState implements State {
 
-    void obrisi(int x,int y){
-        //...
+    void obrisi(Point x){
+
     }
 
     @Override

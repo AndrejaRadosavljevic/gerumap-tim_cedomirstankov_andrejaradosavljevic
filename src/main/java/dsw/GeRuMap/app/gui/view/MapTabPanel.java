@@ -57,7 +57,7 @@ public class MapTabPanel extends JPanel implements ISubscriber {
     public void update(Object notification) {
 
         if(notification instanceof MindMap){
-
+            if(selected == null) return;
             tabbedPane.removeAll();
             for(MapNode m:((MapNodeComposite) selected.getMapNode()).getChildren()){
                 //System.out.println(m.getName());

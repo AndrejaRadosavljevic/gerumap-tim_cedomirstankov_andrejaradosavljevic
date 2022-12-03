@@ -6,7 +6,10 @@ import java.awt.*;
 
 public abstract class ElementPainter {
 
-    public ElementPainter(Element element) {	}
+    Element element;
+    public ElementPainter(Element element) {
+        this.element=element;
+    }
 
     public abstract void paint(Graphics2D g, Element element);
 

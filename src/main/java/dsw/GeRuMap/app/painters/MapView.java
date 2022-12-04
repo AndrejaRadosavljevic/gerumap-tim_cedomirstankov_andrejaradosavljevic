@@ -35,7 +35,10 @@ public class MapView {
 
     public void removeChild(Element element){
         mindMap.removeChild(element);
-        updateList();
+    }
+    public void removePainter(ElementPainter elementPainter){
+        removeChild(elementPainter.getElement());
+        painters.remove(elementPainter);
     }
 
 

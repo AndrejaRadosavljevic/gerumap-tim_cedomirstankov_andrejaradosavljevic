@@ -14,6 +14,7 @@ public class PojamPainter extends ElementPainter{
 
     private Shape shape;
 
+
     public PojamPainter(Element element) {
         super(element);
         changeShape(element);

@@ -47,12 +47,9 @@ public class MapTab extends JPanel implements UpdateListener {
         //        Ellipse2D.Float(0F,0F,250F,230F);
        // g2.draw(ln);
 
-            for(MapNode e:mapView.getMindMap().getChildren()){
+            for(ElementPainter elementPainter : mapView.getPainters()){
                 //Ovde se iscrtavaju elementi uz pomoc g2 grafike
-                PojamPainter pojamPainter = new PojamPainter((Element) e);
-
-                pojamPainter.paint(g2,(Element) e);
-                System.out.println("/"+e.getName());
+                elementPainter.paint(g2,elementPainter.getElement());
             }
 
 

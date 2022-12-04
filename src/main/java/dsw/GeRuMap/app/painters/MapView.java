@@ -4,6 +4,7 @@ import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
+import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,5 +54,9 @@ public class MapView {
     }
 
     public void addPainter(Point x, Point y) {
+        PojamElement p1 = (PojamElement) mindMap.getChildOnLocation(x);
+        PojamElement p2 = (PojamElement) mindMap.getChildOnLocation(y);
+        VezaElement vezaElement = new VezaElement("veza"+x+y,mindMap,p1,p2);
+        addPainter(new VezaPainter(vezaElement));
     }
 }

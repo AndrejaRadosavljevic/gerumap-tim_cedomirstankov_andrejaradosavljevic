@@ -70,5 +70,16 @@ public class MapTab extends JPanel implements UpdateListener {
         selected = mapView.getMindMap().getChildOnLocation(x);
     }
 
+    public void addPainter(ElementPainter elementPainter){
+        mapView.getPainters().add(elementPainter);
+        updatePerformed(new UpdateEvent(this));
+    }
+
+
+    public void removePainter(Point x){
+        mapView.removeChild(x);
+        updatePerformed(new UpdateEvent(this));
+    }
+
 
 }

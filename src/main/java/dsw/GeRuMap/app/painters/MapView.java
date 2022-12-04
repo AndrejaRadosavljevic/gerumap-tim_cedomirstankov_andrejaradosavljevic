@@ -30,15 +30,24 @@ public class MapView {
     public  void removeChild(Point x){
         Element element = mindMap.getChildOnLocation(x);
         if(element==null)return;
+        removePainter(element);
         removeChild(element);
     }
 
     public void removeChild(Element element){
         mindMap.removeChild(element);
     }
-    public void removePainter(ElementPainter elementPainter){
-        removeChild(elementPainter.getElement());
-        painters.remove(elementPainter);
+    public void removePainter(Element element){
+        ElementPainter elementPainter = null;
+        int i =0;
+        while(i<painters.size()){
+            elementPainter = painters.get(i++);
+            if(elementPainter.getElement() == element){
+                painters.remove(elementPainter);
+                i--;
+            }
+
+        }
     }
 
 
@@ -53,7 +62,7 @@ public class MapView {
 
     public void addPainter(ElementPainter elementPainter) {
         painters.add(elementPainter);
-        mindMap.addChild(elementPainter.element);
+        mindMap.addChild(elementPainter.getElement());
     }
 
     public void addPainter(Point x, Point y) {

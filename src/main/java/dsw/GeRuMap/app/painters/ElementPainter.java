@@ -5,10 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.awt.*;
+import java.util.Comparator;
 
 @Getter
 @Setter
-public abstract class ElementPainter {
+public abstract class ElementPainter  {
 
     Element element;
     public ElementPainter(Element element) {

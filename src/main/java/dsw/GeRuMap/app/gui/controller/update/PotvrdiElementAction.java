@@ -22,7 +22,7 @@ public class PotvrdiElementAction extends AbstractGeRuMapAction {
     public void actionPerformed(ActionEvent arg0){
 
       String text = NewPojamFrame.getInstance().getTextField1().getText();
-      Stroke stroke = new BasicStroke(5);
+      Stroke stroke = new BasicStroke(2f);
       Paint paint = Color.BLACK;
       Point point = NewPojamFrame.getInstance().getPoint();
       PojamElement pe = new PojamElement(text,null,stroke,paint,point,new Dimension(200,50));

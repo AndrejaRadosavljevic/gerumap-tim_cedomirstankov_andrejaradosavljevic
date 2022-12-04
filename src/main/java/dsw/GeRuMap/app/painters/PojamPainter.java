@@ -27,8 +27,6 @@ public class PojamPainter extends ElementPainter{
         g.draw(getShape());
         g.setPaint(element.getPaint());
 
-        g.fill(getShape());
-
         if (element instanceof PojamElement){
             g.setPaint(Color.BLACK);
             PojamElement device= (PojamElement) element;

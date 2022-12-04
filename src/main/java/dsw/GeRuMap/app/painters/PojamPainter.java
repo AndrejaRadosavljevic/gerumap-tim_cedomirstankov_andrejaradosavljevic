@@ -29,10 +29,12 @@ public class PojamPainter extends ElementPainter{
         g.setPaint(element.getPaint());
 
         if (element instanceof PojamElement){
+            FontMetrics fm = g.getFontMetrics();
             g.setPaint(Color.BLACK);
             PojamElement device= (PojamElement) element;
-            g.drawString(device.getName(), (int)device.getPosition().getX()+10,
-                    (int)device.getPosition().getY()+10);
+            int sw=fm.stringWidth(device.getName());
+            g.drawString(device.getName(), (int)device.getPosition().getX()+(int)device.getSize().getWidth()/2-sw/2,
+                    (int)device.getPosition().getY()+(int)device.getSize().getHeight()/2);
         }
 
     }
@@ -43,7 +45,7 @@ public class PojamPainter extends ElementPainter{
     }
 
     public void changeShape(Element element){
-        shape=new Ellipse2D.Float((float) ((PojamElement)element).getPosition().getX(), (float) ((PojamElement)element).getPosition().getY(), (float) ((PojamElement)element).getSize().getWidth(), (float) ((PojamElement)element).getSize().getHeight());
+        shape=new Ellipse2D.Float((float) ((PojamElement)element).getPosition().getX(), (float) ((PojamElement)element).getPosition().getY(), ((float) ((PojamElement)element).getSize().getWidth()), ((float) ((PojamElement)element).getSize().getHeight()));
     }
 
     public void setElement(Element element){

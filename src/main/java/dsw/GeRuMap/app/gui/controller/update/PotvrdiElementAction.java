@@ -25,7 +25,7 @@ public class PotvrdiElementAction extends AbstractGeRuMapAction {
       Stroke stroke = new BasicStroke(5);
       Paint paint = Color.BLACK;
       Point point = NewPojamFrame.getInstance().getPoint();
-      PojamElement pe = new PojamElement(text,null,stroke,paint,point,new Dimension(500,250));
+      PojamElement pe = new PojamElement(text,null,stroke,paint,point,new Dimension(125,62));
       ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addPainter(new PojamPainter(pe));
 
       NewPojamFrame.getInstance().setVisible(false);

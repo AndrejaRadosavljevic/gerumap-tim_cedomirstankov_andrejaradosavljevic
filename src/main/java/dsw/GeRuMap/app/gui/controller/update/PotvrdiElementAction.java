@@ -11,6 +11,7 @@ import dsw.GeRuMap.app.gui.view.NewPojamFrame;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.painters.ElementPainter;
+import dsw.GeRuMap.app.painters.PojamPainter;
 import dsw.GeRuMap.app.state.concrete.NewPojamState;
 
 import java.awt.*;
@@ -25,7 +26,7 @@ public class PotvrdiElementAction extends AbstractGeRuMapAction {
       Paint paint = Color.BLACK;
       Point point = NewPojamFrame.getInstance().getPoint();
       PojamElement pe = new PojamElement(text,null,stroke,paint,point,new Dimension(500,250));
-      ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().getMindMap().addChild(pe);
+      ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addPainter(new PojamPainter(pe));
 
       NewPojamFrame.getInstance().setVisible(false);
     }

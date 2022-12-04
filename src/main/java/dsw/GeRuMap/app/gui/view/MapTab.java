@@ -71,7 +71,7 @@ public class MapTab extends JPanel implements UpdateListener {
     }
 
     public void addPainter(ElementPainter elementPainter){
-        mapView.getPainters().add(elementPainter);
+        mapView.addPainter(elementPainter);
         updatePerformed(new UpdateEvent(this));
     }
 
@@ -82,4 +82,8 @@ public class MapTab extends JPanel implements UpdateListener {
     }
 
 
+    public void addVeza(Point x, Point y) {
+        mapView.addPainter(x,y);
+        updatePerformed(new UpdateEvent(this));
+    }
 }

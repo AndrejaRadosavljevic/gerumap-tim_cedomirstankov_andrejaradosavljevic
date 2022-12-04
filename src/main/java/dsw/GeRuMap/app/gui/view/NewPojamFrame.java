@@ -37,7 +37,7 @@ public class NewPojamFrame extends JFrame {
         label1.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-        textField1=new JTextField("Uneti text unutar pojma");
+        textField1=new JTextField("Uneti tekst pojma");
         button1=new JButton("Potvrdi");
 
         JPanel panel1 = new JPanel();

@@ -14,7 +14,7 @@ public class BrisiElementState implements State {
 
     @Override
     public void doState(Point x) {
-        ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().removeChild(x);
+        ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removePainter(x);
         System.out.println("Brisi");
     }
 

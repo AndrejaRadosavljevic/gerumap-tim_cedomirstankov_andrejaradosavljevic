@@ -11,8 +11,10 @@ public class VezaElement extends Element {
 
     private PojamElement pE1, pE2;
 
-    public VezaElement(String name, MapNode parent) {
+    public VezaElement(String name, MapNode parent,PojamElement pE1, PojamElement pE2) {
         super(name, parent);
-        //doradi
+        this.pE1 = pE1;
+        this.pE2 = pE2;
+
     }
 }

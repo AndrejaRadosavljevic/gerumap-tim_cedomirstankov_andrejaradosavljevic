@@ -47,4 +47,11 @@ public class MapView {
     }
 
 
+    public void addPainter(ElementPainter elementPainter) {
+        painters.add(elementPainter);
+        mindMap.addChild(elementPainter.element);
+    }
+
+    public void addPainter(Point x, Point y) {
+    }
 }

@@ -18,9 +18,10 @@ public class MindMap extends MapNodeComposite {
             if (!this.getChildren().contains(child)){
                 child.setParent(this);
                 this.getChildren().add(child);
+
+                System.out.println(child.getName());
             }
         }
-        System.out.println(child.getName());
     }
     public Element getChildOnLocation(Point x){
         for(MapNode e : getChildren()){

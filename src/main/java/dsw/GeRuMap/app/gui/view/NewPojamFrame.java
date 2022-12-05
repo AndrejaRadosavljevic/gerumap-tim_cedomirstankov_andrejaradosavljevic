@@ -37,6 +37,7 @@ public class NewPojamFrame extends JFrame {
 
 
         textField1=new JTextField("Uneti tekst pojma");
+        textField1.setPreferredSize(new Dimension(100,20));
         button1=new JButton("Potvrdi");
 
         JPanel panel1 = new JPanel();

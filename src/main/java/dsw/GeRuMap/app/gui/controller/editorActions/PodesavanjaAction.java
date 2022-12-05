@@ -18,12 +18,12 @@ public class PodesavanjaAction extends AbstractGeRuMapAction {
         putValue(SHORT_DESCRIPTION, "Podesavanja");
     }
     public void actionPerformed(ActionEvent arg0){
-        //frame = new PodesavanjaFrame();
-        //frame.setVisible(true);
+
+
+        frame = new PodesavanjaFrame();
+        frame.setVisible(true);
         //treba da uzme selektovan element i da otvori prozor za podesavanje elementa
-        if(MainFrame.getInstance().getMapTree().getSelectedNode()==null)return;
-        if(((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelected() == null)return;
-        Color color = JColorChooser.showDialog(null,"Izaberi novu boju", Color.BLACK);
-        ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelected().setPaint(color);
+
+
     }
 }

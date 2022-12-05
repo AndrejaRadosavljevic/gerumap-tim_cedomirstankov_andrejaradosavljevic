@@ -1,5 +1,6 @@
 package dsw.GeRuMap.app.gui.view;
 
+import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
@@ -15,7 +16,7 @@ import java.awt.*;
 
 @Getter
 @Setter
-public class MapTab extends JPanel implements UpdateListener {
+public class MapTab extends JPanel implements UpdateListener, ISubscriber {
 
         private MapView mapView;
         private Element selected;
@@ -23,8 +24,6 @@ public class MapTab extends JPanel implements UpdateListener {
     public MapTab(MindMap selected) {
         //addMouseListener();
         mapView=new MapView(selected);
-
-        add(new Label(selected.getName()));
 
         addMouseListener(new MouseController());
 
@@ -78,6 +77,11 @@ public class MapTab extends JPanel implements UpdateListener {
 
     public void addVeza(Point x, Point y) {
         mapView.addPainter(x,y);
+        updatePerformed(new UpdateEvent(this));
+    }
+
+    @Override
+    public void update(Object notification) {
         updatePerformed(new UpdateEvent(this));
     }
 }

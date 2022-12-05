@@ -58,7 +58,11 @@ public class PodesavanjaFrame extends JFrame{
 
         button1 = new JButton(new PodesiAction());
         button1.setText("Potvrdi");
-        panel.add(button1);
+        button1.setPreferredSize(new Dimension(200,50));
+
+        JPanel panel3 = new JPanel();
+        panel3.add(button1);
+        panel.add(panel3);
 
         add(panel);
 
@@ -66,7 +70,7 @@ public class PodesavanjaFrame extends JFrame{
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
-        setSize(screenWidth,screenHeight);
+        setSize(screenWidth/2,screenHeight/4*3);
         setLocationRelativeTo(null);
 
 

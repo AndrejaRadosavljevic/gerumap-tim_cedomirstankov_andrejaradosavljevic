@@ -29,12 +29,13 @@ public class MapView {
     public  void removeChild(Point x){
         Element element = mindMap.getChildOnLocation(x);
         if(element==null)return;
-        removePainter(element);
         removeChild(element);
+        updateList();
     }
 
     public void removeChild(Element element){
         mindMap.removeChild(element);
+        updateList();
     }
     public void removePainter(Element element){
         ElementPainter elementPainter = null;

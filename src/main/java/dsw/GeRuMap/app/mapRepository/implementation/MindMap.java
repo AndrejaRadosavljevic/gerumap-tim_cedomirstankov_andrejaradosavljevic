@@ -3,8 +3,11 @@ package dsw.GeRuMap.app.mapRepository.implementation;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
+import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MindMap extends MapNodeComposite {
     private boolean isTemplate;
@@ -34,5 +37,17 @@ public class MindMap extends MapNodeComposite {
         }
         System.out.println("nista");
         return null;
+    }
+
+    @Override
+    public void removeChild(MapNode child) {
+        List<MapNode> visak = new ArrayList<>();
+        for(MapNode e:getChildren()){
+            if(e instanceof VezaElement){
+                if(((VezaElement)e).getPE1().equals(child)||((VezaElement)e).getPE2().equals(child))visak.add(e);
+            }
+        }
+        for(MapNode e: visak)removeChild(e);
+        super.removeChild(child);
     }
 }

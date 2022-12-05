@@ -23,6 +23,8 @@ public class MindMap extends MapNodeComposite {
             }
         }
     }
+    ///// ovde mora da se doradi tako da moze da se selektuje i veza
+
     public Element getChildOnLocation(Point x){
         for(MapNode e : getChildren()){
             if(((PojamElement)e).hasPoint(x)){

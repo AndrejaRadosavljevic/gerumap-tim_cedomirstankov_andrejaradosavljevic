@@ -44,6 +44,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
 
             for(ElementPainter elementPainter : mapView.getPainters()){
                 //Ovde se iscrtavaju elementi uz pomoc g2 grafike
+                System.out.println("/////"+elementPainter.getElement().name);
                 elementPainter.paint(g2,elementPainter.getElement());
             }
 

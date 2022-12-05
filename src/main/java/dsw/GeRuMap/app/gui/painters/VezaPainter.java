@@ -13,7 +13,6 @@ import java.awt.geom.Line2D;
 public class VezaPainter extends ElementPainter{
     private Shape shape;
 
-    private VezaElement element;
 
     public VezaPainter(Element element) {
         super(element);
@@ -75,5 +74,8 @@ public class VezaPainter extends ElementPainter{
     public void setElement(Element element){
         this.element= (VezaElement) element;
         changeShape(element);
+    }
+    public Element getElement(){
+        return element;
     }
 }

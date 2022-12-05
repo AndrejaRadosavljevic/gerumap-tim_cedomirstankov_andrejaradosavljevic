@@ -64,11 +64,17 @@ public class MapView {
         mindMap.addChild(elementPainter.getElement());
     }
 
+    public void addPainter(Element element) {
+        mindMap.addChild(element);
+        updateList();
+    }
+
     public void addPainter(Point x, Point y) {
         PojamElement p1 = (PojamElement) mindMap.getChildOnLocation(x);
         PojamElement p2 = (PojamElement) mindMap.getChildOnLocation(y);
-        if(p1 ==null || p2 == null) return;
+        if(p1 == null || p2 == null) return;
         VezaElement vezaElement = new VezaElement("veza("+x.x+","+x.y+","+y.x+","+y.y+")",mindMap,p1,p2);
-        addPainter(new VezaPainter(vezaElement));
+
+        addPainter(vezaElement);
     }
 }

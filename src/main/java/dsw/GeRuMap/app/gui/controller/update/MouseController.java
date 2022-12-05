@@ -44,6 +44,7 @@ public class MouseController extends MouseAdapter {
         super.mouseReleased(e);
         if (e.getButton()==MouseEvent.BUTTON1){
             b = e.getPoint();
+            System.out.println(a+"   "+b);
             MainFrame.getInstance().getTabPanel().getStateManager().getCurrent().doState(a,b);
             a=null;
             b=null;

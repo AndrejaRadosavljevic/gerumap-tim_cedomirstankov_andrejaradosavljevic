@@ -1,4 +1,4 @@
-package dsw.GeRuMap.app.painters;
+package dsw.GeRuMap.app.gui.painters;
 
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import lombok.Getter;

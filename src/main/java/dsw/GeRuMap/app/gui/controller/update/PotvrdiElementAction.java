@@ -1,18 +1,11 @@
 package dsw.GeRuMap.app.gui.controller.update;
 
 import dsw.GeRuMap.app.gui.controller.AbstractGeRuMapAction;
-import dsw.GeRuMap.app.gui.messagegenerator.Type;
-import dsw.GeRuMap.app.gui.tree.MapTreeImplementation;
-import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
-import dsw.GeRuMap.app.gui.view.ChangeNameFrame;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.gui.view.NewPojamFrame;
-import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
-import dsw.GeRuMap.app.painters.ElementPainter;
-import dsw.GeRuMap.app.painters.PojamPainter;
-import dsw.GeRuMap.app.state.concrete.NewPojamState;
+import dsw.GeRuMap.app.gui.painters.PojamPainter;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

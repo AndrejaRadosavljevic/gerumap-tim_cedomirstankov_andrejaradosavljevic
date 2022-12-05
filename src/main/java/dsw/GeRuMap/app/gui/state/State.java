@@ -1,4 +1,4 @@
-package dsw.GeRuMap.app.state;
+package dsw.GeRuMap.app.gui.state;
 
 import java.awt.*;
 

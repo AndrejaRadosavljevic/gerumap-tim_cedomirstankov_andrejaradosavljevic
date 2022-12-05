@@ -1,7 +1,6 @@
 package dsw.GeRuMap.app.gui.view;
 
 import dsw.GeRuMap.app.gui.controller.update.PotvrdiElementAction;
-import dsw.GeRuMap.app.state.concrete.NewPojamState;
 import lombok.Getter;
 import lombok.Setter;
 

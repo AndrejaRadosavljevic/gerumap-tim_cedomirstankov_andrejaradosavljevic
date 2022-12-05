@@ -1,9 +1,9 @@
-package dsw.GeRuMap.app.state;
+package dsw.GeRuMap.app.gui.state;
 
-import dsw.GeRuMap.app.state.concrete.BrisiElementState;
-import dsw.GeRuMap.app.state.concrete.NewPojamState;
-import dsw.GeRuMap.app.state.concrete.NewVezaState;
-import dsw.GeRuMap.app.state.concrete.SelectState;
+import dsw.GeRuMap.app.gui.state.concrete.BrisiElementState;
+import dsw.GeRuMap.app.gui.state.concrete.NewPojamState;
+import dsw.GeRuMap.app.gui.state.concrete.NewVezaState;
+import dsw.GeRuMap.app.gui.state.concrete.SelectState;
 
 public class StateManager {
 

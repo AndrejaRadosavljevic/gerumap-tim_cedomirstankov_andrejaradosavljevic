@@ -6,7 +6,7 @@ import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
-import dsw.GeRuMap.app.state.StateManager;
+import dsw.GeRuMap.app.gui.state.StateManager;
 import lombok.Getter;
 import lombok.Setter;
 

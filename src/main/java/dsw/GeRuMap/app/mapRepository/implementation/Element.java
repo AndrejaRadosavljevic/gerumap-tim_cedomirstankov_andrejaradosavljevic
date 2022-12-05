@@ -1,7 +1,6 @@
 package dsw.GeRuMap.app.mapRepository.implementation;
 
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
-import dsw.GeRuMap.app.painters.ElementPainter;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,5 +34,12 @@ public class Element extends MapNode {
         paint = Color.BLACK;
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        if(super.equals(obj)){
+            if(pbr == ((Element)obj).pbr)return true;
+            else return false;
+        }
+        return false;
+    }
 }

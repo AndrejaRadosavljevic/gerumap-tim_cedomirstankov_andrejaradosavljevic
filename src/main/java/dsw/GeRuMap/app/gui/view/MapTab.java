@@ -3,19 +3,15 @@ package dsw.GeRuMap.app.gui.view;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
-import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
-import dsw.GeRuMap.app.painters.ElementPainter;
-import dsw.GeRuMap.app.painters.MapView;
-import dsw.GeRuMap.app.painters.PojamPainter;
+import dsw.GeRuMap.app.gui.painters.ElementPainter;
+import dsw.GeRuMap.app.gui.painters.MapView;
 import lombok.Getter;
 import lombok.Setter;
-import org.w3c.dom.ls.LSOutput;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 
 @Getter
 @Setter

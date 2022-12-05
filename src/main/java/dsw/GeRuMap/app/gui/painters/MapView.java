@@ -1,4 +1,4 @@
-package dsw.GeRuMap.app.painters;
+package dsw.GeRuMap.app.gui.painters;
 
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
@@ -9,7 +9,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.awt.*;
-import java.security.cert.PolicyNode;
 import java.util.ArrayList;
 import java.util.List;
 @Setter@Getter

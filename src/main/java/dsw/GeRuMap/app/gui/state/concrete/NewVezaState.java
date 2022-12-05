@@ -1,10 +1,9 @@
-package dsw.GeRuMap.app.state.concrete;
+package dsw.GeRuMap.app.gui.state.concrete;
 
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
-import dsw.GeRuMap.app.state.State;
+import dsw.GeRuMap.app.gui.state.State;
 
 import java.awt.*;
 

@@ -43,7 +43,6 @@ public class MindMap extends MapNodeComposite {
             }
 
         }
-        System.out.println("nista");
         return null;
     }
 

@@ -32,6 +32,7 @@ public class MouseController extends MouseAdapter {
             State state =  MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
 
             state.doState(position);
+            b= null;
 
 
 

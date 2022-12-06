@@ -78,4 +78,11 @@ public class MapView {
 
         addPainter(vezaElement);
     }
+
+    public  ElementPainter getPainter(Element element){
+        for(ElementPainter elementPainter:painters){
+            if(elementPainter.element.equals(element))return elementPainter;
+        }
+        return null;
+    }
 }

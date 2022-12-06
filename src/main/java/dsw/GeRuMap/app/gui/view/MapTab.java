@@ -93,4 +93,8 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
     public void update(Object notification) {
         updatePerformed(new UpdateEvent(this));
     }
+
+    public ElementPainter getPainter(Element element){
+        return mapView.getPainter(element);
+    }
 }

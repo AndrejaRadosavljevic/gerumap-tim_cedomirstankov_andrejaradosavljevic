@@ -26,7 +26,7 @@ public class PodesiAction extends AbstractGeRuMapAction {
 
         Integer strokeBroj=Integer.parseInt(podesavanjaFrame.getTextField1().getText());
         Stroke stroke=new BasicStroke(strokeBroj);
-        Paint paint=podesavanjaFrame.getColor();
+        Paint paint=podesavanjaFrame.getColorChooser().getSelectionModel().getSelectedColor();
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updateSelected(text,stroke,paint);
 
         podesavanjaFrame.setVisible(false);

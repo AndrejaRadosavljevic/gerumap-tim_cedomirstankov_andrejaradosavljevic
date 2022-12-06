@@ -78,4 +78,9 @@ public class VezaPainter extends ElementPainter{
     public Element getElement(){
         return element;
     }
+
+    public boolean contains(Point x) {
+        if(shape.getBounds().contains(x))return true;
+        return false;
+    }
 }

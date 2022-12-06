@@ -36,6 +36,11 @@ public class MindMap extends MapNodeComposite {
                     return (Element) e;
                 }
             }
+            else{
+                if(((VezaElement)e).hasPoint(x)){
+                    return  (Element) e;
+                }
+            }
 
         }
         System.out.println("nista");

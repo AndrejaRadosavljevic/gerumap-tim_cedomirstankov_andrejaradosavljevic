@@ -3,12 +3,15 @@ package dsw.GeRuMap.app.gui.controller.update;
 import dsw.GeRuMap.app.gui.controller.editorActions.*;
 import dsw.GeRuMap.app.gui.controller.observer.IPublisher;
 import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
+import dsw.GeRuMap.app.gui.painters.ElementPainter;
+import dsw.GeRuMap.app.gui.painters.MapView;
 import dsw.GeRuMap.app.gui.state.State;
 import dsw.GeRuMap.app.gui.state.concrete.NewPojamState;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
+import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -30,7 +33,18 @@ public class MouseController extends MouseAdapter {
             a = e.getPoint();
 
             State state =  MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
+            if(state instanceof NewPojamState){
+                for(ElementPainter ep1:((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().getPainters()){
+                    if(ep1.getElement() instanceof PojamElement){
+                        double x=((PojamElement)ep1.getElement()).getPosition().getX();
+                        double y=((PojamElement)ep1.getElement()).getPosition().getY();
+                        if(position.getX()>=x-200 && position.getX()<=x+200 && position.getY()>=y-50 && position.getY()<=y+50){
+                            return;
+                        }
+                    }
 
+                }
+            }
             state.doState(position);
             b= null;
 

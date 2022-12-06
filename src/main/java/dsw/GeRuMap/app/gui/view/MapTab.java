@@ -8,6 +8,7 @@ import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
 import dsw.GeRuMap.app.gui.painters.MapView;
+import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,6 +47,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
                 //Ovde se iscrtavaju elementi uz pomoc g2 grafike
                 System.out.println("/////"+elementPainter.getElement().name);
                 elementPainter.paint(g2,elementPainter.getElement());
+                //System.out.println("aa"+((PojamElement)elementPainter.getElement()).getPosition());
             }
 
 
@@ -56,7 +58,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
     public void updatePerformed(UpdateEvent e) {
         repaint();
     }
-
 
 
     public void setSelected(Point x) {

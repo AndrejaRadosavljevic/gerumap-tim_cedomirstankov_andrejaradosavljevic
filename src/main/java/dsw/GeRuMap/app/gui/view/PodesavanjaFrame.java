@@ -2,11 +2,14 @@ package dsw.GeRuMap.app.gui.view;
 
 import dsw.GeRuMap.app.gui.controller.update.PodesiAction;
 import dsw.GeRuMap.app.gui.controller.update.PotvrdiElementAction;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.*;
 import javax.swing.colorchooser.DefaultColorSelectionModel;
 import java.awt.*;
-
+@Getter
+@Setter
 public class PodesavanjaFrame extends JFrame{
     private static PodesavanjaFrame instance;
 
@@ -29,6 +32,8 @@ public class PodesavanjaFrame extends JFrame{
     }
 
     private void initialiseGUI(){
+        this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
 
         JPanel panel = new JPanel(new GridLayout(4,1,5,5));
 
@@ -56,8 +61,8 @@ public class PodesavanjaFrame extends JFrame{
 
         panel.add(colorChooser,2);
 
-        button1 = new JButton(new PodesiAction());
-        button1.setText("Potvrdi");
+        button1 = new JButton("Potvrdi");
+        button1.addActionListener(new PodesiAction());
         button1.setPreferredSize(new Dimension(200,50));
 
         JPanel panel3 = new JPanel();

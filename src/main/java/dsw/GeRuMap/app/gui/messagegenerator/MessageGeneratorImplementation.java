@@ -27,6 +27,8 @@ public class MessageGeneratorImplementation implements MessageGenerator{
             notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da ostavite prazno ime autora",Type.PRAZNO_IME_AUTORA_ERROR));
         if(type == Type.PRAZNO_IME_PROJEKTA_I_AUTORA)
             notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Ne mozete da ostavite prazno ime autora i projekta",Type.PRAZNO_IME_PROJEKTA_I_AUTORA));
+        if(type == Type.NIJE_SELEKTOVAN_POJAM)
+            notifySubscriber(new Message("[ERROR][" +formatter.format(date)+"] "+ "Nije selektovan pojam za modifikaciju",Type.NIJE_SELEKTOVAN_POJAM));
     }
 
     @Override

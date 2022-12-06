@@ -1,0 +1,2 @@
+[ERROR][06/12/2022 15:25:17] Nije selektovan pojam za modifikaciju
+[ERROR][06/12/2022 15:26:18] Nije selektovan pojam za modifikaciju

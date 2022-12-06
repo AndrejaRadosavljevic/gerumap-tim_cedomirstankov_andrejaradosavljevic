@@ -26,6 +26,8 @@ public class MapTabPanel extends JPanel implements ISubscriber {
     private MapTreeItem selected;
 
     private StateManager stateManager;
+
+
     private MapTabPanel() {
         selected = null;
         stateManager = new StateManager();

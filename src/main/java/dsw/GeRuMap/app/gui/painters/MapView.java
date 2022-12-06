@@ -87,4 +87,14 @@ public class MapView {
         }
         return null;
     }
+
+    public boolean containsElementOnPoint(Point x) {
+        for(MapNode e:mindMap.getChildren()){
+            if(e instanceof PojamElement){
+                if(((PojamElement)e).hasPoint(x))return true;
+            }
+            else if(((VezaElement)e).hasPoint(x))return true;
+        }
+        return false;
+    }
 }

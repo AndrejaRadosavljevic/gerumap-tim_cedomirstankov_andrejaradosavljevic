@@ -4,6 +4,7 @@ import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
+import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
@@ -79,7 +80,9 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
 
 
     public void removePainter(Point x){
+
         mapView.removeChild(x);
+        if(!mapView.containsElementOnPoint(x))selected=null;
         updatePerformed(new UpdateEvent(this));
     }
 

@@ -1,6 +1,7 @@
 package dsw.GeRuMap.app.gui.controller;
 
 import dsw.GeRuMap.app.gui.controller.editorActions.*;
+import dsw.GeRuMap.app.gui.controller.update.PodesiAction;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,7 @@ public class ActionManager {
     private SelectAction selectAction;
     private BrisiElementAction brisiElementAction;
     private PodesavanjaAction podesavanjaAction;
+
 
     public ActionManager(){
         initialiseActions();

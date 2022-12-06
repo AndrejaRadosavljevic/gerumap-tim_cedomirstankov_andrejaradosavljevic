@@ -10,8 +10,7 @@ import javax.swing.colorchooser.DefaultColorSelectionModel;
 import java.awt.*;
 @Getter
 @Setter
-public class PodesavanjaFrame extends JFrame{
-    private static PodesavanjaFrame instance;
+public class PodesavanjaFrame extends JDialog{
 
     private JTextField textField1;
     private JTextField textField2;
@@ -62,7 +61,7 @@ public class PodesavanjaFrame extends JFrame{
         panel.add(colorChooser,2);
 
         button1 = new JButton("Potvrdi");
-        button1.addActionListener(new PodesiAction());
+        button1.addActionListener(new PodesiAction(this));
         button1.setPreferredSize(new Dimension(200,50));
 
         JPanel panel3 = new JPanel();
@@ -80,10 +79,5 @@ public class PodesavanjaFrame extends JFrame{
 
 
 
-    }
-
-    public static PodesavanjaFrame getInstance(){
-        if(instance == null) instance = new PodesavanjaFrame();
-        return instance;
     }
 }

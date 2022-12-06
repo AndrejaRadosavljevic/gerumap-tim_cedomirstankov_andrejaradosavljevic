@@ -5,6 +5,7 @@ import dsw.GeRuMap.app.gui.messagegenerator.Type;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.gui.view.PodesavanjaFrame;
+import dsw.GeRuMap.app.mapRepository.implementation.Element;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,9 +19,11 @@ public class PodesavanjaAction extends AbstractGeRuMapAction {
         putValue(SHORT_DESCRIPTION, "Podesavanja");
     }
     public void actionPerformed(ActionEvent arg0){
+        Element element=((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelected();
 
-        if(((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelected()!=null){
-            PodesavanjaFrame.getInstance().setVisible(true);
+        if(element!=null){
+            PodesavanjaFrame podesavanjaFrame=new PodesavanjaFrame();
+            podesavanjaFrame.setVisible(true);
         }else{
             MainFrame.getInstance().getMessageGenerator().generate(Type.NIJE_SELEKTOVAN_POJAM);
         }

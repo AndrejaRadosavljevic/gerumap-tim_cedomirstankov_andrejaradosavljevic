@@ -59,6 +59,13 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
         repaint();
     }
 
+    public void updateSelected(String name, Stroke stroke,Paint paint){
+        selected.setName(name);
+        selected.setStroke(stroke);
+        selected.setPaint(paint);
+        mapView.updateList();
+        updatePerformed(new UpdateEvent(this));
+    }
 
     public void setSelected(Point x) {
         selected = mapView.getMindMap().getChildOnLocation(x);

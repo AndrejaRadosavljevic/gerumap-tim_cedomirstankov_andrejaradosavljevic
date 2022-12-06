@@ -27,10 +27,13 @@ public class MindMap extends MapNodeComposite {
 
     public Element getChildOnLocation(Point x){
         for(MapNode e : getChildren()){
-            if(((PojamElement)e).hasPoint(x)){
-                System.out.println(e.getName());
-                return (Element) e;
+            if(e instanceof PojamElement){
+                if(((PojamElement)e).hasPoint(x)){
+                    System.out.println(e.getName());
+                    return (Element) e;
+                }
             }
+
         }
         System.out.println("nista");
         return null;

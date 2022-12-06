@@ -35,11 +35,14 @@ public class MouseController extends MouseAdapter {
             State state =  MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
             if(state instanceof NewPojamState){
                 for(ElementPainter ep1:((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().getPainters()){
-                    double x=((PojamElement)ep1.getElement()).getPosition().getX();
-                    double y=((PojamElement)ep1.getElement()).getPosition().getY();
-                    if(position.getX()>=x-200 && position.getX()<=x+200 && position.getY()>=y-50 && position.getY()<=y+50){
-                        return;
+                    if(ep1.getElement() instanceof PojamElement){
+                        double x=((PojamElement)ep1.getElement()).getPosition().getX();
+                        double y=((PojamElement)ep1.getElement()).getPosition().getY();
+                        if(position.getX()>=x-200 && position.getX()<=x+200 && position.getY()>=y-50 && position.getY()<=y+50){
+                            return;
+                        }
                     }
+
                 }
             }
             state.doState(position);

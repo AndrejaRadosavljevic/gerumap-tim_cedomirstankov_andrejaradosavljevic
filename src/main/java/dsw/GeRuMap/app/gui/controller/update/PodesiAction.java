@@ -16,6 +16,7 @@ public class PodesiAction extends AbstractGeRuMapAction {
         PojamElement pojamElement= (PojamElement) ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelected();
         //pojamElement.setStroke(PodesavanjaFrame.getInstance().getTextField1());
         pojamElement.setText(PodesavanjaFrame.getInstance().getTextField2().getText());
+        //System.out.println(pojamElement.getText());
         PodesavanjaFrame.getInstance().setVisible(false);
 
     }

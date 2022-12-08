@@ -48,6 +48,7 @@ public class MouseController extends MouseAdapter {
 
                 }
             }
+            ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectedElements().removeAll(((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectedElements());
             state.doState(position);
             b= null;
             System.out.println("klik");

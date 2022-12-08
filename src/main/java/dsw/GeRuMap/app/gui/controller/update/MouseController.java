@@ -6,6 +6,7 @@ import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
 import dsw.GeRuMap.app.gui.painters.MapView;
 import dsw.GeRuMap.app.gui.state.State;
+import dsw.GeRuMap.app.gui.state.concrete.MoveState;
 import dsw.GeRuMap.app.gui.state.concrete.NewPojamState;
 import dsw.GeRuMap.app.gui.state.concrete.NewVezaState;
 import dsw.GeRuMap.app.gui.state.concrete.SelectState;
@@ -50,13 +51,15 @@ public class MouseController extends MouseAdapter {
 
                 }
             }
-            List<Element> elementList = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectedElements();
-            for(Element el:elementList){
-                ((PojamElement)el).setSelected(false);
-            }
-            elementList.removeAll(elementList);
-            state.doState(position);
-            b= null;
+           if(state instanceof SelectState){
+               List<Element> elementList = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectedElements();
+               for(Element el:elementList){
+                   ((PojamElement)el).setSelected(false);
+               }
+               elementList.removeAll(elementList);
+           }
+           state.doState(position);
+           b=null;
             System.out.println("klik");
 
 
@@ -85,9 +88,12 @@ public class MouseController extends MouseAdapter {
         System.out.println("|");
             c=b;
             b = e.getPoint();
-            if(MainFrame.getInstance().getTabPanel().getStateManager().getCurrent() instanceof NewVezaState)
+            State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
+            if( state instanceof NewVezaState)
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawMyLine(c,b);
+            //mora jos da se sredi
 
+            //if(state instanceof MoveState) state.doState(c,b);
 
 
 

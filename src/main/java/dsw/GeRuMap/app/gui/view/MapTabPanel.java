@@ -28,6 +28,7 @@ public class MapTabPanel extends JPanel implements ISubscriber {
     private StateManager stateManager;
 
 
+
     private MapTabPanel() {
         selected = null;
         stateManager = new StateManager();
@@ -120,5 +121,9 @@ public class MapTabPanel extends JPanel implements ISubscriber {
 
     public void startSelect() {
         stateManager.setSelectState();
+    }
+
+    public void startMoveElement() {
+        stateManager.setMoveState();
     }
 }

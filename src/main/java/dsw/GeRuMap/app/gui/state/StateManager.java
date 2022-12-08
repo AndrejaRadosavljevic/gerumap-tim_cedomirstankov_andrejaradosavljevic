@@ -1,9 +1,6 @@
 package dsw.GeRuMap.app.gui.state;
 
-import dsw.GeRuMap.app.gui.state.concrete.BrisiElementState;
-import dsw.GeRuMap.app.gui.state.concrete.NewPojamState;
-import dsw.GeRuMap.app.gui.state.concrete.NewVezaState;
-import dsw.GeRuMap.app.gui.state.concrete.SelectState;
+import dsw.GeRuMap.app.gui.state.concrete.*;
 
 public class StateManager {
 
@@ -16,6 +13,7 @@ public class StateManager {
     private NewVezaState newVezaState;
 
     private SelectState selectState;
+    private MoveState moveState;
 
     public StateManager(){
         initstates();
@@ -26,6 +24,7 @@ public class StateManager {
         newPojamState=new NewPojamState();
         newVezaState=new NewVezaState();
         selectState=new SelectState();
+        moveState = new MoveState();
         currentState=selectState;
     }
 
@@ -47,5 +46,9 @@ public class StateManager {
 
     public void setSelectState(){
         currentState=selectState;
+    }
+
+    public void setMoveState() {
+        currentState = moveState;
     }
 }

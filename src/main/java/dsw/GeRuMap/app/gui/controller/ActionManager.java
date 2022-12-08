@@ -20,6 +20,7 @@ public class ActionManager {
     private SelectAction selectAction;
     private BrisiElementAction brisiElementAction;
     private PodesavanjaAction podesavanjaAction;
+    private MoveAction moveAction;
 
 
     public ActionManager(){
@@ -37,6 +38,7 @@ public class ActionManager {
         selectAction = new SelectAction();
         brisiElementAction = new BrisiElementAction();
         podesavanjaAction = new PodesavanjaAction();
+        moveAction = new MoveAction();
     }
 
     public ExitAction getExitAction() {

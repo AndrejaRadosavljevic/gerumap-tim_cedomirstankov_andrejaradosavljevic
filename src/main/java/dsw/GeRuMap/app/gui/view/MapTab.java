@@ -4,7 +4,6 @@ import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
-import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
@@ -33,8 +32,11 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
         mapView=new MapView(selected);
         selectedElements = new ArrayList<>();
 
+        MouseController mouseController = new MouseController();
 
-        addMouseListener(new MouseController());
+
+        addMouseListener(mouseController);
+        addMouseMotionListener(mouseController);
 
         setBackground(Color.white);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -116,6 +118,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
     }
 
     public void drawMyLine(Point a, Point b) {
+
         System.out.println("/");
         Graphics2D g2 = (Graphics2D) getGraphics();
         BasicStroke stroke=new BasicStroke(5F);

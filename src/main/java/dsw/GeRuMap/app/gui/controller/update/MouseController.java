@@ -20,12 +20,13 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.geom.GeneralPath;
 import java.security.Provider;
 import java.util.List;
 
 public class MouseController extends MouseAdapter {
-    private Point a=null,b;
+    private Point a=null,b,c;
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -33,7 +34,7 @@ public class MouseController extends MouseAdapter {
         if (e.getButton()==MouseEvent.BUTTON1){
             Point position = e.getPoint();
 
-            a = e.getPoint();
+            c=a = e.getPoint();
 
             State state =  MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
 
@@ -81,14 +82,17 @@ public class MouseController extends MouseAdapter {
     public void mouseDragged(MouseEvent e) {
         super.mouseDragged(e);
 
-
-            System.out.println("|");
+        System.out.println("|");
+            c=b;
             b = e.getPoint();
             if(MainFrame.getInstance().getTabPanel().getStateManager().getCurrent() instanceof NewVezaState)
-                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawMyLine(a,b);
+                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawMyLine(c,b);
+
+
 
 
 
     }
+
 
 }

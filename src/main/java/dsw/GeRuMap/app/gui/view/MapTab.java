@@ -47,19 +47,13 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
         Graphics2D g2 = (Graphics2D) g;
         BasicStroke stroke=new BasicStroke(5F);
         g2.setStroke(stroke);
-        //Ellipse2D.Float ln=new
-        //        Ellipse2D.Float(0F,0F,250F,230F);
-       // g2.draw(ln);
 
             for(ElementPainter elementPainter : mapView.getPainters()){
                 //Ovde se iscrtavaju elementi uz pomoc g2 grafike
-                System.out.println("/////"+elementPainter.getElement().name);
                 elementPainter.paint(g2,elementPainter.getElement());
-                //System.out.println("aa"+((PojamElement)elementPainter.getElement()).getPosition());
             }
 
 
-        System.out.println("Da");
         }
 
     @Override
@@ -117,10 +111,10 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
         return mapView.getPainter(element);
     }
 
-    public void drawLine(Point a, Point b) {
+    public void drawMyLine(Point a, Point b) {
+        System.out.println("/");
         Graphics2D g2 = (Graphics2D) getGraphics();
         BasicStroke stroke=new BasicStroke(5F);
-        repaint();
         Shape shape = new Line2D.Double(a,b);
         g2.setStroke(stroke);
         g2.setPaint(Color.BLACK);

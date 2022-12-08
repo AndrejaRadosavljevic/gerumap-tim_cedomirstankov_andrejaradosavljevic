@@ -7,6 +7,7 @@ import dsw.GeRuMap.app.gui.painters.ElementPainter;
 import dsw.GeRuMap.app.gui.painters.MapView;
 import dsw.GeRuMap.app.gui.state.State;
 import dsw.GeRuMap.app.gui.state.concrete.NewPojamState;
+import dsw.GeRuMap.app.gui.state.concrete.NewVezaState;
 import dsw.GeRuMap.app.gui.state.concrete.SelectState;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
@@ -79,8 +80,9 @@ public class MouseController extends MouseAdapter {
 
         if (e.getButton()==MouseEvent.BUTTON1){
             b = e.getPoint();
-            Graphics g = MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent().getGraphics();
-            g.drawLine(a.x,a.y,b.x,b.y);
+            if(MainFrame.getInstance().getTabPanel().getStateManager().getCurrent() instanceof NewVezaState)
+                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawLine(a,b);
+
 
         }
     }

@@ -15,6 +15,7 @@ import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,5 +115,18 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
 
     public ElementPainter getPainter(Element element){
         return mapView.getPainter(element);
+    }
+
+    public void drawLine(Point a, Point b) {
+        Graphics2D g2 = (Graphics2D) getGraphics();
+        BasicStroke stroke=new BasicStroke(5F);
+        repaint();
+        Shape shape = new Line2D.Double(a,b);
+        g2.setStroke(stroke);
+        g2.setPaint(Color.BLACK);
+        g2.draw(shape);
+        g2.fill(shape);
+
+
     }
 }

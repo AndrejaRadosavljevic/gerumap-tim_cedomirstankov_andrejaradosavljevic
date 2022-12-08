@@ -15,17 +15,23 @@ import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
 public class MapTab extends JPanel implements UpdateListener, ISubscriber {
 
         private MapView mapView;
-        private Element selected;
+
+        private List<Element> selectedElements;
+
 
     public MapTab(MindMap selected) {
         //addMouseListener();
         mapView=new MapView(selected);
+        selectedElements = new ArrayList<>();
+
 
         addMouseListener(new MouseController());
 
@@ -60,16 +66,25 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
         repaint();
     }
 
+
+//
     public void updateSelected(String name, Stroke stroke,Paint paint){
-        selected.setName(name);
-        selected.setStroke(stroke);
-        selected.setPaint(paint);
+        for(Element e: selectedElements){
+            if(e instanceof PojamElement){
+
+                e.setName(name);
+                e.setStroke(stroke);
+                e.setPaint(paint);
+            }
+        }
         mapView.updateList();
         updatePerformed(new UpdateEvent(this));
     }
 
-    public void setSelected(Point x) {
-        selected = mapView.getMindMap().getChildOnLocation(x);
+    public void addSelectedElement(Point x) {
+        Element element = mapView.getMindMap().getChildOnLocation(x);
+
+        if(element!=null)selectedElements.add(element);
     }
 
     public void addPainter(ElementPainter elementPainter){
@@ -82,7 +97,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
     public void removePainter(Point x){
 
         mapView.removeChild(x);
-        if(!mapView.containsElementOnPoint(x))selected=null;
+        if(!mapView.containsElementOnPoint(x))selectedElements.remove(mapView.getMindMap().getChildOnLocation(x));
         updatePerformed(new UpdateEvent(this));
     }
 

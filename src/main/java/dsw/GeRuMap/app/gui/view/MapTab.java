@@ -68,6 +68,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
 
 
 //
+
     public void updateSelected(String name, Stroke stroke,Paint paint){
         for(Element e: selectedElements){
             if(e instanceof PojamElement){
@@ -84,7 +85,10 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
     public void addSelectedElement(Point x) {
         Element element = mapView.getMindMap().getChildOnLocation(x);
 
-        if(element!=null)selectedElements.add(element);
+        if(element!=null){
+            ((PojamElement)element).setSelected(true);
+            selectedElements.add(element);
+        }
     }
 
     public void addPainter(ElementPainter elementPainter){

@@ -26,6 +26,11 @@ public class PojamPainter extends ElementPainter{
 
         g.setStroke(element.getStroke());
         g.draw(getShape());
+        if(((PojamElement)element).isSelected()){
+            g.setPaint(Color.GRAY);
+            g.fill(getShape());
+            System.out.println("||||");
+        }
         g.setPaint(element.getPaint());
 
         if (element instanceof PojamElement){
@@ -36,6 +41,7 @@ public class PojamPainter extends ElementPainter{
             g.drawString(device.getName(), (int)device.getPosition().getX()+(int)device.getSize().getWidth()/2-sw/2,
                     (int)device.getPosition().getY()+(int)device.getSize().getHeight()/2);
         }
+
 
     }
 

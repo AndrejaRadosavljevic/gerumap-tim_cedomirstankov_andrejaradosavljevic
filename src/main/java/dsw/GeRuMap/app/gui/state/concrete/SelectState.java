@@ -48,9 +48,6 @@ public class SelectState implements State {
                     System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
                 }
             }
-            if(ep1.getElement() instanceof VezaElement){
-
-            }
         }
         ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));
     }

@@ -7,6 +7,7 @@ import dsw.GeRuMap.app.gui.painters.ElementPainter;
 import dsw.GeRuMap.app.gui.painters.MapView;
 import dsw.GeRuMap.app.gui.state.State;
 import dsw.GeRuMap.app.gui.state.concrete.NewPojamState;
+import dsw.GeRuMap.app.gui.state.concrete.NewVezaState;
 import dsw.GeRuMap.app.gui.state.concrete.SelectState;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
@@ -19,12 +20,13 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.geom.GeneralPath;
 import java.security.Provider;
 import java.util.List;
 
 public class MouseController extends MouseAdapter {
-    private Point a=null,b;
+    private Point a=null,b,c;
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -32,7 +34,7 @@ public class MouseController extends MouseAdapter {
         if (e.getButton()==MouseEvent.BUTTON1){
             Point position = e.getPoint();
 
-            a = e.getPoint();
+            c=a = e.getPoint();
 
             State state =  MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
 
@@ -80,14 +82,16 @@ public class MouseController extends MouseAdapter {
     public void mouseDragged(MouseEvent e) {
         super.mouseDragged(e);
 
-
-
-        if (e.getButton()==MouseEvent.BUTTON1){
+        System.out.println("|");
+            c=b;
             b = e.getPoint();
-            Graphics g = MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent().getGraphics();
-            g.drawLine(a.x,a.y,b.x,b.y);
+            if(MainFrame.getInstance().getTabPanel().getStateManager().getCurrent() instanceof NewVezaState)
+                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawMyLine(c,b);
 
-        }
+
+
+
+
     }
 
 

@@ -71,12 +71,13 @@ public class MapView {
     }
 
     public void addPainter(Point x, Point y) {
-        PojamElement p1 = (PojamElement) mindMap.getChildOnLocation(x);
-        PojamElement p2 = (PojamElement) mindMap.getChildOnLocation(y);
+        Element p1 = mindMap.getChildOnLocation(x);
+        Element p2 =  mindMap.getChildOnLocation(y);
         if(p1 == null || p2 == null) return;
+        if(p1 instanceof VezaElement || p2 instanceof VezaElement) return;
         if(p1.equals(p2)) return;
         
-        VezaElement vezaElement = new VezaElement("veza("+x.x+","+x.y+","+y.x+","+y.y+")",mindMap,p1,p2);
+        VezaElement vezaElement = new VezaElement("veza("+x.x+","+x.y+","+y.x+","+y.y+")",mindMap,(PojamElement) p1,(PojamElement) p2);
 
         addPainter(vezaElement);
     }

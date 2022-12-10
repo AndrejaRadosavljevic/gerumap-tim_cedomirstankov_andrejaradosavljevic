@@ -141,6 +141,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         System.out.println("/");
         Graphics2D g2 = (Graphics2D) getGraphics();
         BasicStroke stroke=new BasicStroke(5F);
+        if(a == null || b==null) return;
         Shape shape = new Line2D.Double(a,b);
         g2.setStroke(stroke);
         g2.setPaint(Color.BLACK);

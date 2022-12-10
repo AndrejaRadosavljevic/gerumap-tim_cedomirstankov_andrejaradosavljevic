@@ -26,6 +26,7 @@ public class Element extends MapNode implements ISubscriber {
         super(name,parent);
         this.stroke = stroke;
         this.paint = paint;
+        scale = 1;
         pbr = br;
         br++;
     }

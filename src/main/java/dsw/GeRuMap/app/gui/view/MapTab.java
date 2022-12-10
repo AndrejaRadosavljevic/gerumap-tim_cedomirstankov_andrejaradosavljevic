@@ -43,6 +43,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         mapView=new MapView(selected);
         selectedElements = new ArrayList<>();
         affineTransform = new AffineTransform();
+        subscribers = new ArrayList<>();
         scale = 1;
 
         MouseController mouseController = new MouseController();
@@ -76,7 +77,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     public void updatePerformed(UpdateEvent e) {
         subscribers.clear();
         for(MapNode subscriber: mapView.getMindMap().getChildren()){
-            subscribers.add((ISubscriber) subscriber);
+            addSubscriber((ISubscriber) subscriber);
         }
         repaint();
     }
@@ -100,7 +101,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     public void addSelectedElement(Point x) {
         Element element = mapView.getMindMap().getChildOnLocation(x);
 
-        if(element!=null){
+        if(element instanceof PojamElement){
             ((PojamElement)element).setSelected(true);
             selectedElements.add(element);
         }
@@ -109,7 +110,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     public void addPainter(ElementPainter elementPainter){
         elementPainter.getElement().setParent(mapView.getMindMap());
         mapView.addPainter(elementPainter);
-        addSubscriber(elementPainter.getElement());
         updatePerformed(new UpdateEvent(this));
     }
 

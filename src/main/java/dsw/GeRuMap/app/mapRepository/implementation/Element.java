@@ -1,5 +1,7 @@
 package dsw.GeRuMap.app.mapRepository.implementation;
 
+import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
+import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,11 +10,11 @@ import java.awt.*;
 
 @Getter
 @Setter
-public class Element extends MapNode {
+public class Element extends MapNode implements ISubscriber {
 
     protected Stroke stroke;
     protected Paint paint;
-    private int scale;
+    private double scale;
     private int pbr ;
     private static int br = 0;
 
@@ -41,5 +43,10 @@ public class Element extends MapNode {
             else return false;
         }
         return false;
+    }
+
+    @Override
+    public void update(Object notification) {
+        scale =( (MapTab)notification).getScale();
     }
 }

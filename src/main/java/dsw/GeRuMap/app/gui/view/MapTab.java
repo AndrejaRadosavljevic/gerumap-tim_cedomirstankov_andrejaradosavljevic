@@ -5,6 +5,7 @@ import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
+import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
@@ -18,6 +19,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Getter
@@ -72,6 +74,10 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     @Override
     public void updatePerformed(UpdateEvent e) {
+        subscribers.clear();
+        for(MapNode subscriber: mapView.getMindMap().getChildren()){
+            subscribers.add((ISubscriber) subscriber);
+        }
         repaint();
     }
 
@@ -103,6 +109,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     public void addPainter(ElementPainter elementPainter){
         elementPainter.getElement().setParent(mapView.getMindMap());
         mapView.addPainter(elementPainter);
+        addSubscriber(elementPainter.getElement());
         updatePerformed(new UpdateEvent(this));
     }
 

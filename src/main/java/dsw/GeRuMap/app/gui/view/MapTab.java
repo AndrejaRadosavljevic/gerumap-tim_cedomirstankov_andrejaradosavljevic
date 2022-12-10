@@ -144,6 +144,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void moveSelected(double h, double w) {
+        if(selectedElements ==null)moveView(h,w);
         for(Element e:selectedElements){
             if(e instanceof PojamElement){
                 Point p = ((PojamElement) e).getPosition();
@@ -158,13 +159,22 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
 
+    // Za pomeranje po mapi uma kada se nesto ne vidi. Treba se doraditi.
+    private void moveView(double h, double w) {
+
+
+    }
+
+
     public  void zoomIn(){
         scale*=2;
+        notifySubscriber(this);
         affineTransform.scale(scale,scale);
         update(this);
     }
     public  void zoomOut(){
         scale/=2;
+        notifySubscriber(this);
         affineTransform.scale(scale,scale);
         update(this);
     }

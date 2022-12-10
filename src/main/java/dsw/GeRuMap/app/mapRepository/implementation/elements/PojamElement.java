@@ -24,7 +24,7 @@ public class PojamElement extends Element {
     }
 
     public boolean hasPoint(Point x) {
-        if(x.x*getScale() >= position.x && x.x*getScale() <= position.x+size.width &&x.y*getScale() >= position.y && x.y*getScale() <= position.y+size.height)
+        if(x.x >= position.x*getScale() && x.x <= (position.x+size.width)*getScale() &&x.y >= position.y*getScale() && x.y <= (position.y+size.height)*getScale())
             return true;
         return false;
     }

@@ -1,5 +1,6 @@
 package dsw.GeRuMap.app.gui.view;
 
+import dsw.GeRuMap.app.gui.controller.observer.IPublisher;
 import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
@@ -14,23 +15,33 @@ import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-public class MapTab extends JPanel implements UpdateListener, ISubscriber {
+public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPublisher {
 
         private MapView mapView;
 
         private List<Element> selectedElements;
+
+        private AffineTransform affineTransform;
+
+        private double scale;
+
+        private List<ISubscriber> subscribers;
+
 
 
     public MapTab(MindMap selected) {
         //addMouseListener();
         mapView=new MapView(selected);
         selectedElements = new ArrayList<>();
+        affineTransform = new AffineTransform();
+        scale = 1;
 
         MouseController mouseController = new MouseController();
 
@@ -49,6 +60,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
         Graphics2D g2 = (Graphics2D) g;
         BasicStroke stroke=new BasicStroke(5F);
         g2.setStroke(stroke);
+        g2.scale(scale,scale);
 
             for(ElementPainter elementPainter : mapView.getPainters()){
                 //Ovde se iscrtavaju elementi uz pomoc g2 grafike
@@ -143,5 +155,41 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber {
         }
         mapView.updateList();
         updatePerformed(new UpdateEvent(this));
+    }
+
+
+    public  void zoomIn(){
+        scale*=2;
+        affineTransform.scale(scale,scale);
+        update(this);
+    }
+    public  void zoomOut(){
+        scale/=2;
+        affineTransform.scale(scale,scale);
+        update(this);
+    }
+    public  void setScale(int x, int y){
+        //affineTransform.scale(x,y);
+
+        notifySubscriber(x);
+
+    }
+
+    @Override
+    public void addSubscriber(ISubscriber sub) {
+        if(subscribers == null)subscribers = new ArrayList<>();
+        subscribers.add(sub);
+    }
+
+    @Override
+    public void removeSubscriber(ISubscriber sub) {
+        subscribers.remove(sub);
+    }
+
+    @Override
+    public void notifySubscriber(Object notification) {
+        for(ISubscriber s: subscribers) {
+            s.update(notification);
+        }
     }
 }

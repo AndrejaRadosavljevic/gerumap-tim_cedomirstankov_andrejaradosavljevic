@@ -12,7 +12,7 @@ public class Element extends MapNode {
 
     protected Stroke stroke;
     protected Paint paint;
-
+    private int scale;
     private int pbr ;
     private static int br = 0;
 

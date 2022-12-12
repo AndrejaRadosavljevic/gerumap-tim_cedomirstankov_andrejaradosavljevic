@@ -28,4 +28,11 @@ public class PojamElement extends Element {
             return true;
         return false;
     }
+
+    public Point getCurentPoint(){
+        return new Point((int) (position.x*getScale()), (int) (position.y*getScale()));
+    }
+    public Dimension getCurentSize(){
+        return new Dimension((int) (size.width*getScale()), (int) (size.height*getScale()));
+    }
 }

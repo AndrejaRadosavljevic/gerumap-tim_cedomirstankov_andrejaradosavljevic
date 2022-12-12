@@ -88,14 +88,14 @@ public class MouseController extends MouseAdapter {
         super.mouseDragged(e);
 
         System.out.println("|");
-            c=b;
-            b = e.getPoint();
-            State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
-            if( state instanceof NewVezaState)
-                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawMyLine(c,b);
-            //mora jos da se sredi
+        c=b;
+        b = e.getPoint();
+        State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
+        if( state instanceof NewVezaState)
+            ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawMyLine(c,b);
+        //mora jos da se sredi
 
-            //if(state instanceof MoveState) state.doState(c,b);
+        //if(state instanceof MoveState) state.doState(c,b);
 
 
 

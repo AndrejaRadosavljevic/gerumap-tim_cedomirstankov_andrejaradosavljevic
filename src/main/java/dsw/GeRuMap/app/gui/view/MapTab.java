@@ -137,7 +137,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void drawMyLine(Point a, Point b) {
-
+       // updatePerformed(new UpdateEvent(this));
         System.out.println("/");
         Graphics2D g2 = (Graphics2D) getGraphics();
         BasicStroke stroke=new BasicStroke(5F);

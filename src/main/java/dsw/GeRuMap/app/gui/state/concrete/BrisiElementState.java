@@ -32,11 +32,9 @@ public class BrisiElementState implements State {
         List<Element> elements = new ArrayList<>();
         for(ElementPainter ep1:((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().getPainters()){
             if(ep1.getElement() instanceof PojamElement) {
-                double x1 = ((PojamElement) ep1.getElement()).getPosition().getX();
-                double y1 = ((PojamElement) ep1.getElement()).getPosition().getY();
                 if(selection.intersects(((PojamElement) ep1.getElement()).getPosition().getX(),((PojamElement) ep1.getElement()).getPosition().getY(),((PojamElement) ep1.getElement()).getSize().getWidth(),((PojamElement) ep1.getElement()).getSize().getHeight())){
                     elements.add(ep1.getElement());
-                    System.out.println("Obrisano: "+((PojamElement) ep1.getElement()).getName());
+                    System.out.println("Obrisano: "+ep1.getElement().getName());
                 }
             }
         }

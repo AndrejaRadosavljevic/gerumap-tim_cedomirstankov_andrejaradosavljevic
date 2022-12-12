@@ -59,7 +59,7 @@ public class MouseController extends MouseAdapter {
     @Override
     public void mouseReleased(MouseEvent e) {
         super.mouseReleased(e);
-
+        State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
         if (e.getButton()==MouseEvent.BUTTON1){
             b = e.getPoint();
             System.out.println(a+" |razmak|  "+b);
@@ -79,7 +79,8 @@ public class MouseController extends MouseAdapter {
             b = e.getPoint();
             State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
             if(state instanceof SelectState){
-                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawSelection(a,b);
+                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectPainter().setY(e.getPoint());
+                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));
             }
 
             if( state instanceof NewVezaState)

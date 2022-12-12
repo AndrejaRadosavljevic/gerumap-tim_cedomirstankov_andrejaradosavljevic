@@ -33,6 +33,7 @@ public class SelectState implements State {
 
     @Override
     public void doState(Point a, Point b) {
+        ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).setSelectPainter(null);
         selection=new Rectangle(a);
         selection.setFrameFromDiagonal(a,b);
 

@@ -6,6 +6,7 @@ import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
+import dsw.GeRuMap.app.gui.painters.SelectPainter;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
@@ -37,6 +38,8 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
         private List<ISubscriber> subscribers;
 
+        private SelectPainter selectPainter;
+
 
 
     public MapTab(MindMap selected) {
@@ -46,6 +49,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         affineTransform = new AffineTransform();
         subscribers = new ArrayList<>();
         scale = 1;
+        selectPainter=null;
 
         MouseController mouseController = new MouseController();
 
@@ -71,7 +75,8 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
                 elementPainter.paint(g2,elementPainter.getElement());
             }
 
-
+            if(selectPainter!=null)
+               selectPainter.paint(g2, scale);
         }
 
     @Override
@@ -100,6 +105,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void addSelectedElement(Point x) {
+        selectPainter=new SelectPainter(x,x);
         Element element = mapView.getMindMap().getChildOnLocation(x);
 
         if(element instanceof PojamElement){
@@ -151,20 +157,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
 
     }
-
-    public void drawSelection(Point a, Point b){
-        updatePerformed(new UpdateEvent(this));
-        Graphics2D g2 = (Graphics2D) getGraphics();
-        Stroke dashedStroke = new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10, new float[]{10}, 0);
-        g2.setPaint(Color.BLACK);
-        g2.setStroke(dashedStroke);
-        Rectangle rectangle=new Rectangle();
-        rectangle.setFrameFromDiagonal(a,b);
-        g2.draw(rectangle);
-        //g2.setPaint(new Color (0,0,0, .5f));
-        //g2.fill(rectangle);
-    }
-
 
     public void moveSelected(double h, double w) {
         if(selectedElements ==null)moveView(h,w);

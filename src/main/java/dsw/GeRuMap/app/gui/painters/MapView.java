@@ -78,9 +78,13 @@ public class MapView {
         if(p1.equals(p2)) return;
         
         VezaElement vezaElement = new VezaElement("veza("+x.x+","+x.y+","+y.x+","+y.y+")",mindMap,(PojamElement) p1,(PojamElement) p2);
-        for(ElementPainter elementPainter:painters){
-            if(elementPainter instanceof VezaPainter){
-                if(vezaElement.getPE1() ==((VezaElement) elementPainter.getElement()).getPE1() && vezaElement.getPE2() ==((VezaElement) elementPainter.getElement()).getPE2()){
+        for(MapNode element:mindMap.getChildren()){
+            if(element instanceof VezaElement){
+                if(vezaElement.getPE1() ==((VezaElement) element).getPE1() && vezaElement.getPE2() ==((VezaElement) element).getPE2()){
+                    System.out.println("ERROR");
+                    return;
+                }
+                if(vezaElement.getPE1() ==((VezaElement) element).getPE2() && vezaElement.getPE2() ==((VezaElement) element).getPE1()){
                     System.out.println("ERROR");
                     return;
                 }

@@ -1,10 +1,12 @@
 package dsw.GeRuMap.app.gui.view;
 
+import com.sun.tools.javac.Main;
 import dsw.GeRuMap.app.gui.controller.observer.IPublisher;
 import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
+import dsw.GeRuMap.app.gui.painters.SelectPainter;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
@@ -36,6 +38,8 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
         private List<ISubscriber> subscribers;
 
+        private SelectPainter selectPainter;
+
 
 
     public MapTab(MindMap selected) {
@@ -45,6 +49,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         affineTransform = new AffineTransform();
         subscribers = new ArrayList<>();
         scale = 1;
+        selectPainter=null;
 
         MouseController mouseController = new MouseController();
 
@@ -70,7 +75,8 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
                 elementPainter.paint(g2,elementPainter.getElement());
             }
 
-
+            if(selectPainter!=null)
+               selectPainter.paint(g2, scale);
         }
 
     @Override
@@ -99,6 +105,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void addSelectedElement(Point x) {
+        selectPainter=new SelectPainter(x,x);
         Element element = mapView.getMindMap().getChildOnLocation(x);
 
         if(element instanceof PojamElement){

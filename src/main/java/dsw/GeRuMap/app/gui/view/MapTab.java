@@ -1,5 +1,6 @@
 package dsw.GeRuMap.app.gui.view;
 
+import com.sun.tools.javac.Main;
 import dsw.GeRuMap.app.gui.controller.observer.IPublisher;
 import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
@@ -150,6 +151,20 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
 
     }
+
+    public void drawSelection(Point a, Point b){
+        updatePerformed(new UpdateEvent(this));
+        Graphics2D g2 = (Graphics2D) getGraphics();
+        Stroke dashedStroke = new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10, new float[]{10}, 0);
+        g2.setPaint(Color.BLACK);
+        g2.setStroke(dashedStroke);
+        Rectangle rectangle=new Rectangle();
+        rectangle.setFrameFromDiagonal(a,b);
+        g2.draw(rectangle);
+        //g2.setPaint(new Color (0,0,0, .5f));
+        //g2.fill(rectangle);
+    }
+
 
     public void moveSelected(double h, double w) {
         if(selectedElements ==null)moveView(h,w);

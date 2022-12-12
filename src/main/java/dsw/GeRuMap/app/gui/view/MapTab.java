@@ -127,6 +127,12 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         if(!mapView.containsElementOnPoint(x))selectedElements.remove(mapView.getMindMap().getChildOnLocation(x));
         updatePerformed(new UpdateEvent(this));
     }
+    public void removePainter(Element element){
+
+        mapView.removeChild(element);
+        if(!selectedElements.contains(element))selectedElements.remove(element);
+        updatePerformed(new UpdateEvent(this));
+    }
 
 
     public void addVeza(Point x, Point y) {

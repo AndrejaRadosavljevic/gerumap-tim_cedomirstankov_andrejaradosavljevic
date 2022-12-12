@@ -1,6 +1,7 @@
 package dsw.GeRuMap.app.mapRepository.implementation;
 
 import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
+import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class Element extends MapNode implements ISubscriber {
         super(name,parent);
         this.stroke = stroke;
         this.paint = paint;
-        scale = 1;
+        scale = ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getScale();
         pbr = br;
         br++;
     }

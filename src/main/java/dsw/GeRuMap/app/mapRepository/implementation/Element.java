@@ -34,7 +34,7 @@ public class Element extends MapNode implements ISubscriber {
 
     public Element(String name, MapNode parent) {
         super(name, parent);
-        stroke = new BasicStroke(5);
+        stroke = new BasicStroke(2);
         paint = Color.BLACK;
     }
 

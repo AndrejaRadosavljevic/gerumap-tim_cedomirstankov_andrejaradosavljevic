@@ -134,6 +134,11 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         updatePerformed(new UpdateEvent(this));
     }
 
+    public void addSelection(Element e){
+        ((PojamElement)e).setSelected(true);
+        selectedElements.add(e);
+    }
+
 
     public void addVeza(Point x, Point y) {
         mapView.addPainter(x,y);

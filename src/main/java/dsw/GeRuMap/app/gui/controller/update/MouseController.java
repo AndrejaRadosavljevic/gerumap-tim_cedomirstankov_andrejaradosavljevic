@@ -2,10 +2,7 @@ package dsw.GeRuMap.app.gui.controller.update;
 
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
 import dsw.GeRuMap.app.gui.state.State;
-import dsw.GeRuMap.app.gui.state.concrete.BrisiElementState;
-import dsw.GeRuMap.app.gui.state.concrete.NewPojamState;
-import dsw.GeRuMap.app.gui.state.concrete.NewVezaState;
-import dsw.GeRuMap.app.gui.state.concrete.SelectState;
+import dsw.GeRuMap.app.gui.state.concrete.*;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
@@ -75,10 +72,13 @@ public class MouseController extends MouseAdapter {
     @Override
     public void mouseDragged(MouseEvent e) {
         super.mouseDragged(e);
-        System.out.println("|");
+        System.out.println("|*");
             c=b;
             b = e.getPoint();
             State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
+            if(state instanceof MoveState){
+                state.doState(a,b);
+            }
             if(state instanceof SelectState || state instanceof BrisiElementState){
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectPainter().setY(e.getPoint());
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));

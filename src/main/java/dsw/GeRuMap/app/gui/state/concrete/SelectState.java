@@ -59,7 +59,7 @@ public class SelectState implements State {
 //                }
                 if(selection.intersects(((PojamElement) ep1.getElement()).getCurentPosition().getX(),((PojamElement) ep1.getElement()).getCurentPosition().getY(),((PojamElement) ep1.getElement()).getCurentDimensions().getWidth(),((PojamElement) ep1.getElement()).getCurentDimensions().getHeight())){
                     System.out.println("X: " + ((PojamElement) ep1.getElement()).getCurentPosition().getX() + "Y: " + ((PojamElement) ep1.getElement()).getCurentPosition().getY());
-                    doState(((PojamElement) ep1.getElement()).getCurentPosition());
+                    ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelection(ep1.getElement());
                     System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
                 }
             }

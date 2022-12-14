@@ -16,8 +16,6 @@ public class Element extends MapNode implements ISubscriber {
     protected Stroke stroke;
     protected Paint paint;
     private double scale;
-    private double transX;
-    private double transY;
     private int pbr ;
     private static int br = 0;
 
@@ -30,15 +28,13 @@ public class Element extends MapNode implements ISubscriber {
         this.stroke = stroke;
         this.paint = paint;
         scale = ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getScale();
-        transX = ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getTransX();
-        transY = ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getTransY();
         pbr = br;
         br++;
     }
 
     public Element(String name, MapNode parent) {
         super(name, parent);
-        stroke = new BasicStroke(5);
+        stroke = new BasicStroke(2);
         paint = Color.BLACK;
     }
 
@@ -54,7 +50,5 @@ public class Element extends MapNode implements ISubscriber {
     @Override
     public void update(Object notification) {
         scale =( (MapTab)notification).getScale();
-        transX = ((MapTab)notification).getTransX();
-        transY = ((MapTab)notification).getTransY();
     }
 }

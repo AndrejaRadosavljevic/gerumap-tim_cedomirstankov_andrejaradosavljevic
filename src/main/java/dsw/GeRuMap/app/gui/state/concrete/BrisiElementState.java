@@ -16,13 +16,20 @@ import java.util.List;
 
 public class BrisiElementState implements State {
 
-    void obrisi(Point x){
-
-    }
+    private double tx;
+    private double ty;
+    private double s;
 
     @Override
     public void doState(Point x) {
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelectedElement(x);
+
+        tx = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransX();
+        ty = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransY();
+        s = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getScale();
+
+        x.translate((int) (-tx*s), (int) (-ty*s));
+
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removePainter(x);
         System.out.println("Brisi");
     }
@@ -31,6 +38,8 @@ public class BrisiElementState implements State {
     public void doState(Point a, Point b) {
         ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).setSelectPainter(null);
 
+        a.translate((int) (-tx*s), (int) (-ty*s));
+        b.translate((int) (-tx*s), (int) (-ty*s));
 
         Rectangle selection=new Rectangle(a);
         selection.setFrameFromDiagonal(a,b);

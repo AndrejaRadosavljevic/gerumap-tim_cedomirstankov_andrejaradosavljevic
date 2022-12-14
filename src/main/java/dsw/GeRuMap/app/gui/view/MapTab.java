@@ -6,12 +6,10 @@ import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.controller.update.UpdateListener;
-import dsw.GeRuMap.app.gui.painters.SelectPainter;
+import dsw.GeRuMap.app.gui.painters.*;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
-import dsw.GeRuMap.app.gui.painters.ElementPainter;
-import dsw.GeRuMap.app.gui.painters.MapView;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import lombok.Getter;
 import lombok.Setter;
@@ -74,11 +72,21 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         BasicStroke stroke=new BasicStroke(5F);
         g2.setStroke(stroke);
         g2.scale(scale,scale);
+
         g2.translate(transX,transY);
 
+        List<PojamPainter> pojamPainters=new ArrayList<>();
+
             for(ElementPainter elementPainter : mapView.getPainters()){
-                //Ovde se iscrtavaju elementi uz pomoc g2 grafike
-                elementPainter.paint(g2,elementPainter.getElement());
+                if(elementPainter instanceof VezaPainter){
+                    elementPainter.paint(g2,elementPainter.getElement());
+                }else if(elementPainter instanceof PojamPainter){
+                    pojamPainters.add((PojamPainter) elementPainter);
+                }
+
+            }
+            for(PojamPainter pp:pojamPainters){
+                pp.paint(g2,pp.getElement());
             }
 
             if(selectPainter!=null)
@@ -164,7 +172,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
        // updatePerformed(new UpdateEvent(this));
         System.out.println("/");
         Graphics2D g2 = (Graphics2D) getGraphics();
-        BasicStroke stroke=new BasicStroke(5F);
+        BasicStroke stroke=new BasicStroke(2F);
         if(a == null || b==null) return;
         Shape shape = new Line2D.Double(a,b);
         g2.setStroke(stroke);

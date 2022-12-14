@@ -22,8 +22,9 @@ public class PojamPainter extends ElementPainter{
 
     public void paint(Graphics2D g, Element element){
 
+        g.setPaint(Color.WHITE);
+        g.fill(getShape());
         g.setPaint(element.getPaint());
-
         g.setStroke(element.getStroke());
         g.draw(getShape());
         if(((PojamElement)element).isSelected()){

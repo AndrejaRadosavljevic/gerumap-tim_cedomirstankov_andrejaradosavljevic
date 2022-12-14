@@ -25,7 +25,7 @@ public class PojamElement extends Element {
     }
 
     public boolean hasPoint(Point x) {
-        if(x.x >= position.x*getScale() && x.x <= (position.x+size.width)*getScale() &&x.y >= position.y*getScale() && x.y <= (position.y+size.height)*getScale())
+        if(x.x >= (position.x+getTransX())*getScale() && x.x <= (position.x+size.width+getTransX())*getScale() &&x.y >= (position.y+getTransY())*getScale() && x.y <= (position.y+size.height+getTransY())*getScale())
             return true;
         return false;
     }
@@ -51,7 +51,7 @@ public class PojamElement extends Element {
     }
 
     public Point getCurentPosition() {
-        return new Point((int) (position.x*getScale()), (int) (position.y*getScale()));
+        return new Point((int) (position.x*getScale()+getTransX()), (int) (position.y*getScale()+getTransY()));
     }
     public Dimension getCurentDimensions(){
         return new Dimension((int) (size.width*getScale()), (int) (size.height*getScale()));

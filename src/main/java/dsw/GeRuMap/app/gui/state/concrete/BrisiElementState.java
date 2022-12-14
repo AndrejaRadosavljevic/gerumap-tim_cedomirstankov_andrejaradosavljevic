@@ -30,9 +30,10 @@ public class BrisiElementState implements State {
     @Override
     public void doState(Point a, Point b) {
         ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).setSelectPainter(null);
+
+
         Rectangle selection=new Rectangle(a);
         selection.setFrameFromDiagonal(a,b);
-        Graphics g = new DebugGraphics();
         System.out.println(a+"||||||||"+b);
 
         List<Element> elements = new ArrayList<>();

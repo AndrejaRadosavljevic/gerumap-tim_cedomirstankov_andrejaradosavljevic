@@ -35,10 +35,13 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         private AffineTransform affineTransform;
 
         private double scale;
+        private double transX;
+        private double transY;
 
         private List<ISubscriber> subscribers;
 
         private SelectPainter selectPainter;
+
 
 
 
@@ -49,6 +52,8 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         affineTransform = new AffineTransform();
         subscribers = new ArrayList<>();
         scale = 1;
+        transX = 0;
+        transY = 0;
         selectPainter=null;
 
         MouseController mouseController = new MouseController();
@@ -69,6 +74,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         BasicStroke stroke=new BasicStroke(5F);
         g2.setStroke(stroke);
         g2.scale(scale,scale);
+        g2.translate(transX,transY);
 
             for(ElementPainter elementPainter : mapView.getPainters()){
                 //Ovde se iscrtavaju elementi uz pomoc g2 grafike
@@ -76,7 +82,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
             }
 
             if(selectPainter!=null)
-               selectPainter.paint(g2, scale);
+               selectPainter.paint(g2, scale, transX, transY);
         }
 
     @Override
@@ -170,7 +176,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void moveSelected(double h, double w) {
-        if(selectedElements ==null)moveView(h,w);
+        if(selectedElements.size() ==0)moveView(h,w);
         for(Element e:selectedElements){
             if(e instanceof PojamElement){
                 Point p = ((PojamElement) e).getPosition();
@@ -186,8 +192,10 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
 
     // Za pomeranje po mapi uma kada se nesto ne vidi. Treba se doraditi.
-    private void moveView(double h, double w) {
-
+    private void moveView(double x, double y) {
+        transX+=x/scale;
+        transY+=y/scale;
+        notifySubscriber(this);
 
     }
 

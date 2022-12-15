@@ -50,6 +50,7 @@ public class MouseController extends MouseAdapter {
                }
                elementList.removeAll(elementList);
            }
+
            state.doState(position);
            b=null;
             System.out.println("klik");

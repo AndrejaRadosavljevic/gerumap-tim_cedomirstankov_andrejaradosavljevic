@@ -86,7 +86,7 @@ public class MouseController extends MouseAdapter {
                 state.doState(a,b);
             }
             if(state instanceof SelectState || state instanceof BrisiElementState){
-                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectPainter().setY(e.getPoint());
+                ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).setSelectPainter(a,b);
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));
             }
 

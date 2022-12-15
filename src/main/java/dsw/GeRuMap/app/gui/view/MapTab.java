@@ -119,7 +119,10 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void addSelectedElement(Point x) {
-        selectPainter=new SelectPainter(x,x);
+
+
+        x.translate((int) (-transX*scale), (int) (-transY*scale));
+
         Element element = mapView.getMindMap().getChildOnLocation(x);
 
         if(element instanceof PojamElement){
@@ -250,5 +253,11 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         for(ISubscriber s: subscribers) {
             s.update(notification);
         }
+    }
+
+
+    public void setSelectPainter(Point a, Point b) {
+        if(selectPainter == null) selectPainter = new SelectPainter(a,b);
+        selectPainter.setY(b);
     }
 }

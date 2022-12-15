@@ -2,6 +2,7 @@ package dsw.GeRuMap.app.gui.state.concrete;
 
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
+import dsw.GeRuMap.app.gui.painters.SelectPainter;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.gui.state.State;
@@ -22,13 +23,12 @@ public class BrisiElementState implements State {
 
     @Override
     public void doState(Point x) {
-        //((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelectedElement(x);
 
         tx = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransX();
         ty = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransY();
         s = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getScale();
 
-        x.translate((int) (-tx*s), (int) (-ty*s));
+        x.translate((int) (+tx*s), (int) (+ty*s));
 
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removePainter(x);
         System.out.println("Brisi");

@@ -54,6 +54,8 @@ public class BrisiElementState implements State {
                     elements.add(ep1.getElement());
                     System.out.println("Obrisano: "+ep1.getElement().getName());
                 }
+                if(((PojamElement) ep1.getElement()).hasPoint(a))
+                    elements.add(ep1.getElement());
             }
         }
         System.out.println(elements+"AAAAAAAAAAAAAAAA");

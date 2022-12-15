@@ -20,20 +20,31 @@ import java.util.List;
 @Setter
 public class SelectState implements State {
 
+    private double tx;
+    private double ty;
+    private double s;
     Rectangle selection = new Rectangle();
 
     @Override
     public void doState(Point x) {
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelectedElement(x);
+        tx = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransX();
+        ty = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransY();
+        s = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getScale();
+
+
         System.out.println("Select");
     }
 
     @Override
     public void doState(Point a, Point b) {
         ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).setSelectPainter(null);
+
+        a.translate((int) (-tx*s), (int) (-ty*s));
+        b.translate((int) (-tx*s), (int) (-ty*s));
+
         selection=new Rectangle(a);
         selection.setFrameFromDiagonal(a,b);
-
         for(ElementPainter ep1:((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().getPainters()){
             if(ep1.getElement() instanceof PojamElement){
 
@@ -42,6 +53,9 @@ public class SelectState implements State {
                     ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelection(ep1.getElement());
                     System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
                 }
+                if(((PojamElement) ep1.getElement()).hasPoint(a))
+                    ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelection(ep1.getElement());
+
             }
 
         }

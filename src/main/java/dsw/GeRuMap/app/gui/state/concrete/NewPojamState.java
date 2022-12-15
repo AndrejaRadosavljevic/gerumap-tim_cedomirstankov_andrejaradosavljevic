@@ -16,7 +16,10 @@ public class NewPojamState implements State {
     @Override
     public void doState(Point x) {
         double f = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getScale();
-        x = new Point((int) (x.x/f), (int) (x.y/f));
+        double tx =((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getTransX();
+        double ty =((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getTransY();
+
+        x = new Point((int) ((x.x)/f-tx), (int) ((x.y)/f-ty));
         NewPojamFrame.getInstance().setVisible(true);
         NewPojamFrame.getInstance().getTextField1().setText("Uneti tekst pojma");
         NewPojamFrame.getInstance().setPoint(x);

@@ -21,9 +21,6 @@ import java.util.List;
 public class SelectState implements State {
 
     Rectangle selection = new Rectangle();
-    void selektuj(){
-        //uzimamo selektovano i cuvamo ga.
-    }
 
     @Override
     public void doState(Point x) {
@@ -39,8 +36,22 @@ public class SelectState implements State {
 
         for(ElementPainter ep1:((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().getPainters()){
             if(ep1.getElement() instanceof PojamElement){
-                double x1=((PojamElement)ep1.getElement()).getPosition().getX();
-                double y1=((PojamElement)ep1.getElement()).getPosition().getY();
+
+                if(selection.intersects(((PojamElement) ep1.getElement()).getCurentPosition().getX(),((PojamElement) ep1.getElement()).getCurentPosition().getY(),((PojamElement) ep1.getElement()).getCurentDimensions().getWidth(),((PojamElement) ep1.getElement()).getCurentDimensions().getHeight())){
+                    System.out.println("X: " + ((PojamElement) ep1.getElement()).getCurentPosition().getX() + "Y: " + ((PojamElement) ep1.getElement()).getCurentPosition().getY());
+                    ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelection(ep1.getElement());
+                    System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
+                }
+            }
+
+        }
+        ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));
+    }
+}
+
+
+  //  double x1=((PojamElement)ep1.getElement()).getPosition().getX();
+    //double y1=((PojamElement)ep1.getElement()).getPosition().getY();
 //                if(x1>=a.getX() && y1>=a.getY() && x1<=b.getX() && y1<=b.getY()){
 //                    doState(((PojamElement) ep1.getElement()).getPosition());
 //                    System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
@@ -57,14 +68,3 @@ public class SelectState implements State {
 //                    doState(((PojamElement) ep1.getElement()).getPosition());
 //                    System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
 //                }
-                if(selection.intersects(((PojamElement) ep1.getElement()).getCurentPosition().getX(),((PojamElement) ep1.getElement()).getCurentPosition().getY(),((PojamElement) ep1.getElement()).getCurentDimensions().getWidth(),((PojamElement) ep1.getElement()).getCurentDimensions().getHeight())){
-                    System.out.println("X: " + ((PojamElement) ep1.getElement()).getCurentPosition().getX() + "Y: " + ((PojamElement) ep1.getElement()).getCurentPosition().getY());
-                    ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelection(ep1.getElement());
-                    System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
-                }
-            }
-
-        }
-        ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));
-    }
-}

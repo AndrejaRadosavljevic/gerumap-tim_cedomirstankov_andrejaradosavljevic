@@ -3,6 +3,7 @@ package dsw.GeRuMap.app.gui.painters;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
+import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 import lombok.Getter;
 import lombok.Setter;
@@ -75,6 +76,7 @@ public class VezaPainter extends ElementPainter{
 
 
         Shape s=new Line2D.Float(x1,y1,x2,y2);
+
 
         if(s.getBounds().contains(x))return true;
         return false;

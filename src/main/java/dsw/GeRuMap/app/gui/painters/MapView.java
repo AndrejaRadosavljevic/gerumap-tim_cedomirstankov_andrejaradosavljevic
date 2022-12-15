@@ -73,6 +73,8 @@ public class MapView {
     public void addPainter(Point x, Point y) {
         Element p1 = mindMap.getChildOnLocation(x);
         Element p2 =  mindMap.getChildOnLocation(y);
+
+        System.out.println(p1+" LLLLLL "+p2);
         if(p1 == null || p2 == null) return;
         if(p1 instanceof VezaElement || p2 instanceof VezaElement) return;
         if(p1.equals(p2)) return;

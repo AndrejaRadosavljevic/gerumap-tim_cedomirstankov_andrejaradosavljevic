@@ -12,13 +12,16 @@ public class NewVezaState implements State {
 
     private Point a, b;
 
+
     void dodajVezu(PojamElement pe1, PojamElement pe2){
         //VezaElement = new VezaElement();
     }
 
     @Override
     public void doState(Point x) {
+
         a = x;
+
     }
     @Override
     public void doState(Point x, Point y) {

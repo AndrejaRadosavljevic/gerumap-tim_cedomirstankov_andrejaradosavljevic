@@ -155,6 +155,11 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
 
     public void addVeza(Point x, Point y) {
+
+
+        x.translate((int) (-transX*scale), (int) (-transY*scale));
+        y.translate((int) (-transX*scale), (int) (-transY*scale));
+
         mapView.addPainter(x,y);
         updatePerformed(new UpdateEvent(this));
     }

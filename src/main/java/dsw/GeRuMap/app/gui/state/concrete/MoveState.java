@@ -16,9 +16,9 @@ public class MoveState implements State {
 
     @Override
     public void doState(Point x, Point y) {
-        double h = y.getX() - curent.getX();
-        double w = y.getY() - curent.getY();
-        curent.setLocation(y);
+        double h = y.getX() - x.getX();
+        double w = y.getY() - x.getY();
+        curent = y;
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).moveSelected(h,w);
 
     }

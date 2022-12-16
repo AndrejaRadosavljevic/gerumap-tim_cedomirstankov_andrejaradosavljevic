@@ -56,4 +56,11 @@ public class PojamElement extends Element {
     public Dimension getCurentDimensions(){
         return new Dimension((int) (size.width*getScale()), (int) (size.height*getScale()));
     }
+
+    public void movePoint(double h, double w){
+        h/=2;
+        w/=2;
+        position.x+=h;
+        position.y+=w;
+    }
 }

@@ -192,16 +192,12 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void moveSelected(double h, double w) {
-        if(selectedElements.size() ==0)moveView(h,w);
+        if(selectedElements.size() == 0) moveView(h,w);
         h/=scale;
         w/=scale;
         for(Element e:selectedElements){
             if(e instanceof PojamElement){
-                Point p = ((PojamElement) e).getPosition();
-                System.out.println(p);
-                p.move((int) (p.x + (int) h), (int) (p.y+ (int) w));
-                System.out.println(p);
-                ((PojamElement) e).setPosition(p);
+                ((PojamElement) e).movePoint( h, w);
             }
         }
         mapView.updateList();

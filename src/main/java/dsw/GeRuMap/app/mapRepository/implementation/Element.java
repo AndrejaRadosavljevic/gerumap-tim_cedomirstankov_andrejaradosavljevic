@@ -19,8 +19,6 @@ public class Element extends MapNode implements ISubscriber {
     private int pbr ;
     private static int br = 0;
 
-    //private String name;
-    //private String description;
 
 
     public Element(String name, MapNode parent,Stroke stroke, Paint paint){

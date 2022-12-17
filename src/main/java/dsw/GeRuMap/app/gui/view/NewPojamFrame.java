@@ -56,7 +56,6 @@ public class NewPojamFrame extends JFrame {
         panel.add(panel3,SwingConstants.CENTER,1);
 
 
-        //color = JColorChooser.showDialog(null,"Izaberite boju pocetnu boju",Color.BLACK);
 
         add(panel);
 

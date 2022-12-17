@@ -27,7 +27,5 @@ public class SelectPainter {
         Rectangle rectangle=new Rectangle();
         rectangle.setFrameFromDiagonal(x1,y1);
         g.draw(rectangle);
-        //g2.setPaint(new Color (0,0,0, .5f));
-        //g2.fill(rectangle);
     }
 }

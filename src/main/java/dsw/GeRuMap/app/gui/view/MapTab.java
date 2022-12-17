@@ -44,7 +44,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
 
     public MapTab(MindMap selected) {
-        //addMouseListener();
         mapView=new MapView(selected);
         selectedElements = new ArrayList<>();
         affineTransform = new AffineTransform();
@@ -179,7 +178,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void drawMyLine(Point a, Point b) {
-       // updatePerformed(new UpdateEvent(this));
         System.out.println("/");
         Graphics2D g2 = (Graphics2D) getGraphics();
         BasicStroke stroke=new BasicStroke(2F);
@@ -197,7 +195,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         if(selectedElements.size() == 0) moveView(h,w);
         h/=scale;
         w/=scale;
-        System.out.println(selectedElements);
         for(Element e:selectedElements){
             if(e instanceof PojamElement){
                 ((PojamElement) e).movePoint( h, w);

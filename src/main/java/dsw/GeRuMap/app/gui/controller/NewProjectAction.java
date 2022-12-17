@@ -23,24 +23,24 @@ public class NewProjectAction extends AbstractGeRuMapAction {
 
     }
 
-    public void actionPerformed(ActionEvent arg0){
+    public void actionPerformed(ActionEvent arg0) {
 
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
 
-        if(selected==null)return;
-        if(selected.getMapNode() instanceof MindMap) {
+        if (selected == null) return;
+        if (selected.getMapNode() instanceof MindMap) {
             return;
         }
         MainFrame.getInstance().getMapTree().addChild(selected);
 
 
-        if(selected.getMapNode() instanceof Project) ((Project) selected.getMapNode()).notifySubscriber(selected.getMapNode().getName());
+        if (selected.getMapNode() instanceof Project)
+            ((Project) selected.getMapNode()).notifySubscriber(selected.getMapNode().getName());
 
-        if(selected.getMapNode() instanceof Element){
+        if (selected.getMapNode() instanceof Element) {
             MainFrame.getInstance().getMessageGenerator().generate(Type.DODAVANJE_DETETA_ELEMENTU_ERROR);
         }
 
-        //if(selected.getMapNode() instanceof MindMap) return;((Project) selected.getMapNode().getParent()).notifySubscriber(1);
     }
 
 }

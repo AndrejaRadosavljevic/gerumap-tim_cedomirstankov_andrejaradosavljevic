@@ -62,8 +62,7 @@ public class MainFrame extends JFrame {
 
 
         JTree projecrtExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
-        //ovde se nesto zezamo
-        //JPanel desktop = new JPanel(new BorderLayout());
+
         tabPanel = MapTabPanel.getInstance();
 
         editorBar = new EditorBar();

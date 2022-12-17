@@ -63,7 +63,6 @@ public class MapTabPanel extends JPanel implements ISubscriber {
             if(selected == null) return;
             tabbedPane.removeAll();
             for(MapNode m:((MapNodeComposite) selected.getMapNode()).getChildren()){
-                //System.out.println(m.getName());
                 JPanel p = new JPanel();
                 p.setName(m.getName());
                 tabbedPane.add(p);
@@ -97,7 +96,6 @@ public class MapTabPanel extends JPanel implements ISubscriber {
 
         tabbedPane.removeAll();
         for(MapNode m:((MapNodeComposite) selected.getMapNode()).getChildren()){
-            //System.out.println(m.getName());
             JPanel p = new MapTab((MindMap) m);
             p.setName(m.getName());
             tabbedPane.add(p);

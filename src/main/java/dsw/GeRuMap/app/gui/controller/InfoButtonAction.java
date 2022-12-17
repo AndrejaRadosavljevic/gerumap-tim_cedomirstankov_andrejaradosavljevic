@@ -17,6 +17,5 @@ public class InfoButtonAction extends AbstractGeRuMapAction {
     public void actionPerformed(ActionEvent argO) {
 
         InfoFrame.getInstance().setVisible(false);
-        //?videcemo da li ovo radi
     }
 }

@@ -52,20 +52,17 @@ public class MouseController extends MouseAdapter {
            }
 
            state.doState(position);
-            System.out.println("klik");
 
 
 
         }
     }
-/////???????????????????? ne razumem posllednu stavku u nedelji 8 pod *
     @Override
     public void mouseReleased(MouseEvent e) {
         super.mouseReleased(e);
         State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
         if (e.getButton()==MouseEvent.BUTTON1){
             b = e.getPoint();
-            System.out.println(a+" |razmak|  "+b);
             if(! (state instanceof MoveState))
                 state.doState(a,b);
             a=null;
@@ -93,9 +90,7 @@ public class MouseController extends MouseAdapter {
 
             if( state instanceof NewVezaState)
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawMyLine(c,b);
-            //mora jos da se sredi
 
-            //if(state instanceof MoveState) state.doState(c,b);
 
 
 

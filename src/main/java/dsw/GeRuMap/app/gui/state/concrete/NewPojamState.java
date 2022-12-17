@@ -23,7 +23,7 @@ public class NewPojamState implements State {
         NewPojamFrame.getInstance().setVisible(true);
         NewPojamFrame.getInstance().getTextField1().setText("Uneti tekst pojma");
         NewPojamFrame.getInstance().setPoint(x);
-        System.out.println("Pojam");
+        //System.out.println("Pojam");
     }
 
     @Override

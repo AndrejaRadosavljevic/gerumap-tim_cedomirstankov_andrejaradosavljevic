@@ -32,8 +32,5 @@ public class PodesiAction extends AbstractGeRuMapAction {
         podesavanjaFrame.setVisible(false);
 
 
-        //pojamElement.setText(PodesavanjaFrame.getInstance().getTextField2().getText());
-        //System.out.println(pojamElement.getText());
-
     }
 }

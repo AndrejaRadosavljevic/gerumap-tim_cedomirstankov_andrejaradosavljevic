@@ -58,8 +58,8 @@ public class PojamElement extends Element {
     }
 
     public void movePoint(double h, double w){
-        h/=2;
-        w/=2;
+        //h/=2;
+       // w/=2;
         position.x+=h;
         position.y+=w;
     }

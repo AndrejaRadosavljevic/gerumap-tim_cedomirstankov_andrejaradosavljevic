@@ -140,6 +140,8 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     public void removePainter(Point x){
 
+        x.translate((int) (-transX*scale), (int) (-transY*scale));
+
         mapView.removeChild(x);
         if(!mapView.containsElementOnPoint(x))selectedElements.remove(mapView.getMindMap().getChildOnLocation(x));
         updatePerformed(new UpdateEvent(this));

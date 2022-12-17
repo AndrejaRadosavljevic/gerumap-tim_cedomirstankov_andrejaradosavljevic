@@ -75,6 +75,8 @@ public class VezaPainter extends ElementPainter{
         y2= (float) (y2+((VezaElement) element).getPE2().getCurentDimensions().getHeight()/2);
 
 
+
+
         Shape s=new Line2D.Float(x1,y1,x2,y2);
 
 

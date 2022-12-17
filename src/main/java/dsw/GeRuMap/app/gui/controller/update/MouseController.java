@@ -66,7 +66,7 @@ public class MouseController extends MouseAdapter {
         if (e.getButton()==MouseEvent.BUTTON1){
             b = e.getPoint();
             System.out.println(a+" |razmak|  "+b);
-            //if(! (state instanceof MoveState))
+            if(! (state instanceof MoveState))
                 state.doState(a,b);
             a=null;
             c=null;
@@ -83,9 +83,9 @@ public class MouseController extends MouseAdapter {
             c=b;
             b = e.getPoint();
             State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
-            //if(state instanceof MoveState){
-             //  state.doState(c,b);
-            //}
+            if(state instanceof MoveState){
+               state.doState(c,b);
+            }
             if(state instanceof SelectState || state instanceof BrisiElementState){
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).setSelectPainter(a,b);
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));

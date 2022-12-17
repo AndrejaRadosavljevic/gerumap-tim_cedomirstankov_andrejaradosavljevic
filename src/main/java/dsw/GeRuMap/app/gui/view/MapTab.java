@@ -155,7 +155,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     public void addSelection(Element e){
         ((PojamElement)e).setSelected(true);
-        selectedElements.add(e);
+        if(!selectedElements.contains(e))selectedElements.add(e);
     }
 
 
@@ -197,6 +197,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         if(selectedElements.size() == 0) moveView(h,w);
         h/=scale;
         w/=scale;
+        System.out.println(selectedElements);
         for(Element e:selectedElements){
             if(e instanceof PojamElement){
                 ((PojamElement) e).movePoint( h, w);

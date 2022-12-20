@@ -1,4 +1,4 @@
-package dsw.GeRuMap.app.gui.command;
+package dsw.GeRuMap.app.mapRepository.command;
 
 public class KonkrentaKomanda extends AbstractCommand{
     @Override

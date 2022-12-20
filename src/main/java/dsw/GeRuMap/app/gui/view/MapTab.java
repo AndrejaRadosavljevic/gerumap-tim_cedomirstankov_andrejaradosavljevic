@@ -53,6 +53,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         transY = 0;
         selectPainter=null;
 
+
         MouseController mouseController = new MouseController();
 
 
@@ -62,6 +63,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         setBackground(Color.white);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         setVisible(true);
+        mapView.getMindMap().addSubscriber(this);
 
     }
 
@@ -170,6 +172,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     @Override
     public void update(Object notification) {
+        mapView.updateList();
         updatePerformed(new UpdateEvent(this));
     }
 

@@ -1,0 +1,2 @@
+[ERROR][17/12/2022 12:11:46] Ne mozete da obrisete project explorer
+[ERROR][17/12/2022 12:11:48] Nije selektovan pojam za modifikaciju

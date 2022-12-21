@@ -8,6 +8,7 @@ import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MoveState implements State {
@@ -28,7 +29,7 @@ public class MoveState implements State {
 
         if(elements.size()!=0){
             if(end !=null){
-                MoveElementCommand command = new MoveElementCommand(elements, start.getX() - end.getX(), start.getY() - end.getY());
+                MoveElementCommand command = new MoveElementCommand(new ArrayList<>(elements), start.getX() - end.getX(), start.getY() - end.getY());
                 ((MindMap)elements.get(0).getParent()).getCommandManager().addCommand(command);
                 end = null;
                 return;

@@ -172,6 +172,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     @Override
     public void update(Object notification) {
+        selectPainter = null;
         mapView.updateList();
         updatePerformed(new UpdateEvent(this));
     }
@@ -209,7 +210,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
 
     // Za pomeranje po mapi uma kada se nesto ne vidi. Treba se doraditi.
-    private void moveView(double x, double y) {
+    public void moveView(double x, double y) {
         transX+=x/scale;
         transY+=y/scale;
         notifySubscriber(this);

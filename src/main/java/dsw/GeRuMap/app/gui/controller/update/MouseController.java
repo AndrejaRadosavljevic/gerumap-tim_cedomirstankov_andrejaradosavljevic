@@ -65,6 +65,7 @@ public class MouseController extends MouseAdapter {
             b = e.getPoint();
             if(! (state instanceof MoveState))
                 state.doState(a,b);
+            //else state.setEnd(b);
             a=null;
             c=null;
             b=null;

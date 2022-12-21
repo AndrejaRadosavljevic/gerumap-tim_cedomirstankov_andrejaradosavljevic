@@ -2,6 +2,7 @@ package dsw.GeRuMap.app.mapRepository.implementation.elements;
 
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
+import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -61,5 +62,6 @@ public class PojamElement extends Element {
         System.out.println(h+"IIIIIIIII"+w);
         position.x+=h;
         position.y+=w;
+        ((MindMap)getParent()).notifySubscriber(getParent());
     }
 }

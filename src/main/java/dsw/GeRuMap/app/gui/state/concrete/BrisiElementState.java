@@ -14,6 +14,7 @@ import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +58,15 @@ public class BrisiElementState implements State {
                 }
                 if(((PojamElement) ep1.getElement()).hasPoint(a))
                     elements.add(ep1.getElement());
+            }
+            else{
+                if(((VezaElement)ep1.getElement()).hasPoint(a))elements.add(ep1.getElement());
+                if(selection.intersectsLine(((VezaElement) ep1.getElement()).getPE1().getPosition().getX(),
+                        ((VezaElement) ep1.getElement()).getPE1().getPosition().getY(),
+                            ((VezaElement) ep1.getElement()).getPE2().getPosition().getX(),
+                                ((VezaElement) ep1.getElement()).getPE2().getPosition().getY())){
+                    elements.add(ep1.getElement());
+                }
             }
         }
 

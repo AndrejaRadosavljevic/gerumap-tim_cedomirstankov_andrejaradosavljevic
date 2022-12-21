@@ -60,6 +60,7 @@ public class BrisiElementState implements State {
             }
         }
 
+
         if(elements.size()!=0){
             MindMap map = (MindMap) elements.get(0).getParent();
             BrisiElementCommand command = new BrisiElementCommand(map,elements);

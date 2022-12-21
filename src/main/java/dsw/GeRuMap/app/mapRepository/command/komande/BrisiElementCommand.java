@@ -25,7 +25,7 @@ public class BrisiElementCommand extends AbstractCommand {
         for(Element element: elements){
             map.removeChild(element);
         }
-        map.notifySubscriber(this);
+        //map.notifySubscriber(this);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class BrisiElementCommand extends AbstractCommand {
         for(Element element: elements){
             map.addChild(element);
         }
-        map.notifySubscriber(this);
+        //map.notifySubscriber(this);
     }
 
 

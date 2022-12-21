@@ -3,6 +3,7 @@ package dsw.GeRuMap.app.gui.controller;
 import dsw.GeRuMap.app.gui.messagegenerator.Type;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.gui.view.MainFrame;
+import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
@@ -21,6 +22,6 @@ public class UndoAction extends AbstractGeRuMapAction{
     }
 
     public void actionPerformed(ActionEvent arg0){
-
+        ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getMapView().getMindMap().getCommandManager().undoCommand();
     }
 }

@@ -172,7 +172,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     @Override
     public void update(Object notification) {
-        selectPainter = null;
         mapView.updateList();
         updatePerformed(new UpdateEvent(this));
     }
@@ -259,5 +258,10 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     public void setSelectPainter(Point a, Point b) {
         if(selectPainter == null) selectPainter = new SelectPainter(a,b);
         selectPainter.setY(b);
+    }
+
+    public void removeSelectedPainter(){
+        selectPainter = null;
+        update(this);
     }
 }

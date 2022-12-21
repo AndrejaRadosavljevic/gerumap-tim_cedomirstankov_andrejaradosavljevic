@@ -25,7 +25,7 @@ public class MoveElementCommand extends AbstractCommand {
     public void doCommand() {
         for(Element e:elements){
             if(e instanceof PojamElement){
-                ((PojamElement) e).movePoint(h,w);
+                ((PojamElement) e).movePoint(-h,-w);
             }
         }
 
@@ -35,7 +35,7 @@ public class MoveElementCommand extends AbstractCommand {
     public void undoCommand() {
         for(Element e:elements){
             if(e instanceof PojamElement){
-                ((PojamElement) e).movePoint(-h,-w);
+                ((PojamElement) e).movePoint(h,w);
             }
         }
     }

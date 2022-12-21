@@ -2,6 +2,7 @@ package dsw.GeRuMap.app.mapRepository.command;
 
 import dsw.GeRuMap.app.AppCore;
 import dsw.GeRuMap.app.gui.view.MainFrame;
+import dsw.GeRuMap.app.mapRepository.command.komande.MoveElementCommand;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,8 @@ public class CommandManager {
         while(currentCommand < commands.size())
             commands.remove(currentCommand);
         commands.add(command);
-        doCommand();
+        if(! (command instanceof MoveElementCommand))doCommand();
+        else currentCommand++;
         System.out.println("dodata komanda");
     }
 

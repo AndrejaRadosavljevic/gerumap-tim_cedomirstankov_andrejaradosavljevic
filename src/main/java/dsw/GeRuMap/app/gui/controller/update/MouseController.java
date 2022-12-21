@@ -68,6 +68,8 @@ public class MouseController extends MouseAdapter {
             if(! (state instanceof MoveState))
                 state.doState(a,b);
             else{
+                ((MoveState) state).setEnd(b);
+                state.doState(c,b);
                 //List<Element> elements = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectedElements();
                 //MoveElementCommand command = new MoveElementCommand(elements, a.x-b.x, a.y-b.y);
                 //((MindMap)elements.get(0).getParent()).getCommandManager().addCommand(command);

@@ -25,13 +25,23 @@ public class MoveState implements State {
 
         List<Element> elements = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectedElements();
 
+
         if(elements.size()!=0){
-            MoveElementCommand command = new MoveElementCommand(elements, h, w);
-            ((MindMap)elements.get(0).getParent()).getCommandManager().addCommand(command);
+            if(end !=null){
+                MoveElementCommand command = new MoveElementCommand(elements, start.getX() - end.getX(), start.getY() - end.getY());
+                ((MindMap)elements.get(0).getParent()).getCommandManager().addCommand(command);
+                end = null;
+                return;
+            }
+            ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).moveSelected(h,w);
             return;
         }
 
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).moveView(h,w);
 
+    }
+
+    public void setEnd(Point end) {
+        this.end = end;
     }
 }

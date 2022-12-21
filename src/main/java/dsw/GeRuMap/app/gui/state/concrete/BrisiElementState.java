@@ -6,7 +6,9 @@ import dsw.GeRuMap.app.gui.painters.SelectPainter;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.gui.state.State;
+import dsw.GeRuMap.app.mapRepository.command.komande.BrisiElementCommand;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
+import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 
@@ -28,8 +30,8 @@ public class BrisiElementState implements State {
         ty = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransY();
         s = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getScale();
 
-
-        ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removePainter(x);
+        doState(x,x);
+        //((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removePainter(x);
         System.out.println("Brisi");
     }
 
@@ -57,11 +59,12 @@ public class BrisiElementState implements State {
                     elements.add(ep1.getElement());
             }
         }
-        System.out.println(elements+"AAAAAAAAAAAAAAAA");
-        for(Element element:elements){
-            ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).
-                    removePainter(element);
+
+        if(elements.size()!=0){
+            MindMap map = (MindMap) elements.get(0).getParent();
+            BrisiElementCommand command = new BrisiElementCommand(map,elements);
+            map.getCommandManager().addCommand(command);
         }
-        ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));
+
     }
 }

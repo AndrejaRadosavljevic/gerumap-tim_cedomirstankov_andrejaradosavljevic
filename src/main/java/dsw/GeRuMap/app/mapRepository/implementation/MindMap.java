@@ -1,18 +1,33 @@
 package dsw.GeRuMap.app.mapRepository.implementation;
 
+import dsw.GeRuMap.app.gui.controller.observer.IPublisher;
+import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
+import dsw.GeRuMap.app.mapRepository.command.CommandManager;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MindMap extends MapNodeComposite {
+@Getter
+@Setter
+
+public class MindMap extends MapNodeComposite implements IPublisher {
+
     private boolean isTemplate;
+
+    private CommandManager commandManager;
+
+    private List<ISubscriber> subscribers;
     public MindMap(String name, MapNode parent) {
         super(name, parent);
+        isTemplate = false;
+        commandManager = new CommandManager();
     }
 
     @Override
@@ -56,5 +71,21 @@ public class MindMap extends MapNodeComposite {
         }
         for(MapNode e: visak)removeChild(e);
         super.removeChild(child);
+    }
+
+    @Override
+    public void addSubscriber(ISubscriber sub) {
+        if(subscribers == null)subscribers = new ArrayList<>();
+        subscribers.add(sub);
+    }
+
+    @Override
+    public void removeSubscriber(ISubscriber sub) {
+        subscribers.remove(sub);
+    }
+
+    @Override
+    public void notifySubscriber(Object notification) {
+        for(ISubscriber s: subscribers)s.update(notification);
     }
 }

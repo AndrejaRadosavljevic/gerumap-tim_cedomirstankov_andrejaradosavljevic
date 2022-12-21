@@ -22,6 +22,10 @@ public class ActionManager {
     private PodesavanjaAction podesavanjaAction;
     private MoveAction moveAction;
 
+    private UndoAction undoAction;
+
+    private RedoAction redoAction;
+
 
     public ActionManager(){
         initialiseActions();
@@ -39,6 +43,8 @@ public class ActionManager {
         brisiElementAction = new BrisiElementAction();
         podesavanjaAction = new PodesavanjaAction();
         moveAction = new MoveAction();
+        undoAction=new UndoAction();
+        redoAction=new RedoAction();
     }
 
     public ExitAction getExitAction() {

@@ -16,9 +16,10 @@ public class CommandManager {
             commands.remove(currentCommand);
         commands.add(command);
         doCommand();
+        System.out.println("dodata komanda");
     }
 
-    private void doCommand() {
+    public void doCommand() {
         if(currentCommand < commands.size()) {
             commands.get(currentCommand++).doCommand();
             //MainFrame.getInstance().getActionManager().getUndoAction().setEnabled(true);

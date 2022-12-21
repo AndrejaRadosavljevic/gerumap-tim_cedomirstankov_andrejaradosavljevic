@@ -40,6 +40,7 @@ public class MindMap extends MapNodeComposite implements IPublisher {
                 System.out.println(child.getName());
             }
         }
+        notifySubscriber(this);
     }
     ///// ovde mora da se doradi tako da moze da se selektuje i veza
 
@@ -71,6 +72,7 @@ public class MindMap extends MapNodeComposite implements IPublisher {
         }
         for(MapNode e: visak)removeChild(e);
         super.removeChild(child);
+        notifySubscriber(this);
     }
 
     @Override

@@ -213,7 +213,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         transX+=x/scale;
         transY+=y/scale;
         notifySubscriber(this);
-
+        update(this);
     }
 
 

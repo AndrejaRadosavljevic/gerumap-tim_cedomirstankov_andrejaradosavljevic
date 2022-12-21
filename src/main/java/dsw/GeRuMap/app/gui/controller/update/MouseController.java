@@ -5,7 +5,9 @@ import dsw.GeRuMap.app.gui.state.State;
 import dsw.GeRuMap.app.gui.state.concrete.*;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
+import dsw.GeRuMap.app.mapRepository.command.komande.MoveElementCommand;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
+import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 
 import java.awt.*;
@@ -65,7 +67,11 @@ public class MouseController extends MouseAdapter {
             b = e.getPoint();
             if(! (state instanceof MoveState))
                 state.doState(a,b);
-
+            else{
+                //List<Element> elements = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectedElements();
+                //MoveElementCommand command = new MoveElementCommand(elements, a.x-b.x, a.y-b.y);
+                //((MindMap)elements.get(0).getParent()).getCommandManager().addCommand(command);
+            }
             ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removeSelectedPainter();
             a=null;
             c=null;

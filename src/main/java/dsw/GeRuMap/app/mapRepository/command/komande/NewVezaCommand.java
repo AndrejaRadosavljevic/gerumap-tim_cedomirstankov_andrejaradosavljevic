@@ -12,20 +12,19 @@ import java.awt.*;
 public class NewVezaCommand extends AbstractCommand {
 
     private MindMap map;
-    private Point a, b;
+    private VezaElement vezaElement;
 
-    public NewVezaCommand(MindMap map, Point a,Point b){
+    public NewVezaCommand(MindMap map, VezaElement vezaElement){
         this.map=map;
-        this.a=a;
-        this.b=b;
+        this.vezaElement=vezaElement;
     }
     @Override
     public void doCommand() {
-        //((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addVeza(a,b);
+        map.addChild(vezaElement);
     }
 
     @Override
     public void undoCommand() {
-
+        map.removeChild(vezaElement);
     }
 }

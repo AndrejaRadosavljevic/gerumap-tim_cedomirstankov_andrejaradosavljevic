@@ -65,7 +65,8 @@ public class MouseController extends MouseAdapter {
             b = e.getPoint();
             if(! (state instanceof MoveState))
                 state.doState(a,b);
-            //else state.setEnd(b);
+
+            ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removeSelectedPainter();
             a=null;
             c=null;
             b=null;

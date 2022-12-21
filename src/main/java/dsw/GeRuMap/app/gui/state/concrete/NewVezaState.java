@@ -30,8 +30,15 @@ public class NewVezaState implements State {
     @Override
     public void doState(Point x, Point y) {
         MindMap mapa = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getMapView().getMindMap();
-        Element pojamElement1= mapa.getChildOnLocation(x);
-        Element pojamElement2= mapa.getChildOnLocation(y);
+        double f = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getScale();
+        double tx = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransX();
+        double ty = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getTransY();
+        Point x1=new Point((int) x.getX(), (int) x.getY());
+        Point y1=new Point((int) y.getX(), (int) y.getY());
+        x1.translate((int) (-tx*f), (int) (-ty*f));
+        y1.translate((int) (-tx*f), (int) (-ty*f));
+        Element pojamElement1= mapa.getChildOnLocation(x1);
+        Element pojamElement2= mapa.getChildOnLocation(y1);
         if(pojamElement1 instanceof PojamElement && pojamElement2 instanceof PojamElement && pojamElement1!=null && pojamElement2!=null){
             NewVezaCommand newVezaCommand=new NewVezaCommand(mapa,new VezaElement("veza("+x.x+","+x.y+","+y.x+","+y.y+")",mapa, (PojamElement) pojamElement1, (PojamElement) pojamElement2));
             mapa.getCommandManager().addCommand(newVezaCommand);

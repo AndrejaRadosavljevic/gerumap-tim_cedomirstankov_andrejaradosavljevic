@@ -15,6 +15,8 @@ public class ApplicationFramework {
     protected ErrorLogger consoleLogger;
     protected  ErrorLogger fileLogger;
 
+    private Serializer serializer;
+
     public void run(){
         this.gui.start();
     };

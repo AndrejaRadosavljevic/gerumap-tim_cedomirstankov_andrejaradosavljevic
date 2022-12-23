@@ -7,13 +7,20 @@ import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 public class Project extends MapNodeComposite implements IPublisher {
+
+
+
+    private File path;
+    private boolean changed = true;
 
     private String autor;
     private int iterator = 1;

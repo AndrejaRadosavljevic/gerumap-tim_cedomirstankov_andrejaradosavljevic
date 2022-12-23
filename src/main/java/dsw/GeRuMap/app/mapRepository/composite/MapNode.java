@@ -11,7 +11,7 @@ import lombok.ToString;
 public abstract class MapNode {
     public String name;
     @ToString.Exclude
-    private MapNode parent;
+    private transient MapNode parent;
 
     public MapNode(String name, MapNode parent) {
         this.name = name;

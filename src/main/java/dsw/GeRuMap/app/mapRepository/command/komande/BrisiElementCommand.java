@@ -14,7 +14,7 @@ public class BrisiElementCommand extends AbstractCommand {
 
 
     public BrisiElementCommand(MindMap map, List<Element> elements){
-
+        //treba dodati i veze koje su povezane za pojmove koji se brisu
         this.elements = elements;
         this.map = map;
 

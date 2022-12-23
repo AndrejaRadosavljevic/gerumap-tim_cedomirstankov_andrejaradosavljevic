@@ -22,9 +22,16 @@ public class ActionManager {
     private PodesavanjaAction podesavanjaAction;
     private MoveAction moveAction;
 
+    private ZoomInAction zoomInAction;
+
+    private ZoomOutAction zoomOutAction;
     private UndoAction undoAction;
 
     private RedoAction redoAction;
+
+    private SaveAction saveAction;
+
+    private OpenAction openAction;
 
 
     public ActionManager(){
@@ -45,6 +52,10 @@ public class ActionManager {
         moveAction = new MoveAction();
         undoAction=new UndoAction();
         redoAction=new RedoAction();
+        saveAction=new SaveAction();
+        openAction=new OpenAction();
+        zoomInAction=new ZoomInAction();
+        zoomOutAction=new ZoomOutAction();
     }
 
     public ExitAction getExitAction() {

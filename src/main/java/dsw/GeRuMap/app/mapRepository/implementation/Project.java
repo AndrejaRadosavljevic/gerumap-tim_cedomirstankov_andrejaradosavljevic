@@ -19,7 +19,7 @@ public class Project extends MapNodeComposite implements IPublisher {
 
 
 
-    private File path;
+    private String path;
     private boolean changed = true;
 
     private String autor;

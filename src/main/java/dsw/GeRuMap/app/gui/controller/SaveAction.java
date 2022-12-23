@@ -13,7 +13,6 @@ public class SaveAction extends AbstractGeRuMapAction{
     public SaveAction() {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
                 KeyEvent.VK_S, ActionEvent.CTRL_MASK));
-        //putValue(SMALL_ICON, loadIcon("/images/plus.png"));
         putValue(NAME, "Save action");
         putValue(SHORT_DESCRIPTION, "Save action");
     }
@@ -30,10 +29,10 @@ public class SaveAction extends AbstractGeRuMapAction{
             return;
         }
 
-        if (project.getFilePath() == null || project.getFilePath().isEmpty()) {
+        if (project.getPath() == null || project.getPath().isEmpty()) {
             if (jfc.showSaveDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION) {
                 projectFile = jfc.getSelectedFile();
-                project.setFilePath(projectFile.getPath());
+                project.setPath(projectFile.getPath());
             } else {
                 return;
             }

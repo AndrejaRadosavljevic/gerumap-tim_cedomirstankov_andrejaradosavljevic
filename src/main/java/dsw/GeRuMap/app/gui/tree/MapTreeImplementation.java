@@ -1,6 +1,7 @@
 package dsw.GeRuMap.app.gui.tree;
 
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
+import dsw.GeRuMap.app.gui.tree.model.MapTreeModel;
 import dsw.GeRuMap.app.gui.tree.view.MapTreeView;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
@@ -25,13 +26,13 @@ import java.util.Random;
 public class MapTreeImplementation implements MapTree{
 
     private MapTreeView treeView;
-    private DefaultTreeModel treeModel;
+    private MapTreeModel treeModel;
 
 
     @Override
     public MapTreeView generateTree(ProjectExplorer projectExplorer) {
         MapTreeItem root = new MapTreeItem(projectExplorer);
-        treeModel = new DefaultTreeModel(root);
+        treeModel = new MapTreeModel(root);
         treeView = new MapTreeView(treeModel);
         return treeView;
     }

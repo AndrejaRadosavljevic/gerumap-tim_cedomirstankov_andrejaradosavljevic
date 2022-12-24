@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 
 public abstract class MapNode {
-    public String name;
+    private String name;
     @ToString.Exclude
     private transient MapNode parent;
 

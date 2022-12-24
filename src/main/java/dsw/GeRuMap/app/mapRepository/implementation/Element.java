@@ -13,8 +13,8 @@ import java.awt.*;
 @Setter
 public class Element extends MapNode implements ISubscriber {
 
-    protected Stroke stroke;
-    protected Paint paint;
+    protected transient Stroke stroke;
+    protected transient Paint paint;
     private double scale;
     private int pbr ;
     private static int br = 0;

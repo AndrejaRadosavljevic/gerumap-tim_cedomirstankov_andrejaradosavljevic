@@ -21,9 +21,9 @@ public class MindMap extends MapNodeComposite implements IPublisher {
 
     private boolean isTemplate;
 
-    private CommandManager commandManager;
+    private transient CommandManager commandManager;
 
-    private List<ISubscriber> subscribers;
+    private transient List<ISubscriber> subscribers;
     public MindMap(String name, MapNode parent) {
         super(name, parent);
         isTemplate = false;

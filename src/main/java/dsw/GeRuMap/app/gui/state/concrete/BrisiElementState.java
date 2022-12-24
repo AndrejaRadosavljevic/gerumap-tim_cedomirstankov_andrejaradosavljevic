@@ -52,11 +52,11 @@ public class BrisiElementState implements State {
         for(ElementPainter ep1:((MapTab)MainFrame.getInstance().getTabPanel().
                 getTabbedPane().getSelectedComponent()).getMapView().getPainters()){
             if(ep1.getElement() instanceof PojamElement) {
-                if(selection.intersects(((PojamElement) ep1.getElement()).getCurentPosition().getX(),((PojamElement) ep1.getElement()).getCurentPosition().getY(),((PojamElement) ep1.getElement()).getCurentDimensions().getWidth(),((PojamElement) ep1.getElement()).getCurentDimensions().getHeight())){
+                if(selection.intersects(((PojamElement) ep1.getElement()).getCurentPosition().getX(),((PojamElement) ep1.getElement()).getCurentPosition().getY(),((PojamElement) ep1.getElement()).getCurentDimensions().getWidth(),((PojamElement) ep1.getElement()).getCurentDimensions().getHeight()) && !(((PojamElement) ep1.getElement()).getSize().getWidth()==400)){
                     elements.add(ep1.getElement());
                     //System.out.println("Obrisano: "+ep1.getElement().getName());
                 }
-                if(((PojamElement) ep1.getElement()).hasPoint(a))
+                if(((PojamElement) ep1.getElement()).hasPoint(a) && !(((PojamElement) ep1.getElement()).getSize().getWidth()==400))
                     elements.add(ep1.getElement());
             }
             else{

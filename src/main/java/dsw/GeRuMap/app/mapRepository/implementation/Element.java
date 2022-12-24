@@ -30,6 +30,15 @@ public class Element extends MapNode implements ISubscriber {
         br++;
     }
 
+    public Element(String name, MapNode parent, Stroke stroke, Paint paint, double scale){
+        super(name,parent);
+        this.stroke=stroke;
+        this.paint=paint;
+        this.scale=scale;
+        pbr=br;
+        br++;
+    }
+
     public Element(String name, MapNode parent) {
         super(name, parent);
         stroke = new BasicStroke(2);

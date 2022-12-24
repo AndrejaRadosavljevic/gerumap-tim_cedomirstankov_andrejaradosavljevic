@@ -28,6 +28,8 @@ public class MindMap extends MapNodeComposite implements IPublisher {
         super(name, parent);
         isTemplate = false;
         commandManager = new CommandManager();
+        getChildren().add((new PojamElement("Centralni",this,new BasicStroke(6f),Color.BLACK,new Point(250,200),new Dimension(400,100),1)));
+
     }
 
     @Override

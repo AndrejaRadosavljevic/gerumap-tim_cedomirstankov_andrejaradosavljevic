@@ -24,6 +24,15 @@ public class PojamElement extends Element {
         this.size=size;
         this.isSelected=false;
     }
+    public PojamElement(String name, MapNode parent,Stroke stroke,Paint paint,Point position,Dimension size, double scale) {
+        super(name, parent,stroke,paint,scale);
+        Point p = new Point((int) (position.x/getScale()), (int) (position.y/getScale()));
+        this.position=position;
+        this.size=size;
+        this.isSelected=false;
+
+    }
+
 
     public boolean hasPoint(Point x) {
         if(x.x >= (position.x)*getScale() && x.x <= (position.x+size.width)*getScale() &&x.y >= (position.y)*getScale() && x.y <= (position.y+size.height)*getScale())

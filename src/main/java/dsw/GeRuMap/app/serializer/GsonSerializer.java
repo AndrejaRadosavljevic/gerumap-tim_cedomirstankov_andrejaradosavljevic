@@ -2,13 +2,16 @@ package dsw.GeRuMap.app.serializer;
 
 import com.google.gson.*;
 import dsw.GeRuMap.app.core.Serializer;
+import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 
+import javax.swing.*;
 import java.io.*;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,14 +72,30 @@ public class GsonSerializer implements Serializer {
             }
         }
 
-        @Override
-        public void saveMap(MindMap node) {
-
+    @Override
+    public MindMap loadTemplate() {
+        JFileChooser jfc = new JFileChooser();
+        MindMap m=null;
+        File projectFile = null;
+        if (jfc.showSaveDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION) {
+            projectFile = jfc.getSelectedFile();
+            m=gson.fromJson(projectFile.toString(),MindMap.class);
+            return m;
+        } else {
+            return null;
         }
+    }
 
-        @Override
+
+    @Override
         public void saveTemplate(MindMap node) {
+            try (FileWriter fileWriter = new FileWriter("sabloni/"+node.getName())){
+                gson.toJson(node,fileWriter);
 
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
+
 
 }

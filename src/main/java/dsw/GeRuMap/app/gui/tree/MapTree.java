@@ -20,4 +20,5 @@ public interface MapTree{
     void loadProject(Project node);
 
 
+    void saveSelectedMap();
 }

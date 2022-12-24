@@ -5,6 +5,8 @@ import dsw.GeRuMap.app.gui.controller.update.PodesiAction;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.swing.*;
+
 @Getter
 @Setter
 public class ActionManager {
@@ -30,6 +32,7 @@ public class ActionManager {
     private RedoAction redoAction;
 
     private SaveAction saveAction;
+    private SaveTemplateAction saveTemplateAction;
 
     private OpenAction openAction;
 
@@ -56,6 +59,7 @@ public class ActionManager {
         openAction=new OpenAction();
         zoomInAction=new ZoomInAction();
         zoomOutAction=new ZoomOutAction();
+        saveTemplateAction = new SaveTemplateAction();
     }
 
     public ExitAction getExitAction() {
@@ -76,5 +80,9 @@ public class ActionManager {
 
     public ChangeNameAction getChangeNameAction(){
         return changeNameAction;
+    }
+
+    public SaveTemplateAction getSaveTemplateAction() {
+        return saveTemplateAction;
     }
 }

@@ -14,6 +14,6 @@ public interface Serializer {
     List<MapNode> loadElements(JsonArray jsonElements);
 
     void saveProject(Project node);
-    void saveMap(MindMap node);
+    MindMap loadTemplate();
     void saveTemplate(MindMap node);
 }

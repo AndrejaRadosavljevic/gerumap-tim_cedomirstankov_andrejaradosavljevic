@@ -1,5 +1,6 @@
 package dsw.GeRuMap.app.gui.tree;
 
+import dsw.GeRuMap.app.core.ApplicationFramework;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeModel;
 import dsw.GeRuMap.app.gui.tree.view.MapTreeView;
@@ -104,6 +105,15 @@ public class MapTreeImplementation implements MapTree{
 
         treeView.expandPath(treeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(treeView);
+    }
+
+    @Override
+    public void saveSelectedMap() {
+        if(getSelectedNode() == null)return;
+        MapNode node = getSelectedNode().getMapNode();
+        if(node instanceof MindMap){
+            ApplicationFramework.getInstance().getSerializer().saveTemplate((MindMap) node);
+        }
     }
 
     public void refreshTree(){

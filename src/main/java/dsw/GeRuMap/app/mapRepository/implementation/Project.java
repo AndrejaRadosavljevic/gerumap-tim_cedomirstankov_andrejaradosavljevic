@@ -15,17 +15,16 @@ import java.util.List;
 
 @Getter
 @Setter
+@ToString(callSuper = true)
 public class Project extends MapNodeComposite implements IPublisher {
 
 
 
-    private String path;
-    private boolean changed = true;
+    protected String path;
+    protected boolean changed = true;
 
     private String autor;
     private int iterator = 1;
-    @ToString.Exclude
-    private transient List<ISubscriber> subscribers;
 
     public Project(String name, MapNode parent) {
         super(name, parent);
@@ -46,6 +45,7 @@ public class Project extends MapNodeComposite implements IPublisher {
 
 
 
+    private transient List<ISubscriber> subscribers;
     @Override
     public void addSubscriber(ISubscriber sub) {
         if(subscribers == null)subscribers = new ArrayList<>();

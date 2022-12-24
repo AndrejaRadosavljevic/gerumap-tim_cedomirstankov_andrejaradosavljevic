@@ -13,21 +13,20 @@ public class GsonSerializer implements Serializer {
 
     @Override
     public Project loadProject(File file) {
-        try(FileReader fileReader = new FileReader(file)){
+        try (FileReader fileReader = new FileReader(file)) {
             return gson.fromJson(fileReader, Project.class);
-        }catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return null;
         }
     }
 
     @Override
     public void saveProject(Project node) {
-        try (FileWriter fileWriter = new FileWriter(node.getPath())){
-            gson.toJson(node,fileWriter);
+        try (FileWriter writer = new FileWriter(node.getPath())) {
+            gson.toJson(node, writer);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

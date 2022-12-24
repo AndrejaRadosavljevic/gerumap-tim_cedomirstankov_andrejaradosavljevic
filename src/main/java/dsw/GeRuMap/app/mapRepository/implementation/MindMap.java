@@ -9,7 +9,6 @@ import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -22,10 +21,8 @@ public class MindMap extends MapNodeComposite implements IPublisher {
 
     private boolean isTemplate;
 
-    @ToString.Exclude
     private transient CommandManager commandManager;
 
-    @ToString.Exclude
     private transient List<ISubscriber> subscribers;
     public MindMap(String name, MapNode parent) {
         super(name, parent);

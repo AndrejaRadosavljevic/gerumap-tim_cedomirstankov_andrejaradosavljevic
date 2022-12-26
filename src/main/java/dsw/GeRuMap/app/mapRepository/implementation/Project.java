@@ -21,10 +21,12 @@ public class Project extends MapNodeComposite implements IPublisher {
 
 
     protected String path;
-    protected boolean changed = true;
+    @ToString.Exclude
+    private transient boolean changed = true;
 
     private String autor;
-    private int iterator = 1;
+    @ToString.Exclude
+    private transient int iterator = 1;
 
     public Project(String name, MapNode parent) {
         super(name, parent);

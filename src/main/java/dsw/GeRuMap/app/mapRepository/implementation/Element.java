@@ -6,18 +6,23 @@ import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.awt.*;
 
 @Getter
 @Setter
 public class Element extends MapNode implements ISubscriber {
-
+    @ToString.Exclude
     protected transient Stroke stroke;
+    @ToString.Exclude
     protected transient Paint paint;
-    private double scale;
-    private int pbr ;
-    private static int br = 0;
+    @ToString.Exclude
+    private transient double scale;
+    @ToString.Exclude
+    private transient int pbr ;
+    @ToString.Exclude
+    private transient static int br = 0;
 
 
 

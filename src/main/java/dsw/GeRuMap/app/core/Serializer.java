@@ -16,4 +16,5 @@ public interface Serializer {
     void saveProject(Project node);
     MindMap loadTemplate();
     void saveTemplate(MindMap node);
+    List<MapNode> loadTemplateChildren(File file);
 }

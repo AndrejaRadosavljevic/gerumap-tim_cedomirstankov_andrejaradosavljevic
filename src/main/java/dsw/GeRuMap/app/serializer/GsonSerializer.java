@@ -48,6 +48,21 @@ public class GsonSerializer implements Serializer {
         }
         return maps;
     }
+    @Override
+    public List<MapNode> loadTemplateChildren(File file) {
+        try (FileReader fileReader = new FileReader(file)) {
+            FileReader reader = new FileReader(file);
+            MindMap map =  gson.fromJson(fileReader, MindMap.class);
+
+
+            List<MapNode> e = map.getChildren();
+            return e;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
         @Override
         public List<MapNode> loadElements(JsonArray jsonElements) {
             List<MapNode> elements = new ArrayList<>();

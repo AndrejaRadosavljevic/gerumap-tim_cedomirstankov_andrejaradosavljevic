@@ -5,6 +5,7 @@ import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.awt.*;
 @Getter
@@ -15,7 +16,8 @@ public class PojamElement extends Element {
     private Dimension size;
     private Point position;
 
-    private boolean isSelected;
+    @ToString.Exclude
+    private transient boolean isSelected;
 
     public PojamElement(String name, MapNode parent,Stroke stroke,Paint paint,Point position,Dimension size) {
         super(name, parent,stroke,paint);

@@ -14,10 +14,13 @@ import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -263,5 +266,25 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     public void removeSelectedPainter(){
         selectPainter = null;
         update(this);
+    }
+
+    public void saveAsPNG() {
+        JFileChooser jfc = new JFileChooser();
+        File file = null;
+        if (jfc.showSaveDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION) {
+            file = jfc.getSelectedFile();
+            BufferedImage img = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_RGB);
+            this.paint(img.getGraphics());
+            try {
+                ImageIO.write(img, "png", file);
+                System.out.println("Sacuvana slika");
+
+            } catch (Exception e) {
+                System.out.println("Nije sacuvano" + e.getMessage());
+            }
+
+        } else {
+            return;
+        }
     }
 }

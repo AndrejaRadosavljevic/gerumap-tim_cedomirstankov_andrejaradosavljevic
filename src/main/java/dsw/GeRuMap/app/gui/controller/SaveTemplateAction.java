@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 public class SaveTemplateAction extends AbstractGeRuMapAction{
 
     public SaveTemplateAction()  {
-        putValue(SMALL_ICON, LoadIcon("/images/plus.png"));
+        putValue(SMALL_ICON, LoadIcon("/images/star.png"));
         putValue(NAME, "Save Template");
         putValue(SHORT_DESCRIPTION, "Save Template");
     }

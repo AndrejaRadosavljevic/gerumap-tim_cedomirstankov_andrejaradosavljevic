@@ -33,6 +33,7 @@ public class ActionManager {
 
     private SaveAction saveAction;
     private SaveTemplateAction saveTemplateAction;
+    private SaveAsPngAction saveAsPngAction;
 
     private OpenAction openAction;
 
@@ -60,6 +61,7 @@ public class ActionManager {
         zoomInAction=new ZoomInAction();
         zoomOutAction=new ZoomOutAction();
         saveTemplateAction = new SaveTemplateAction();
+        saveAsPngAction = new SaveAsPngAction();
     }
 
     public ExitAction getExitAction() {

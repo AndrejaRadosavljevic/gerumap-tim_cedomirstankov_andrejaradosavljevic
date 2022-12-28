@@ -15,9 +15,7 @@ import java.awt.*;
 @Getter
 @Setter
 public class Element extends MapNode implements ISubscriber {
-    protected transient Stroke stroke;
     private float debljina;
-    protected transient Paint paint;
     private int boja;
     @ToString.Exclude
     private transient double scale;
@@ -31,18 +29,16 @@ public class Element extends MapNode implements ISubscriber {
     public Element(String name, MapNode parent,float debljina, Color paint){
         super(name,parent);
         this.debljina = debljina;
-        this.stroke = new BasicStroke(debljina);
         this.boja = paint.getRGB();
-        this.paint = new ColorUIResource(boja);
         scale = ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getScale();
         pbr = br;
         br++;
     }
 
-    public Element(String name, MapNode parent, Stroke stroke, Paint paint, double scale){
+    public Element(String name, MapNode parent, int debljina, Color paint, double scale){
         super(name,parent);
-        this.stroke=stroke;
-        this.paint=paint;
+        this.debljina = debljina;
+        this.boja = paint.getRGB();
         this.scale=scale;
         pbr=br;
         br++;
@@ -50,8 +46,8 @@ public class Element extends MapNode implements ISubscriber {
 
     public Element(String name, MapNode parent) {
         super(name, parent);
-        stroke = new BasicStroke(3);
-        paint = Color.BLACK;
+        debljina = 3;
+        boja = Color.BLACK.getRGB();
     }
 
     @Override
@@ -69,12 +65,10 @@ public class Element extends MapNode implements ISubscriber {
     }
 
     public void setStroke(Stroke stroke) {
-        this.stroke = stroke;
         debljina = ((BasicStroke)stroke).getLineWidth();
     }
 
     public void setPaint(Paint paint) {
-        this.paint = paint;
         boja = ((Color)paint).getRGB();
     }
 }

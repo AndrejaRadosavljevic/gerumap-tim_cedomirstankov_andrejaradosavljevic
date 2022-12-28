@@ -16,7 +16,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.swing.*;
-import javax.swing.tree.DefaultTreeModel;
 
 import java.util.Random;
 
@@ -100,8 +99,15 @@ public class MapTreeImplementation implements MapTree{
         MapTreeItem loadedProject = new MapTreeItem(node);
         treeModel.getRoot().add(loadedProject);
 
+        for(MapNode m: node.getChildren()){
+            MapTreeItem mapTreeItem = new MapTreeItem(m);
+            loadedProject.add(mapTreeItem);
+        }
+
         MapNodeComposite mapNode = (MapNodeComposite) treeModel.getRoot().getMapNode();
         mapNode.addChild(node);
+
+
 
         treeView.expandPath(treeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(treeView);

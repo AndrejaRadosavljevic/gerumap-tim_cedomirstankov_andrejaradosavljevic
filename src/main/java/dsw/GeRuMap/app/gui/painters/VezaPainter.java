@@ -5,6 +5,7 @@ import dsw.GeRuMap.app.mapRepository.implementation.VezaElement;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.geom.Line2D;
 
@@ -24,9 +25,9 @@ public class VezaPainter extends ElementPainter{
     public void paint(Graphics2D g, Element element) {
         g.setPaint(Color.BLACK);
 
-        g.setStroke(element.getStroke());
+        g.setStroke(new BasicStroke(element.getDebljina()));
         g.draw(getShape());
-        g.setPaint(element.getPaint());
+        g.setPaint(new ColorUIResource(element.getBoja()));
         g.fill(getShape());
 
     }

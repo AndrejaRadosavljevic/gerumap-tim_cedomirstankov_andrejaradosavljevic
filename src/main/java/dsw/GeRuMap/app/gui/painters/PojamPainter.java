@@ -4,7 +4,9 @@ import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
 import lombok.Getter;
 import lombok.Setter;
+import org.w3c.dom.css.RGBColor;
 
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
@@ -24,15 +26,15 @@ public class PojamPainter extends ElementPainter{
 
         g.setPaint(Color.WHITE);
         g.fill(getShape());
-        g.setPaint(element.getPaint());
-        g.setStroke(element.getStroke());
+        g.setPaint(new ColorUIResource(element.getBoja()));
+        g.setStroke(new BasicStroke(element.getDebljina()));
         g.draw(getShape());
         if(((PojamElement)element).isSelected()){
             g.setPaint(Color.GRAY);
             g.fill(getShape());
             System.out.println("||||");
         }
-        g.setPaint(element.getPaint());
+        g.setPaint(new ColorUIResource(element.getBoja()));
 
         if (element instanceof PojamElement){
             FontMetrics fm = g.getFontMetrics();

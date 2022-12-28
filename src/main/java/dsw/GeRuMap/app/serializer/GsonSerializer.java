@@ -16,13 +16,8 @@ import java.util.List;
 
 public class GsonSerializer implements Serializer {
 
-    private final Gson gson;
+    private final Gson gson=new GsonBuilder().registerTypeAdapter(MapNode.class, new AbstractElementAdapter()).create();
 
-    public GsonSerializer(){
-        GsonBuilder gsonBilder = new GsonBuilder();
-        gsonBilder.registerTypeAdapter(MapNode.class, new AbstractElementAdapter());
-        gson=gsonBilder.create();
-    }
     @Override
     public Project loadProject(File file) {
         try (FileReader fileReader = new FileReader(file)) {

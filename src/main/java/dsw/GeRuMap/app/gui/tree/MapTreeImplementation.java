@@ -4,11 +4,13 @@ import dsw.GeRuMap.app.core.ApplicationFramework;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeItem;
 import dsw.GeRuMap.app.gui.tree.model.MapTreeModel;
 import dsw.GeRuMap.app.gui.tree.view.MapTreeView;
+import dsw.GeRuMap.app.mapRepository.command.CommandManager;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
 import dsw.GeRuMap.app.mapRepository.factory.ElementFactory;
 import dsw.GeRuMap.app.mapRepository.factory.MindMapFactory;
 import dsw.GeRuMap.app.mapRepository.factory.ProjectFactory;
+import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.Project;
 import dsw.GeRuMap.app.mapRepository.implementation.ProjectExplorer;
@@ -100,6 +102,10 @@ public class MapTreeImplementation implements MapTree{
         treeModel.getRoot().add(loadedProject);
 
         for(MapNode m: node.getChildren()){
+            ((MindMap)m).setCommandManager(new CommandManager());
+            for(MapNode e:((MindMap) m).getChildren()){
+                e.setParent(m);
+            }
             MapTreeItem mapTreeItem = new MapTreeItem(m);
             loadedProject.add(mapTreeItem);
         }

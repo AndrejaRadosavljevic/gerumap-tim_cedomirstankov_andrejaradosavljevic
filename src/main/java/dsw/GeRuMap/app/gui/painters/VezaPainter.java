@@ -1,10 +1,7 @@
 package dsw.GeRuMap.app.gui.painters;
 
-import dsw.GeRuMap.app.gui.view.MainFrame;
-import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
+import dsw.GeRuMap.app.mapRepository.implementation.VezaElement;
 import lombok.Getter;
 import lombok.Setter;
 

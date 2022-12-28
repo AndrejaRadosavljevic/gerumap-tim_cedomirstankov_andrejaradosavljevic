@@ -6,8 +6,7 @@ import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.gui.view.NewPojamFrame;
 import dsw.GeRuMap.app.mapRepository.command.komande.NewPojamCommand;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
-import dsw.GeRuMap.app.gui.painters.PojamPainter;
+import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package dsw.GeRuMap.app.mapRepository.implementation.elements;
+package dsw.GeRuMap.app.mapRepository.implementation;
 
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;

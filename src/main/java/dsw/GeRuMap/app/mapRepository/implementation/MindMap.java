@@ -5,8 +5,6 @@ import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.mapRepository.command.CommandManager;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.composite.MapNodeComposite;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

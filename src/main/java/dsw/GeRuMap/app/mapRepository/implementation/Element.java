@@ -19,8 +19,8 @@ public class Element extends MapNode implements ISubscriber {
     private int boja;
     @ToString.Exclude
     private transient double scale;
-    @ToString.Exclude
-    private transient int pbr ;
+
+    private  int pbr ;
     @ToString.Exclude
     private static int br = 0;
 
@@ -70,5 +70,9 @@ public class Element extends MapNode implements ISubscriber {
 
     public void setPaint(Paint paint) {
         boja = ((Color)paint).getRGB();
+    }
+
+    public void setPbr(){
+        pbr = br++;
     }
 }

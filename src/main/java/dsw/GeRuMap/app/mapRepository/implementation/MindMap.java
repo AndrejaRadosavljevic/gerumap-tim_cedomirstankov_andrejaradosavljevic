@@ -18,8 +18,6 @@ import java.util.List;
 
 public class MindMap extends MapNodeComposite implements IPublisher {
 
-    @ToString.Exclude
-    private transient boolean isTemplate;
 
     @ToString.Exclude
     private transient CommandManager commandManager;
@@ -28,7 +26,6 @@ public class MindMap extends MapNodeComposite implements IPublisher {
     private transient List<ISubscriber> subscribers;
     public MindMap(String name, MapNode parent) {
         super(name, parent);
-        isTemplate = false;
         commandManager = new CommandManager();
         getChildren().add((new PojamElement("Centralni",this,new BasicStroke(6f),Color.BLACK,new Point(250,200),new Dimension(400,100),1)));
 

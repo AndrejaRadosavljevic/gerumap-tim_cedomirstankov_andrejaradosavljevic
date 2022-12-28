@@ -1,8 +1,5 @@
 package dsw.GeRuMap.app.gui.painters;
 
-import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
-import dsw.GeRuMap.app.mapRepository.implementation.Element;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
 import lombok.Getter;
 import lombok.Setter;
 

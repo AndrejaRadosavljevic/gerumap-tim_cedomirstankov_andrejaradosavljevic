@@ -25,8 +25,8 @@ public class Project extends MapNodeComposite implements IPublisher {
     private transient boolean changed = true;
 
     private String autor;
-    @ToString.Exclude
-    private transient int iterator = 1;
+
+    private int iterator = 1;
 
     public Project(String name, MapNode parent) {
         super(name, parent);

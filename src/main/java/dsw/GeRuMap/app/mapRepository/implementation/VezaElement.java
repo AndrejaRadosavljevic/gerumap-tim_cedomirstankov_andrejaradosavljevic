@@ -1,12 +1,12 @@
-package dsw.GeRuMap.app.mapRepository.implementation.elements;
+package dsw.GeRuMap.app.mapRepository.implementation;
 
 import dsw.GeRuMap.app.gui.painters.VezaPainter;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
+import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.swing.text.Position;
 import java.awt.*;
 
 @Getter

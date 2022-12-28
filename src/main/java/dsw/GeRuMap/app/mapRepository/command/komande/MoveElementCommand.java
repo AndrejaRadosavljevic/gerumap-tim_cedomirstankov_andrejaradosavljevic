@@ -2,7 +2,7 @@ package dsw.GeRuMap.app.mapRepository.command.komande;
 
 import dsw.GeRuMap.app.mapRepository.command.AbstractCommand;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
+import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
 
 import java.util.List;
 

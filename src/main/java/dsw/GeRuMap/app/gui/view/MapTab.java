@@ -1,6 +1,5 @@
 package dsw.GeRuMap.app.gui.view;
 
-import com.sun.tools.javac.Main;
 import dsw.GeRuMap.app.gui.controller.observer.IPublisher;
 import dsw.GeRuMap.app.gui.controller.observer.ISubscriber;
 import dsw.GeRuMap.app.gui.controller.update.MouseController;
@@ -10,7 +9,7 @@ import dsw.GeRuMap.app.gui.painters.*;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
+import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +21,6 @@ import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Getter

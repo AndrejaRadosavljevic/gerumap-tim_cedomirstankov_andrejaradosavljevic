@@ -3,8 +3,8 @@ package dsw.GeRuMap.app.gui.painters;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
+import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
+import dsw.GeRuMap.app.mapRepository.implementation.VezaElement;
 import lombok.Getter;
 import lombok.Setter;
 

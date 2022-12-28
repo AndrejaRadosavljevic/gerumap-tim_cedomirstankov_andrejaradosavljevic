@@ -1,4 +1,4 @@
-package dsw.GeRuMap.app.mapRepository.implementation.elements;
+package dsw.GeRuMap.app.mapRepository.implementation;
 
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
@@ -19,8 +19,8 @@ public class PojamElement extends Element {
     @ToString.Exclude
     private transient boolean isSelected;
 
-    public PojamElement(String name, MapNode parent,Stroke stroke,Paint paint,Point position,Dimension size) {
-        super(name, parent,stroke,paint);
+    public PojamElement(String name, MapNode parent,float debljinda,Color paint,Point position,Dimension size) {
+        super(name, parent,debljinda,paint);
         Point p = new Point((int) (position.x/getScale()), (int) (position.y/getScale()));
         this.position=position;
         this.size=size;

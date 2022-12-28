@@ -5,10 +5,8 @@ import dsw.GeRuMap.app.gui.state.State;
 import dsw.GeRuMap.app.gui.state.concrete.*;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
-import dsw.GeRuMap.app.mapRepository.command.komande.MoveElementCommand;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
-import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
+import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;

@@ -7,29 +7,33 @@ import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.w3c.dom.css.RGBColor;
 
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 
 @Getter
 @Setter
 public class Element extends MapNode implements ISubscriber {
-    @ToString.Exclude
     protected transient Stroke stroke;
-    @ToString.Exclude
+    private float debljina;
     protected transient Paint paint;
+    private int boja;
     @ToString.Exclude
     private transient double scale;
     @ToString.Exclude
     private transient int pbr ;
     @ToString.Exclude
-    private transient static int br = 0;
+    private static int br = 0;
 
 
 
-    public Element(String name, MapNode parent,Stroke stroke, Paint paint){
+    public Element(String name, MapNode parent,float debljina, Color paint){
         super(name,parent);
-        this.stroke = stroke;
-        this.paint = paint;
+        this.debljina = debljina;
+        this.stroke = new BasicStroke(debljina);
+        this.boja = paint.getRGB();
+        this.paint = new ColorUIResource(boja);
         scale = ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getScale();
         pbr = br;
         br++;
@@ -46,7 +50,7 @@ public class Element extends MapNode implements ISubscriber {
 
     public Element(String name, MapNode parent) {
         super(name, parent);
-        stroke = new BasicStroke(2);
+        stroke = new BasicStroke(3);
         paint = Color.BLACK;
     }
 
@@ -62,5 +66,15 @@ public class Element extends MapNode implements ISubscriber {
     @Override
     public void update(Object notification) {
         scale =( (MapTab)notification).getScale();
+    }
+
+    public void setStroke(Stroke stroke) {
+        this.stroke = stroke;
+        debljina = ((BasicStroke)stroke).getLineWidth();
+    }
+
+    public void setPaint(Paint paint) {
+        this.paint = paint;
+        boja = ((Color)paint).getRGB();
     }
 }

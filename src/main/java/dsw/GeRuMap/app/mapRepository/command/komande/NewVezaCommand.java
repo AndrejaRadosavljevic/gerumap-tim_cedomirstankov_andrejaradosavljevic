@@ -1,13 +1,8 @@
 package dsw.GeRuMap.app.mapRepository.command.komande;
 
-import dsw.GeRuMap.app.gui.view.MainFrame;
-import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.mapRepository.command.AbstractCommand;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
-
-import java.awt.*;
+import dsw.GeRuMap.app.mapRepository.implementation.VezaElement;
 
 public class NewVezaCommand extends AbstractCommand {
 

@@ -2,19 +2,14 @@ package dsw.GeRuMap.app.gui.state.concrete;
 
 import dsw.GeRuMap.app.gui.controller.update.UpdateEvent;
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
-import dsw.GeRuMap.app.gui.painters.PojamPainter;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.gui.state.State;
-import dsw.GeRuMap.app.mapRepository.implementation.Element;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.PojamElement;
-import dsw.GeRuMap.app.mapRepository.implementation.elements.VezaElement;
+import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter

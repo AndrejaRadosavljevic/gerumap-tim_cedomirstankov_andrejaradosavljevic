@@ -66,6 +66,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         setVisible(true);
         mapView.getMindMap().addSubscriber(this);
         update(mapView);
+        notifySubscriber(this);
     }
 
     protected void paintComponent(Graphics g){

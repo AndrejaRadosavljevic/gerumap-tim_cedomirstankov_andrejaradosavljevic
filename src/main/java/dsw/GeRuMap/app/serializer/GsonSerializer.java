@@ -46,7 +46,6 @@ public class GsonSerializer implements Serializer {
     @Override
     public List<MapNode> loadTemplateChildren(File file) {
         try (FileReader fileReader = new FileReader(file)) {
-            FileReader reader = new FileReader(file);
             MindMap map =  gson.fromJson(fileReader, MindMap.class);
 
 
@@ -83,15 +82,14 @@ public class GsonSerializer implements Serializer {
         }
 
     @Override
-    public MindMap loadTemplate() {
-        JFileChooser jfc = new JFileChooser();
-        MindMap m=null;
-        File projectFile = null;
-        if (jfc.showSaveDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION) {
-            projectFile = jfc.getSelectedFile();
-            m=gson.fromJson(projectFile.toString(),MindMap.class);
-            return m;
-        } else {
+    public MindMap loadTemplate(File file) {
+        try (FileReader fileReader = new FileReader(file)) {
+            MindMap map =  gson.fromJson(fileReader, MindMap.class);
+
+
+            return map;
+        } catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
     }

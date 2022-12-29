@@ -1,6 +1,7 @@
 package dsw.GeRuMap.app.gui.state.concrete;
 
 import dsw.GeRuMap.app.gui.painters.ElementPainter;
+import dsw.GeRuMap.app.gui.painters.VezaPainter;
 import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.gui.view.MapTab;
 import dsw.GeRuMap.app.gui.state.State;
@@ -65,7 +66,14 @@ public class BrisiElementState implements State {
                 }
             }
         }
-
+        for(ElementPainter ep1:((MapTab)MainFrame.getInstance().getTabPanel().
+                getTabbedPane().getSelectedComponent()).getMapView().getPainters()) {
+            if(ep1 instanceof VezaPainter){
+                if(elements.contains(((VezaElement)ep1.getElement()).getPE1())||elements.contains(((VezaElement)ep1.getElement()).getPE2())){
+                    elements.add(ep1.getElement());
+                }
+            }
+        }
 
 
         if(elements.size()!=0){

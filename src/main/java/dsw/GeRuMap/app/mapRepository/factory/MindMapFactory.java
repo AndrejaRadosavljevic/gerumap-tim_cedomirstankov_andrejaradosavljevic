@@ -2,6 +2,7 @@ package dsw.GeRuMap.app.mapRepository.factory;
 
 import dsw.GeRuMap.app.core.ApplicationFramework;
 import dsw.GeRuMap.app.gui.view.MainFrame;
+import dsw.GeRuMap.app.mapRepository.command.CommandManager;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 
@@ -16,23 +17,21 @@ public class MindMapFactory extends NodeFactory{
     public MapNode createNode(String name,MapNode parent) {
 
 
-        MindMap mindMap = new MindMap(name,parent);
-        /*
+        MindMap mindMap = new MindMap(name, parent);
+
         JFileChooser jfc = new JFileChooser("sabloni");
-        List<MapNode> elements = new ArrayList<>();
         if (jfc.showOpenDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION) {
             try {
                 File file = jfc.getSelectedFile();
-                elements = ApplicationFramework.getInstance().getSerializer().loadTemplateChildren(file);
+                mindMap = ApplicationFramework.getInstance().getSerializer().loadTemplate(file);
+                mindMap.setName(name);
+                mindMap.setParent(parent);
+                mindMap.setCommandManager(new CommandManager());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        for(MapNode element:elements){
-            mindMap.addChild(element);
-        }
-        */
         return mindMap;
     }
 }

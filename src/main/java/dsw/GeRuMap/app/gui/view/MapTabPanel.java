@@ -124,4 +124,6 @@ public class MapTabPanel extends JPanel implements ISubscriber {
     public void startMoveElement() {
         stateManager.setMoveState();
     }
+
+    public void startCenter() { stateManager.setCenterState();}
 }

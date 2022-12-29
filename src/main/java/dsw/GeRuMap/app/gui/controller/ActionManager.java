@@ -37,6 +37,8 @@ public class ActionManager {
 
     private OpenAction openAction;
 
+    private CenterAction centerAction;
+
 
     public ActionManager(){
         initialiseActions();
@@ -62,6 +64,7 @@ public class ActionManager {
         zoomOutAction=new ZoomOutAction();
         saveTemplateAction = new SaveTemplateAction();
         saveAsPngAction = new SaveAsPngAction();
+        centerAction= new CenterAction();
     }
 
     public ExitAction getExitAction() {

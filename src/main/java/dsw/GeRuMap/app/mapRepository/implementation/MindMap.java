@@ -27,7 +27,6 @@ public class MindMap extends MapNodeComposite implements IPublisher {
     public MindMap(String name, MapNode parent) {
         super(name, parent);
         commandManager = new CommandManager();
-        getChildren().add((new PojamElement("Centralni",this,6,Color.BLACK,new Point(250,200),new Dimension(400,100),1)));
 
     }
 

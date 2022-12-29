@@ -238,6 +238,21 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     }
 
+    public void centrirajPojam(Point x){
+        x.translate((int) (-transX*scale), (int) (-transY*scale));
+        Element pojamElement = mapView.getMindMap().getChildOnLocation(x);
+        if(pojamElement instanceof PojamElement){
+            double x1 = this.getWidth()/2-((PojamElement) pojamElement).getCurentDimensions().getWidth()/2;
+            double y1 = this.getHeight()/2-((PojamElement) pojamElement).getCurentDimensions().getHeight()/2;
+            x1-=transX*scale;
+            y1-=transX*scale;
+            ((PojamElement) pojamElement).setPosition(new Point((int) x1, (int) y1));
+            mapView.resetCenter();
+            ((PojamElement) pojamElement).setCentered(true);
+            update(this);
+        }
+    }
+
     @Override
     public void addSubscriber(ISubscriber sub) {
         if(subscribers == null)subscribers = new ArrayList<>();

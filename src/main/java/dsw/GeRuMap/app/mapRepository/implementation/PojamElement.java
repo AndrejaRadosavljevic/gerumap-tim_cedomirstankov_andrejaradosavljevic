@@ -16,6 +16,8 @@ public class PojamElement extends Element {
     private Dimension size;
     private Point position;
 
+    private boolean isCentered;
+
     @ToString.Exclude
     private transient boolean isSelected;
 
@@ -25,6 +27,7 @@ public class PojamElement extends Element {
         this.position=position;
         this.size=size;
         this.isSelected=false;
+        this.isCentered=false;
     }
     public PojamElement(String name, MapNode parent,int debljina,Color paint,Point position,Dimension size, double scale) {
         super(name, parent,debljina,paint,scale);
@@ -32,6 +35,7 @@ public class PojamElement extends Element {
         this.position=position;
         this.size=size;
         this.isSelected=false;
+        this.isCentered=false;
 
     }
 

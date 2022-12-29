@@ -15,6 +15,8 @@ public class StateManager {
     private SelectState selectState;
     private MoveState moveState;
 
+    private CenterState centerState;
+
     public StateManager(){
         initstates();
     }
@@ -25,6 +27,7 @@ public class StateManager {
         newVezaState=new NewVezaState();
         selectState=new SelectState();
         moveState = new MoveState();
+        centerState=new CenterState();
         currentState=selectState;
     }
 
@@ -51,4 +54,6 @@ public class StateManager {
     public void setMoveState() {
         currentState = moveState;
     }
+
+    public void setCenterState(){ currentState = centerState;}
 }

@@ -41,6 +41,11 @@ public class PojamPainter extends ElementPainter{
             g.setPaint(Color.BLACK);
             PojamElement device= (PojamElement) element;
             int sw=fm.stringWidth(device.getName());
+            if(((PojamElement)element).isCentered()){
+                g.setFont(new Font("default", Font.BOLD, fm.getFont().getSize()));
+            }else{
+                g.setFont(new Font("default", Font.PLAIN, fm.getFont().getSize()));
+            }
             g.drawString(device.getName(), (int)device.getPosition().getX()+(int)device.getSize().getWidth()/2-sw/2,
                     (int)device.getPosition().getY()+(int)device.getSize().getHeight()/2);
         }

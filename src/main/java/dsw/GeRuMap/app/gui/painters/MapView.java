@@ -111,4 +111,12 @@ public class MapView {
         }
         return false;
     }
+
+    public void resetCenter() {
+        for(MapNode e:mindMap.getChildren()){
+            if(e instanceof PojamElement){
+                ((PojamElement) e).setCentered(false);
+            }
+        }
+    }
 }

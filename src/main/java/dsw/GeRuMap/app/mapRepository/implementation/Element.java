@@ -75,4 +75,8 @@ public class Element extends MapNode implements ISubscriber {
     public void setPbr(){
         pbr = br++;
     }
+
+    public void increment() {
+        br++;
+    }
 }

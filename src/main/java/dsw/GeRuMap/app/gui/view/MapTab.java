@@ -294,6 +294,7 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         if (jfc.showSaveDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION) {
             file = jfc.getSelectedFile();
             BufferedImage img = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_RGB);
+
             this.paint(img.getGraphics());
             try {
                 ImageIO.write(img, "png", file);
@@ -303,8 +304,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
                 System.out.println("Nije sacuvano" + e.getMessage());
             }
 
-        } else {
-            return;
         }
     }
 }

@@ -2,14 +2,9 @@ package dsw.GeRuMap.app.serializer;
 
 import com.google.gson.*;
 import dsw.GeRuMap.app.core.Serializer;
-import dsw.GeRuMap.app.gui.view.MainFrame;
 import dsw.GeRuMap.app.mapRepository.composite.MapNode;
-import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
-import dsw.GeRuMap.app.mapRepository.implementation.Project;
-import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
-import dsw.GeRuMap.app.mapRepository.implementation.VezaElement;
+import dsw.GeRuMap.app.mapRepository.implementation.*;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +16,26 @@ public class GsonSerializer implements Serializer {
     @Override
     public Project loadProject(File file) {
         try (FileReader fileReader = new FileReader(file)) {
-            return gson.fromJson(fileReader, Project.class);
+            Project project =  gson.fromJson(fileReader, Project.class);
+            for(MapNode map: project.getChildren()){
+                map.setParent(project);
+                for(MapNode e:((MindMap)map).getChildren()){
+                    ((Element)e).increment();
+                    if(e instanceof VezaElement){
+                        e.setParent(map);
+                        for(MapNode p:((MindMap)map).getChildren() ){
+                            if(p instanceof PojamElement){
+                                if(((VezaElement) e).getPE1().getPosition().equals(((PojamElement)p).getPosition()))
+                                    ((VezaElement) e).setPE1((PojamElement) p);
+                                if(((VezaElement) e).getPE2().getPosition().equals(((PojamElement)p).getPosition()))
+                                    ((VezaElement) e).setPE2((PojamElement) p);
+                                p.setParent(map);
+                            }
+                        }
+                    }
+                }
+            }
+            return project;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -85,7 +99,21 @@ public class GsonSerializer implements Serializer {
     public MindMap loadTemplate(File file) {
         try (FileReader fileReader = new FileReader(file)) {
             MindMap map =  gson.fromJson(fileReader, MindMap.class);
-
+            for(MapNode e:map.getChildren()){
+                ((Element)e).increment();
+                if(e instanceof VezaElement){
+                    e.setParent(map);
+                    for(MapNode p:map.getChildren() ){
+                        if(p instanceof PojamElement){
+                            if(((VezaElement) e).getPE1().getPosition().equals(((PojamElement)p).getPosition()))
+                                ((VezaElement) e).setPE1((PojamElement) p);
+                            if(((VezaElement) e).getPE2().getPosition().equals(((PojamElement)p).getPosition()))
+                                ((VezaElement) e).setPE2((PojamElement) p);
+                        p.setParent(map);
+                        }
+                    }
+                }
+            }
 
             return map;
         } catch (IOException e) {

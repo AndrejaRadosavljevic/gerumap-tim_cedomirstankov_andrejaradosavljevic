@@ -10,6 +10,7 @@ import dsw.GeRuMap.app.mapRepository.composite.MapNode;
 import dsw.GeRuMap.app.mapRepository.implementation.Element;
 import dsw.GeRuMap.app.mapRepository.implementation.MindMap;
 import dsw.GeRuMap.app.mapRepository.implementation.PojamElement;
+import dsw.GeRuMap.app.mapRepository.implementation.VezaElement;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +21,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 @Getter
@@ -240,22 +241,60 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     public void centrirajPojam(Point x){
         Element pojamElement = mapView.getMindMap().getChildOnLocation(x);
+        if(pojamElement==null)mapView.resetCenter();
         if(pojamElement instanceof PojamElement){
-            double x1 = this.getWidth()/2-((PojamElement) pojamElement).getCurentDimensions().getWidth()/2;
-            double y1 = this.getHeight()/2-((PojamElement) pojamElement).getCurentDimensions().getHeight()/2;
+            double x1 = 25;
+            double y1 = 25;
             x1/=scale;
             y1/=scale;
-            System.out.println(getWidth());
-            System.out.println(getHeight());
-            System.out.println(((PojamElement) pojamElement).getCurentDimensions().getWidth());
-            System.out.println(((PojamElement) pojamElement).getCurentDimensions().getHeight());
             ((PojamElement) pojamElement).setPosition(new Point((int) x1, (int) y1));
-            System.out.println(((PojamElement) pojamElement).getPosition().getX());
-            System.out.println(((PojamElement) pojamElement).getPosition().getY());
             mapView.resetCenter();
             ((PojamElement) pojamElement).setCentered(true);
+
+            Map<PojamElement,Integer> korisceni = new HashMap<>();
+            korisceni.put((PojamElement) pojamElement,0);
+            Queue<PojamElement> queue = new LinkedList<>();
+            queue.add((PojamElement) pojamElement);
+
+                while(!queue.isEmpty()){
+                    PojamElement pe=queue.poll();
+                    for(MapNode e:mapView.getMindMap().getChildren()){
+                        if(e instanceof VezaElement){
+                            if(((VezaElement) e).getPE1().equals(pe)){
+                                if(!korisceni.containsKey(((VezaElement) e).getPE2())){
+                                    korisceni.put(((VezaElement) e).getPE2(),korisceni.get(pe)+1);
+                                    queue.add(((VezaElement) e).getPE2());
+                                }
+                            }
+                            if(((VezaElement) e).getPE2().equals(pe)){
+                                if(!korisceni.containsKey(((VezaElement) e).getPE1())){
+                                    korisceni.put(((VezaElement) e).getPE1(),korisceni.get(pe)+1);
+                                    queue.add(((VezaElement) e).getPE1());
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                int nivo=0;
+            for (Map.Entry<PojamElement,Integer> entry : korisceni.entrySet())
+                if(entry.getValue()>nivo)nivo=entry.getValue();
+            List<Integer> list = new ArrayList<>();
+            for(int j=0;j<=nivo;j++)
+                list.add(-1);
+            for (Map.Entry<PojamElement,Integer> entry : korisceni.entrySet()){
+                int br=entry.getValue();
+                list.set(br,list.get(br)+1);
+                entry.getKey().setPosition(new Point(25+entry.getValue()*300,25+list.get(entry.getValue())*75));
+            }
+
             update(this);
         }
+
+    }
+
+    public void pozicionirajOvog(PojamElement pojamElement){
 
     }
 

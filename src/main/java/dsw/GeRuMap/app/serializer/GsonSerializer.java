@@ -42,35 +42,6 @@ public class GsonSerializer implements Serializer {
         }
     }
 
-    @Override
-    public List<MapNode> loadMindMaps(JsonArray jsonMaps) {
-        List<MapNode> maps = new ArrayList<>();
-        for (JsonElement map : jsonMaps) {
-            JsonObject m = map.getAsJsonObject();
-            MindMap mindMap = gson.fromJson(map.toString(), MindMap.class);
-
-            JsonArray elements = (JsonArray) m.get("children");
-
-            List<MapNode> e = loadElements(elements);
-
-            mindMap.setChildren(e);
-        }
-        return maps;
-    }
-    @Override
-    public List<MapNode> loadTemplateChildren(File file) {
-        try (FileReader fileReader = new FileReader(file)) {
-            MindMap map =  gson.fromJson(fileReader, MindMap.class);
-
-
-            List<MapNode> e = map.getChildren();
-            return e;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
         @Override
         public List<MapNode> loadElements(JsonArray jsonElements) {
             List<MapNode> elements = new ArrayList<>();

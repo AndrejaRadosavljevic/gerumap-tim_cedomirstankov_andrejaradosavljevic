@@ -35,8 +35,6 @@ public class CommandManager {
             commands.get(--currentCommand).undoCommand();
         }
         if(currentCommand==0){
-            //ovo
-            //AppCore.getInstance().getGui().enable
 
             MainFrame.getInstance().getActionManager().getUndoAction().setEnabled(false);
         }

@@ -10,11 +10,9 @@ import java.util.List;
 
 public interface Serializer {
     Project loadProject(File file);
-    List<MapNode> loadMindMaps(JsonArray jsonMaps);
     List<MapNode> loadElements(JsonArray jsonElements);
 
     void saveProject(Project node);
     MindMap loadTemplate(File file);
     void saveTemplate(MindMap node);
-    List<MapNode> loadTemplateChildren(File file);
 }

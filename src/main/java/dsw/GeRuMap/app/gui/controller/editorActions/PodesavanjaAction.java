@@ -29,12 +29,6 @@ public class PodesavanjaAction extends AbstractGeRuMapAction {
         podesavanjaFrame.setVisible(true);
 
     }
-
-
-
-        //treba da uzme selektovan element i da otvori prozor za podesavanje elementa
-
-
 }
 
 

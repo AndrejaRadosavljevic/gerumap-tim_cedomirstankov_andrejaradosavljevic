@@ -82,34 +82,3 @@ public class VezaPainter extends ElementPainter{
         return false;
     }
 }
-
-
-//shape = new Line2D.Float(, (float) ((VezaElement) element).getPE1().getPosition().getY(), (float) ((VezaElement) element).getPE2().getPosition().getX(), (float) ((VezaElement) element).getPE2().getPosition().getY());
-
-
-
-//        if(x1>x2){
-//            y1= (float) (y1+((VezaElement) element).getPE1().getSize().getHeight()/2);
-//            x2= (float) (x2+((VezaElement) element).getPE2().getSize().getWidth());
-//            y2= (float) (y2+((VezaElement) element).getPE2().getSize().getHeight()/2);
-//            shape=new Line2D.Float(x1,y1,x2,y2);
-//        }
-//        if(x1<x2){
-//            y2= (float) (y2+((VezaElement) element).getPE2().getSize().getHeight()/2);
-//            x1= (float) (x1+((VezaElement) element).getPE1().getSize().getWidth());
-//            y1= (float) (y1+((VezaElement) element).getPE1().getSize().getHeight()/2);
-//            shape=new Line2D.Float(x1,y1,x2,y2);
-//        }
-//        if(x1==x2 && y1<y2){
-//            x1= (float) (x1+((VezaElement) element).getPE1().getSize().getWidth()/2);
-//            y1= (float) (y1+((VezaElement) element).getPE1().getSize().getHeight());
-//            x2= (float) (x2+((VezaElement) element).getPE2().getSize().getWidth()/2);
-//            shape=new Line2D.Float(x1,y1,x2,y2);
-//        }
-//
-//        if(x1==x2 && y1>y2){
-//            x1= (float) (x1+((VezaElement) element).getPE1().getSize().getWidth()/2);
-//            y2= (float) (y2+((VezaElement) element).getPE2().getSize().getHeight());
-//            x2= (float) (x2+((VezaElement) element).getPE2().getSize().getWidth()/2);
-//            shape=new Line2D.Float(x1,y1,x2,y2);
-//        }

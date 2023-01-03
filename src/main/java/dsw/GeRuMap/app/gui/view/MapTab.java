@@ -107,8 +107,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
 
-//
-
     public void updateSelected(String name, Stroke stroke,Paint paint){
         for(Element e: selectedElements){
             if(e instanceof PojamElement){
@@ -184,7 +182,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
     }
 
     public void drawMyLine(Point a, Point b) {
-        System.out.println("/");
         Graphics2D g2 = (Graphics2D) getGraphics();
         BasicStroke stroke=new BasicStroke(2F);
         if(a == null || b==null) return;
@@ -210,8 +207,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         updatePerformed(new UpdateEvent(this));
     }
 
-
-    // Za pomeranje po mapi uma kada se nesto ne vidi. Treba se doraditi.
     public void moveView(double x, double y) {
         transX+=x/scale;
         transY+=y/scale;
@@ -231,12 +226,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
         notifySubscriber(this);
         affineTransform.scale(scale,scale);
         update(this);
-    }
-    public  void setScale(int x, int y){
-        //affineTransform.scale(x,y);
-
-        notifySubscriber(x);
-
     }
 
     public void centrirajPojam(Point x){
@@ -294,10 +283,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
 
     }
 
-    public void pozicionirajOvog(PojamElement pojamElement){
-
-    }
-
     @Override
     public void addSubscriber(ISubscriber sub) {
         if(subscribers == null)subscribers = new ArrayList<>();
@@ -337,7 +322,6 @@ public class MapTab extends JPanel implements UpdateListener, ISubscriber, IPubl
             this.paint(img.getGraphics());
             try {
                 ImageIO.write(img, "png", file);
-                System.out.println("Sacuvana slika");
 
             } catch (Exception e) {
                 System.out.println("Nije sacuvano" + e.getMessage());

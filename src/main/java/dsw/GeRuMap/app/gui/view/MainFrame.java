@@ -51,8 +51,6 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("GeRuMap app");
 
-        //setIconImage("/");
-
         menu = new MyMenuBar();
         setJMenuBar(menu);
 

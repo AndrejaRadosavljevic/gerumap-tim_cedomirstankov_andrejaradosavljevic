@@ -16,14 +16,12 @@ public class NewPojamCommand extends AbstractCommand {
     }
     @Override
     public void doCommand() {
-        //((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addPainter(new PojamPainter(pojamElement));
         map.addChild(pojamElement);
         System.out.println("izvrsen doCommand u NewPojamCommand");
     }
 
     @Override
     public void undoCommand() {
-        //((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removePainter(new PojamPainter(pojamElement).getElement());
         map.removeChild(pojamElement);
         System.out.println("izvrsen doCommand u NewPojamCommand");
     }

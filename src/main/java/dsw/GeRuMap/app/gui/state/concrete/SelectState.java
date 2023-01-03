@@ -27,9 +27,6 @@ public class SelectState implements State {
         s = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getScale();
 
         ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelectedElement(x);
-
-
-        System.out.println("Select");
     }
 
     @Override
@@ -45,9 +42,7 @@ public class SelectState implements State {
             if(ep1.getElement() instanceof PojamElement){
 
                 if(selection.intersects(((PojamElement) ep1.getElement()).getCurentPosition().getX(),((PojamElement) ep1.getElement()).getCurentPosition().getY(),((PojamElement) ep1.getElement()).getCurentDimensions().getWidth(),((PojamElement) ep1.getElement()).getCurentDimensions().getHeight())){
-                    //System.out.println("X: " + ((PojamElement) ep1.getElement()).getCurentPosition().getX() + "Y: " + ((PojamElement) ep1.getElement()).getCurentPosition().getY());
                     ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelection(ep1.getElement());
-                    //System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
                 }
                 if(((PojamElement) ep1.getElement()).hasPoint(a))
                     ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).addSelection(ep1.getElement());
@@ -58,23 +53,3 @@ public class SelectState implements State {
         ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));
     }
 }
-
-
-  //  double x1=((PojamElement)ep1.getElement()).getPosition().getX();
-    //double y1=((PojamElement)ep1.getElement()).getPosition().getY();
-//                if(x1>=a.getX() && y1>=a.getY() && x1<=b.getX() && y1<=b.getY()){
-//                    doState(((PojamElement) ep1.getElement()).getPosition());
-//                    System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
-//                }
-//                if(x1>=b.getX() && y1>=b.getY() && x1<=a.getX() && y1<=a.getY()){
-//                    doState(((PojamElement) ep1.getElement()).getPosition());
-//                    System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
-//                }
-//                if(x1>=a.getX() && x1<=b.getX() && y1>=b.getY() && y1<=a.getY()){
-//                    doState(((PojamElement) ep1.getElement()).getPosition());
-//                    System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
-//                }
-//                if(x1>b.getX() && x1<a.getX() && y1>a.getY() && y1<b.getY()){
-//                    doState(((PojamElement) ep1.getElement()).getPosition());
-//                    System.out.println("selektovan: "+((PojamElement) ep1.getElement()).getName());
-//                }

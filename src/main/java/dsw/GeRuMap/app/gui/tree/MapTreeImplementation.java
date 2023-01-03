@@ -105,7 +105,6 @@ public class MapTreeImplementation implements MapTree{
             ((MindMap)m).setCommandManager(new CommandManager());
                 for(MapNode e:((MindMap) m).getChildren()){
                     e.setParent(m);
-                //((Element)e).setPbr();
             }
             MapTreeItem mapTreeItem = new MapTreeItem(m);
             loadedProject.add(mapTreeItem);

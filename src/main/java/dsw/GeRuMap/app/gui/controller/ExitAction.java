@@ -17,7 +17,6 @@ public class ExitAction extends AbstractGeRuMapAction {
 
     @Override
     public void actionPerformed(ActionEvent argO) {
-
         System.exit(0);
     }
 }

@@ -14,16 +14,8 @@ public class InfoAction extends AbstractGeRuMapAction {
         putValue(SHORT_DESCRIPTION, "Info");
     }
 
-
     public void actionPerformed(ActionEvent arg0){
-
         infoFrame = InfoFrame.getInstance();
         infoFrame.setVisible(true);
-
-
-    }
-
-    public void initialise() {
     }
 }
-;

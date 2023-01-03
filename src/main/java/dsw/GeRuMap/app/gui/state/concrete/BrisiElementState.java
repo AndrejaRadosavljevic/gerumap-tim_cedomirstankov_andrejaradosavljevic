@@ -29,8 +29,6 @@ public class BrisiElementState implements State {
         s = ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getScale();
 
         doState(x,x);
-        //((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removePainter(x);
-        System.out.println("Brisi");
     }
 
     @Override
@@ -51,7 +49,6 @@ public class BrisiElementState implements State {
             if(ep1.getElement() instanceof PojamElement) {
                 if(selection.intersects(((PojamElement) ep1.getElement()).getCurentPosition().getX(),((PojamElement) ep1.getElement()).getCurentPosition().getY(),((PojamElement) ep1.getElement()).getCurentDimensions().getWidth(),((PojamElement) ep1.getElement()).getCurentDimensions().getHeight())){
                     elements.add(ep1.getElement());
-                    //System.out.println("Obrisano: "+ep1.getElement().getName());
                 }
                 if(((PojamElement) ep1.getElement()).hasPoint(a))
                     elements.add(ep1.getElement());

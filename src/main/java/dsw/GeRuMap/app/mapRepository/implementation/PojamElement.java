@@ -74,7 +74,6 @@ public class PojamElement extends Element {
     }
 
     public void movePoint(double h, double w){
-        System.out.println(h+"IIIIIIIII"+w);
         position.x+=h;
         position.y+=w;
         ((MindMap)getParent()).notifySubscriber(getParent());

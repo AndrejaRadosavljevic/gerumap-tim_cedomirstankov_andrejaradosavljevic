@@ -42,7 +42,6 @@ public class MindMap extends MapNodeComposite implements IPublisher {
         }
         notifySubscriber(this);
     }
-    ///// ovde mora da se doradi tako da moze da se selektuje i veza
 
     public Element getChildOnLocation(Point x){
         for(MapNode e : getChildren()){

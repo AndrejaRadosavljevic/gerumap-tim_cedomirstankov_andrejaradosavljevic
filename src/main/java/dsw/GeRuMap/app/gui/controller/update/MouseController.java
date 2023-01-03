@@ -68,9 +68,6 @@ public class MouseController extends MouseAdapter {
             else{
                 ((MoveState) state).setEnd(b);
                 state.doState(c,b);
-                //List<Element> elements = ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).getSelectedElements();
-                //MoveElementCommand command = new MoveElementCommand(elements, a.x-b.x, a.y-b.y);
-                //((MindMap)elements.get(0).getParent()).getCommandManager().addCommand(command);
             }
             ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).removeSelectedPainter();
             a=null;
@@ -84,7 +81,6 @@ public class MouseController extends MouseAdapter {
     @Override
     public void mouseDragged(MouseEvent e) {
         super.mouseDragged(e);
-        System.out.println("|*");
             c=b;
             b = e.getPoint();
             State state = MainFrame.getInstance().getTabPanel().getStateManager().getCurrent();
@@ -96,15 +92,8 @@ public class MouseController extends MouseAdapter {
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).updatePerformed(new UpdateEvent(this));
             }
 
-            if( state instanceof NewVezaState)
+            if(state instanceof NewVezaState)
                 ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).drawMyLine(c,b);
 
-
-
-
-
     }
-
-
-
 }

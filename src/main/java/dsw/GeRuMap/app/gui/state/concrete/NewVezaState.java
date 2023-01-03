@@ -14,12 +14,6 @@ import java.awt.*;
 public class NewVezaState implements State {
 
     private Point a, b;
-
-
-    void dodajVezu(PojamElement pe1, PojamElement pe2){
-        //VezaElement = new VezaElement();
-    }
-
     @Override
     public void doState(Point x) {
 
@@ -42,6 +36,5 @@ public class NewVezaState implements State {
             NewVezaCommand newVezaCommand=new NewVezaCommand(mapa,new VezaElement("veza("+x.x+","+x.y+","+y.x+","+y.y+")",mapa, (PojamElement) pojamElement1, (PojamElement) pojamElement2));
             mapa.getCommandManager().addCommand(newVezaCommand);
         }
-        System.out.println("Veza");
     }
 }

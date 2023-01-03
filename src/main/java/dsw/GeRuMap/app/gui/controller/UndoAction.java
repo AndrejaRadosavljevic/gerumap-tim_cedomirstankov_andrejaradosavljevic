@@ -22,6 +22,8 @@ public class UndoAction extends AbstractGeRuMapAction{
     }
 
     public void actionPerformed(ActionEvent arg0){
-        ((MapTab)(MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent())).getMapView().getMindMap().getCommandManager().undoCommand();
+        Object p = (MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent());
+        if(!(p instanceof MapTab))return;
+        ((MapTab)p).getMapView().getMindMap().getCommandManager().undoCommand();
     }
 }

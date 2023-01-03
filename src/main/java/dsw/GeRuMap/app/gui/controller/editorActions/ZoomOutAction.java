@@ -14,7 +14,10 @@ public class ZoomOutAction extends AbstractGeRuMapAction {
         putValue(SHORT_DESCRIPTION, "ZoomOut");
     }
     public void actionPerformed(ActionEvent arg0){
-        if(MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode() instanceof Project)
-            ((MapTab) MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).zoomOut();
+        if(MainFrame.getInstance().getMapTree().getSelectedNode()==null)return;
+        if(MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode() instanceof Project){
+            Object p = MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent();
+            if(p!=null)((MapTab)p).zoomOut();
+        }
     }
 }

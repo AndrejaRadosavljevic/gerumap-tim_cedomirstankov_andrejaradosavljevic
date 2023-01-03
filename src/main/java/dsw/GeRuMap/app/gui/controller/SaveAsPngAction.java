@@ -13,7 +13,8 @@ public class SaveAsPngAction extends AbstractGeRuMapAction{
     }
 
     public void actionPerformed(ActionEvent arg0){
-
-        ((MapTab)MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent()).saveAsPNG();
+        Object p = (MainFrame.getInstance().getTabPanel().getTabbedPane().getSelectedComponent());
+        if(!(p instanceof MapTab))return;
+        ((MapTab)p).saveAsPNG();
     }
 }

@@ -36,8 +36,6 @@ public class MindMap extends MapNodeComposite implements IPublisher {
             if (!this.getChildren().contains(child)){
                 child.setParent(this);
                 this.getChildren().add(child);
-
-                System.out.println(child.getName());
             }
         }
         notifySubscriber(this);
@@ -47,7 +45,6 @@ public class MindMap extends MapNodeComposite implements IPublisher {
         for(MapNode e : getChildren()){
             if(e instanceof PojamElement){
                 if(((PojamElement)e).hasPoint(x)){
-                    System.out.println(e.getName());
                     return (Element) e;
                 }
             }

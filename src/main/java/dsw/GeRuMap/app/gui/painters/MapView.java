@@ -74,7 +74,6 @@ public class MapView {
         Element p1 = mindMap.getChildOnLocation(x);
         Element p2 =  mindMap.getChildOnLocation(y);
 
-        System.out.println(p1+" LLLLLL "+p2);
         if(p1 == null || p2 == null) return;
         if(p1 instanceof VezaElement || p2 instanceof VezaElement) return;
         if(p1.equals(p2)) return;
@@ -83,11 +82,9 @@ public class MapView {
         for(MapNode element:mindMap.getChildren()){
             if(element instanceof VezaElement){
                 if(vezaElement.getPE1() ==((VezaElement) element).getPE1() && vezaElement.getPE2() ==((VezaElement) element).getPE2()){
-                    System.out.println("ERROR");
                     return;
                 }
                 if(vezaElement.getPE1() ==((VezaElement) element).getPE2() && vezaElement.getPE2() ==((VezaElement) element).getPE1()){
-                    System.out.println("ERROR");
                     return;
                 }
             }

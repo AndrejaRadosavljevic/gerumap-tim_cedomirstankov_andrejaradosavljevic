@@ -40,7 +40,6 @@ public class BrisiElementState implements State {
 
         Rectangle selection=new Rectangle(a);
         selection.setFrameFromDiagonal(a,b);
-        System.out.println(a+"||||||||"+b);
 
         List<Element> elements = new ArrayList<>();
 

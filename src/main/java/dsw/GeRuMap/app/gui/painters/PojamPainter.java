@@ -32,7 +32,6 @@ public class PojamPainter extends ElementPainter{
         if(((PojamElement)element).isSelected()){
             g.setPaint(Color.GRAY);
             g.fill(getShape());
-            System.out.println("||||");
         }
         g.setPaint(new ColorUIResource(element.getBoja()));
 

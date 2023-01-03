@@ -18,7 +18,6 @@ public class CommandManager {
         commands.add(command);
         if(! (command instanceof MoveElementCommand))doCommand();
         else currentCommand++;
-        System.out.println("dodata komanda");
     }
 
     public void doCommand() {

@@ -17,12 +17,10 @@ public class NewPojamCommand extends AbstractCommand {
     @Override
     public void doCommand() {
         map.addChild(pojamElement);
-        System.out.println("izvrsen doCommand u NewPojamCommand");
     }
 
     @Override
     public void undoCommand() {
         map.removeChild(pojamElement);
-        System.out.println("izvrsen doCommand u NewPojamCommand");
     }
 }
